@@ -1,5 +1,14 @@
 extends layout
 
 block content
-	H2 Hello
-				
+	H2 Select a class:
+	div.row
+		for ddclass in ddclasses
+			div.col-sm-4.col-md-2
+				div.thumbnail
+					img(src=ddclass.image, alt="...", style="height:300px;")
+					div.caption
+					h3=ddclass.name
+					p(style="height:200px;")=ddclass.description
+					p
+						a(href="#", role="button").btn.btn-primary="Choose " + ddclass.name
