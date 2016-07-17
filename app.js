@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var lessMiddleware = require('less-middleware');
 
+global.ROOT_PATH = __dirname;
+
 var app = express();
 
 // view engine setup
@@ -21,7 +23,11 @@ app.use(cookieParser());
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(require('./bin/router'));
+
 app.use('/', require('./routes/index'));
+
+
 // Catch 404 and forward to main error handler.
 app.use(function(req, res, next) {
   res.status = 404;

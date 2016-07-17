@@ -1,11 +1,8 @@
-var app = require('express')();
 var File = require('si-file');
 
 var ERROR_LINE = /at (?:([^(\/\\]+) \()?(.+):(\d+):(\d+)(?:\))?/g;
 
 module.exports = function(err, req, res, next) {
-	console.log('why');
-	
 	var codeSnippets = [];
 	if (err && err.stack) {
 		var match;
