@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-	H2 Select a class:
+	h2 Select a #{title}:
 	div.row
 		for ddclass in ddclasses
 			div.col-sm-4.col-md-2
@@ -11,4 +11,4 @@ block content
 					h3=ddclass.name
 					p(style="height:200px;")=ddclass.description
 					p
-						a(href="#", role="button").btn.btn-primary="Choose " + ddclass.name
+						a(href=nextPage + ddclass.name, role="button").btn.btn-primary="Choose " + ddclass.name
