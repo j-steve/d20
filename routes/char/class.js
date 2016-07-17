@@ -1,4 +1,4 @@
-var router = require('express').Router();0
+var router = require('express').Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 		new DDClass('Wizard', 'https://s-media-cache-ak0.pinimg.com/564x/4a/dd/bc/4addbc856f6df5d9cddc182665692804.jpg', 'Wizards live and die by their spells. Everything else is secondary. They learn new spells as they experiment and grow in experience. They can also learn them from other wizards, from ancient tomes or inscriptions, and from ancient creatures (such as the fey) that are steeped in magic.')
 	];
 	res.locals.title = "Class";
-	res.locals.nextPage = '/char/background'
+	res.locals.nextPage = '/char/background?class=';
 	res.render();
 });
 

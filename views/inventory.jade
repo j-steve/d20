@@ -1,0 +1,10 @@
+extends ./layout
+
+block content
+	h2 Inventory
+	div.row
+		for item in inventory
+			div.media
+				div.media-body
+					h4.media-heading #{item}
+				

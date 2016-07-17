@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 		new DDClass('Urchin', 'http://66.media.tumblr.com/24f0d2bb4eba69d9d0b972e45de1d6cd/tumblr_nu8c62VkND1ufp1n9o1_500.jpg', 'You grew up on the streets alone, orphaned, and poor, so you learned to provide for yourself. You fought fiercely over food and kept a constant watch out for other desperate souls who might steal from you. You slept on rooftops and in alleyways, exposed to the elements. You’ve survived despite all odds, and did so through cunning, strength, speed, or some combination of each.')
 	];
 	res.locals.title = "Background"
-	res.locals.nextPage = "/inventory"
+	res.locals.nextPage = `/inventory?class=${req.query.class}&background=`
 	res.render('char/class');
 });
 

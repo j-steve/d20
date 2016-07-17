@@ -1,6 +1,7 @@
 //var File = require('si-file');
 var fs = require('fs');
 var path = require('path');
+var url = require('url');
 var app = require('express')();
 
 var ROUTES_DIR = ROOT_PATH + '/routes';
@@ -21,7 +22,7 @@ app.use(function(req, res, next) {
 	res.render = function(name, args) {
 		if (name == null || typeof name === 'object') {
 			args = name;
-			name = req.baseUrl + req.url;
+			var name = url.parse(req.baseUrl + req.url).pathname;
 			name = name.replace(/^\/|\/$/g, '');
 		}
 		console.log('renderin', req.baseUrl + req.url, 'as', name);
