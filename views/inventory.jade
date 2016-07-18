@@ -1,10 +1,12 @@
 extends ./layout
 
 block content
-	h2 Inventory
-	div.row
-		for item in inventory
-			div.media
-				div.media-body
-					h4.media-heading #{item}
-				
+	.col-sm-6.col-md-4
+		.panel.panel-default
+			.panel-heading
+				h2 Inventory
+			ul.list-group
+				for item in inventory
+					li.list-group-item
+						span.badge 1
+						|#{item}

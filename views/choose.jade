@@ -11,4 +11,53 @@ block content
 					h3=ddclass.name
 					p(style="height:200px;")=ddclass.description
 					p
-						a(href=nextPage + ddclass.name, role="button").btn.btn-primary="Choose " + ddclass.name
+						input(type="button", name=ddclass.name, value="Choose " + ddclass.name).btn.btn-primary
+					
+
+
+	.modal.fade#decision-modal(role="dialog")
+		.modal-dialog(role="document")
+			.modal-content
+				.modal-header
+					<h3 class="modal-title">Modal title</h4>
+				.modal-body
+				.modal-footer
+					button.btn.btn-default(type="button", data-dismiss="modal")="Cancel"
+
+append scripts
+	script.
+		$(function() {
+			$('input[type=button]').on('click', function() {
+				const decision = decisions[this.name];
+				const decisionClone = JSON.parse(JSON.stringify(decision));
+				submit(this.name, decisionClone);
+			});
+			
+			const $decisionModalTemplate = $('#decision-modal').detach();
+			
+			function submit(urlQuery, classDecisions) {
+				if (classDecisions.length) {
+					const $decisionModal = $decisionModalTemplate.clone();
+					let decision = classDecisions.shift()
+					for (option of decision.options) {
+						let $option = $('<div class=thumbnail>');
+						$('<h4>').text(option.name).appendTo($option);
+						let $optionBtn = $('<button class="btn btn-primary" data-dismiss="modal">').text('Choose ' + option.name);
+						let optionUrl = urlQuery + '&' + decision.name + '=' + option.name;
+						$optionBtn.on('click', submit.bind(null, optionUrl, classDecisions))
+						$('<p>').text(option.description).appendTo($option);
+						$('<p>').append($optionBtn).appendTo($option);
+						$decisionModal.find('.modal-body').append($option);
+					}
+					$decisionModal.find('.modal-title').text('Select ' + decision.name);
+					$decisionModal.modal('show');
+				} else {
+					location.href = '!{nextPage}' + urlQuery;
+				}
+			}
+		});
+	script
+		|var decisions = [];
+		for ddclass in ddclasses
+			|decisions['#{ddclass.name}'] = !{JSON.stringify(ddclass.decisions)};
+	
