@@ -1,4 +1,5 @@
-var router = require('express').Router();0
+var router = require('express').Router();
+var url = require('url');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,9 +18,9 @@ router.get('/', function(req, res, next) {
 		new DDClass('Soldier', 'https://s-media-cache-ak0.pinimg.com/236x/82/ca/04/82ca04a43d67d80635805b8afabf334c.jpg', 'War has been your life for as long as you care to remember. You trained as a youth, studied the use of weapons and armor, learned basic survival techniques, including how to stay alive on the battlefield. You might have been part of a standing national army or a mercenary company, or perhaps a member of a local militia who rose to prominence during a recent war.'), //http://images2.wikia.nocookie.net/__cb20111202143725/assassinscreed/images/9/96/ACR_Soldier_Art_HD.png
 		new DDClass('Urchin', 'http://66.media.tumblr.com/24f0d2bb4eba69d9d0b972e45de1d6cd/tumblr_nu8c62VkND1ufp1n9o1_500.jpg', 'You grew up on the streets alone, orphaned, and poor, so you learned to provide for yourself. You fought fiercely over food and kept a constant watch out for other desperate souls who might steal from you. You slept on rooftops and in alleyways, exposed to the elements. You’ve survived despite all odds, and did so through cunning, strength, speed, or some combination of each.')
 	];
-	res.locals.title = "Background"
-	res.locals.nextPage = `/inventory?class=${req.query.class}&background=`
-	res.render('char/class');
+	res.locals.title = "Background" 
+	res.locals.nextPage = `/inventory${url.parse(req.url).search}&background=`
+	res.render('choose');
 });
 
 module.exports = router;

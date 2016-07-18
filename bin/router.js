@@ -25,7 +25,6 @@ app.use(function(req, res, next) {
 			var name = url.parse(req.baseUrl + req.url).pathname;
 			name = name.replace(/^\/|\/$/g, '');
 		}
-		console.log('renderin', req.baseUrl + req.url, 'as', name);
 		parentRender.call(res, name, args);
 	};
 	
