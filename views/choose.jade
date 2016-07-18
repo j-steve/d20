@@ -1,63 +1,70 @@
 extends ./layout
 
+block styles
+	style.
+		.modal-body .list-group-item {
+			cursor:pointer;
+		}
+
 block content
 	h2 Select a #{title}:
 	div.row
 		for ddclass in ddclasses
 			div.col-sm-4.col-md-2
-				div.thumbnail
+				div.thumbnail(data-name=ddclass.name)
 					img(src=ddclass.image, alt="...", style="height:300px;")
 					div.caption
 					h3=ddclass.name
 					p(style="height:200px;")=ddclass.description
 					p
-						input(type="button", name=ddclass.name, value="Choose " + ddclass.name).btn.btn-primary
-					
-
-
-	.modal.fade#decision-modal(role="dialog")
-		.modal-dialog(role="document")
-			.modal-content
-				.modal-header
-					<h3 class="modal-title">Modal title</h4>
-				.modal-body
-				.modal-footer
-					button.btn.btn-default(type="button", data-dismiss="modal")="Cancel"
+						input(type="button", value="Choose " + ddclass.name).btn.btn-primary
+					.decision-dialogs
+						for decision in ddclass.decisions
+							.modal.fade(data-count=decision.count, role="dialog"): .modal-dialog(role="document"): .modal-content
+								.modal-header
+									button.close(type="button", data-dismiss="modal", aria-label="Close"): span(aria-hidden="true") &times;
+									h3.modal-title Choose #{decision.name}
+								.modal-body
+									.list-group
+										for option in decision.options
+											a.list-group-item #{option.name}
+								.modal-footer
+									button(type="button").btn.btn-primary.disabled="Okay"
 
 append scripts
 	script.
 		$(function() {
 			$('input[type=button]').on('click', function() {
-				const decision = decisions[this.name];
-				const decisionClone = JSON.parse(JSON.stringify(decision));
-				submit(this.name, decisionClone);
+				var $dialogs = $(this).parents('.thumbnail').find('.decision-dialogs').children();
+				if ($dialogs.length) {
+					$dialogs.eq(0).modal('show');
+				} else {
+					nextPage($(this));
+				}
 			});
 			
-			const $decisionModalTemplate = $('#decision-modal').detach();
-			
-			function submit(urlQuery, classDecisions) {
-				if (classDecisions.length) {
-					const $decisionModal = $decisionModalTemplate.clone();
-					let decision = classDecisions.shift()
-					for (option of decision.options) {
-						let $option = $('<div class=thumbnail>');
-						$('<h4>').text(option.name).appendTo($option);
-						let $optionBtn = $('<button class="btn btn-primary" data-dismiss="modal">').text('Choose ' + option.name);
-						let optionUrl = urlQuery + '&' + decision.name + '=' + option.name;
-						$optionBtn.on('click', submit.bind(null, optionUrl, classDecisions))
-						$('<p>').text(option.description).appendTo($option);
-						$('<p>').append($optionBtn).appendTo($option);
-						$decisionModal.find('.modal-body').append($option);
-					}
-					$decisionModal.find('.modal-title').text('Select ' + decision.name);
-					$decisionModal.modal('show');
-				} else {
-					location.href = '!{nextPage}' + urlQuery;
+			$('.modal-body .list-group-item').on('click', function() {
+				if (!$(this).hasClass('disabled')) {
+					$(this).toggleClass('active');
+					const $modal = $(this).parents('.modal');
+					const $items = $modal.find('.list-group-item');
+					const canSelectMore = $items.filter('.active').length < +$modal.data('count');
+					$items.not('.active').toggleClass('disabled', !canSelectMore);
+					$modal.find('.modal-footer .btn').toggleClass('disabled', canSelectMore);
 				}
+			});
+			
+			$('.modal-footer .btn').on('click', function() {
+				if (!$(this).hasClass('disabled')) {
+					const $modal = $(this).parents('.modal');
+					$modal.modal('hide');
+					nextPage($modal);
+				}
+			});
+			
+			function nextPage($target) {
+				const ddClass = $target.parents('.thumbnail').data('name');
+				location.href = '!{nextPage}' + ddClass;
 			}
 		});
-	script
-		|var decisions = [];
-		for ddclass in ddclasses
-			|decisions['#{ddclass.name}'] = !{JSON.stringify(ddclass.decisions)};
 	

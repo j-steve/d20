@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
 	res.locals.ddclasses = [
 		new DDClass('Barbarian', 'http://static.fjcdn.com/pictures/How_bddcce_5492235.jpg', 'Barbarians com e alive in the chaos of combat. They can enter a berserk state where rage takes over, giving them superhuman strength and resilience. A barbarian can draw on this reservoir of fury only a few times without resting, but those few rages are usually sufficient to defeat whatever threats arise.'),
 		new DDClass('Bard', 'http://www.joshuad.net/new-bard-handbook-files/imgs/halfling.jpg', 'The bard is a master of song, speech, and the magic they contain. The greatest strength of bards is their sheer versatility. Many bards prefer to stick to the sidelines in combat, using their magic to inspire their allies and hinder their foes from a distance. But bards are capable of defending themselves in melee if necessary, using their magic to bolster their swords and armor.')
-			.choose('Musical Instrument proficiency', 'Bagpipes').or('Drum').or('Dulcimer').or('Flute').or('Lute').or('Lyre').or('Horn').or('Pan flute').or('Shawn').or('Viol'),
+			.choose('Musical Instrument proficiency', 3).from( 'Bagpipes').or('Drum').or('Dulcimer').or('Flute').or('Lute').or('Lyre').or('Horn').or('Pan flute').or('Shawn').or('Viol'),
 		new DDClass('Cleric', 'https://cdnb3.artstation.com/p/assets/images/images/001/103/579/large/magnus-noren-dwarf-cleric1.jpg?1440110780', 'Clerics are conduits for divine power, manifesting a god\'s power as miraculous effects. A cleric might learn formulaic prayers and ancient rites, but the ability to cast cleric spells relies on devotion and an intuitive sense of thier deity’s wishes.'),
 		new DDClass('Druid', 'http://api.ning.com/files/sOStUTCPGwuVCiYZOM1nPnqrQXAS7cj6IFcagCRfCnQqYGrFWvisxt3EThFXhp3IoAA0bNn0gf7qVcl4dLEEfR71ObSfFooS/DruidPaintedWeb.png', 'Druids revere nature above all, gaining their spells and other magical powers either from the force of nature itself or from a nature deity. Many druids pursue a mystic spirituality o f transcendent union with nature rather than devotion to a divine entity, while others serve gods of wild nature, animals, or elemental forces.'),
 		new DDClass('Fighter', 'http://1.bp.blogspot.com/-g-2ivwcm3_8/VX2cO_zgl6I/AAAAAAAAOuY/ltCZo7DO5Ag/s1600/Reblay.jpg', 'Fighters are veteran soldiers, military officers, trained bodyguards, or dedicated knights. Some concentrate on archery, some on fighting with two weapons at once, and some on augmenting their martial skills with magic.'),
@@ -36,12 +36,13 @@ function DDClass(name, image, description) {
 	this.description = description
 	this.decisions = [];
 	
-	this.choose = function(decisionName, optionName, optionDesc) {
-		self.decisions.push({name: decisionName, options: [{name:optionName, description:optionDesc}]});
+	this.choose = function(name, count) {
+		if (count == null) {count = 1;}
+		self.decisions.push({name, count, options: []});
 		return self;
 	};
 	
-	this.or = function(name, description) {
+	this.from = this.or = function(name, description) {
 		self.decisions[self.decisions.length-1].options.push({name, description});
 		return self;
 	};
