@@ -25,6 +25,7 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 
+
 function DDClass(name, image, description) {
 	var self = this;
 	
@@ -33,13 +34,13 @@ function DDClass(name, image, description) {
 	this.description = description
 	this.decisions = [];
 	
-	this.choose = function(name, count) {
+	this.decide = function(name, count) {
 		if (count == null) {count = 1;}
 		self.decisions.push({name, count, options: []});
 		return self;
 	};
 	
-	this.from = this.or = function(name, description) {
+	this.of = function(name, description) {
 		self.decisions[self.decisions.length-1].options.push({name, description});
 		return self;
 	};

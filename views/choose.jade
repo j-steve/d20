@@ -5,6 +5,10 @@ block styles
 		.modal-body .list-group-item {
 			cursor:pointer;
 		}
+		.modal-footer .btn {visibility:hidden;}
+		.modal-footer.show-button .btn {visibility:invisible;}
+		.modal-footer.show-button .btn {visibility:visible;}
+		.modal-footer.show-button .message {display:none;}
 
 block content
 	h2 Select a #{title}:
@@ -27,9 +31,13 @@ block content
 								.modal-body
 									.list-group
 										for option in decision.options
-											a.list-group-item #{option.name}
+											a.list-group-item
+												h4.list-group-item-heading #{option.name}
+												p.list-group-item-text #{option.description}
 								.modal-footer
-									button(type="button").btn.btn-primary.disabled="Okay"
+									button(type="button").btn.btn-primary="Continue"
+									span.message Select <span class="deficitCount">#{decision.count}</span> more to continue.
+										
 
 append scripts
 	script.
@@ -48,9 +56,9 @@ append scripts
 					$(this).toggleClass('active');
 					const $modal = $(this).parents('.modal');
 					const $items = $modal.find('.list-group-item');
-					const canSelectMore = $items.filter('.active').length < +$modal.data('count');
-					$items.not('.active').toggleClass('disabled', !canSelectMore);
-					$modal.find('.modal-footer .btn').toggleClass('disabled', canSelectMore);
+					const deficitCount = $modal.data('count') - $items.filter('.active').length;
+					$items.not('.active').toggleClass('disabled', deficitCount <= 0);
+					$modal.find('.modal-footer').toggleClass('show-button', deficitCount <= 0).find('.deficitCount').text(deficitCount);
 				}
 			});
 			
