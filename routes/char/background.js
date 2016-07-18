@@ -27,8 +27,20 @@ module.exports = router;
 
 
 function DDClass(name, image, description) {
+	var self = this;
+	
 	this.name = name;
 	this.image = image;
 	this.description = description
 	this.decisions = [];
+	
+	this.choose = function(decisionName, optionName, optionDesc) {
+		self.decisions.push({name: decisionName, options: [{name:optionName, description:optionDesc}]});
+		return self;
+	};
+	
+	this.or = function(name, description) {
+		self.decisions[self.decisions.length-1].options.push({name, description});
+		return self;
+	};
 }
