@@ -9,6 +9,13 @@ block styles
 		.modal-footer.show-button .btn {visibility:invisible;}
 		.modal-footer.show-button .btn {visibility:visible;}
 		.modal-footer.show-button .message {display:none;}
+		
+		.list-group-item:hover {
+			color: #555;
+			text-decoration: none;
+			background-color: #f5f5f5;
+		}
+		.list-group-item input[type=checkbox] {display:none;}
 
 block content
 	h2 Select a #{title}:
@@ -29,11 +36,12 @@ block content
 									button.close(type="button", data-dismiss="modal", aria-label="Close"): span(aria-hidden="true") &times;
 									h3.modal-title Select #{decision.name}
 								.modal-body
-									.list-group
+									ul.list-group
 										for option in decision.options
-											a.list-group-item
+											li.list-group-item
 												h4.list-group-item-heading #{option.name}
 												p.list-group-item-text #{option.description}
+												input(type="checkbox", name=decision.name, value=option.name)
 								.modal-footer
 									button(type="button").btn.btn-primary="Continue"
 									span.message 
@@ -57,9 +65,11 @@ append scripts
 			});
 			
 			$('.modal-body .list-group-item').on('click', function() {
-				if (!$(this).hasClass('disabled')) {
-					$(this).toggleClass('active');
-					const $modal = $(this).parents('.modal');
+				const $self = $(this);
+				if (!$self.hasClass('disabled')) {
+					$self.toggleClass('active');
+					$self.find(':checkbox').toggleProp('checked');
+					const $modal = $self.parents('.modal');
 					const $items = $modal.find('.list-group-item');
 					const deficitCount = $modal.data('count') - $items.filter('.active').length;
 					$items.not('.active').toggleClass('disabled', deficitCount <= 0);
