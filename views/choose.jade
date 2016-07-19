@@ -36,7 +36,12 @@ block content
 												p.list-group-item-text #{option.description}
 								.modal-footer
 									button(type="button").btn.btn-primary="Continue"
-									span.message Select <span class="deficitCount">#{decision.count}</span> more to continue.
+									span.message 
+										if (decision.count === 1)
+											|Select a #{decision.name.toLowerCase()} to continue.
+										else
+											|Add <span class="deficitCount">#{decision.count}</span> #{decision.name.toLowerCase()} to continue.
+										
 										
 
 append scripts
