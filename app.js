@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(require('./bin/router'));
+require('./bin/router').route(app);
 
 app.use('/', require('./routes/index'));
 

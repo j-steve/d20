@@ -1,5 +1,6 @@
 var router = require('express').Router();
 var url = require('url');
+var DDClass = require ('../../models/DDClass');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -25,24 +26,3 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
-
-
-function DDClass(name, image, description) {
-	var self = this;
-	
-	this.name = name;
-	this.image = image;
-	this.description = description
-	this.decisions = [];
-	
-	this.decide = function(name, count) {
-		if (count == null) {count = 1;}
-		self.decisions.push({name, count, options: []});
-		return self;
-	};
-	
-	this.of = function(name, description) {
-		self.decisions[self.decisions.length-1].options.push({name, description});
-		return self;
-	};
-}

@@ -2,49 +2,47 @@
 var fs = require('fs');
 var path = require('path');
 var url = require('url');
-var app = require('express')();
 
 var ROUTES_DIR = ROOT_PATH + '/routes';
 
-var routeFiles = readAllFiles(ROUTES_DIR).filter(x => path.extname(x) === '.js');
-
-app.use(function(req, res, next) {
+exports.route = function(app) {
 	
 	// Require all files in routes directory.
-    routeFiles.forEach(function(file) {
+	readAllFiles(ROUTES_DIR).filter(x => path.extname(x) === '.js').forEach(function(file) {
 		var name = file.substr(0, file.indexOf('.'));
 		var url = (file === 'index.js') ? path.basename(name) : name;
 		app.use('/' + url, require(ROUTES_DIR + '/' + name));
-	});
+	});;
+		
+	function readAllFiles(dir) {
+		if (dir.slice(-1) !== '/') {dir += '/';}
+		var returnFiles = [];
+		var filesToRead = fs.readdirSync(dir);
+		while (filesToRead.length > 0) {
+			var file = filesToRead.pop();
+			if (fs.statSync(dir + file).isDirectory()) {
+				var children = fs.readdirSync(dir + file).map(x => file + '/' + x);
+				filesToRead = filesToRead.concat(children);
+			} else {
+				returnFiles.push(file);
+			}
+		}
+		return returnFiles;
+	}
 	
 	// Add auto-render functionality.
-	var parentRender = res.render;
-	res.render = function(name, args) {
-		if (name == null || typeof name === 'object') {
-			args = name;
-			var name = url.parse(req.baseUrl + req.url).pathname;
-			name = name.replace(/^\/|\/$/g, '');
-		}
-		parentRender.call(res, name, args);
-	};
-	
-	next();
-});
+	app.use(function(req, res, next) { 
+		var parentRender = res.render;
+		res.render = function(name, args) {
+			if (name == null || typeof name === 'object') {
+				args = name;
+				var name = url.parse(req.baseUrl + req.url).pathname;
+				name = name.replace(/^\/|\/$/g, '');
+			}
+			parentRender.call(res, name, args);
+		};
+		
+		next();
+	});
 
-function readAllFiles(dir) {
-	if (dir.slice(-1) !== '/') {dir += '/';}
-	var returnFiles = [];
-	var filesToRead = fs.readdirSync(dir);
-	while (filesToRead.length > 0) {
-		var file = filesToRead.pop();
-		if (fs.statSync(dir + file).isDirectory()) {
-			var children = fs.readdirSync(dir + file).map(x => file + '/' + x);
-			filesToRead = filesToRead.concat(children);
-		} else {
-			returnFiles.push(file);
-		}
-	}
-	return returnFiles;
-}
-
-module.exports = app;
+};
