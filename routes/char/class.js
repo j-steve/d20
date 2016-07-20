@@ -18,8 +18,9 @@ router.get('/', function(req, res, next) {
 		new DDClass('Warlock', 'http://orig12.deviantart.net/a2d7/f/2014/143/e/6/dark_warlock_by_seraph777-d7jg9ou.jpg', 'A warlock is defined by a pact with an otherworldly being, though the beings are not gods. A warlock might lead a cult dedicated to a demon prince, an archdevil, or an utterly alien entity. More often though the arrangement is similar to that between a master and an apprentice: the warlock learns and grows in power, at the cost of occasional services performed on the patron\'s behalf.'),
 		new DDClass('Wizard', 'https://s-media-cache-ak0.pinimg.com/564x/4a/dd/bc/4addbc856f6df5d9cddc182665692804.jpg', 'Wizards live and die by their spells. Everything else is secondary. They learn new spells as they experiment and grow in experience. They can also learn them from other wizards, from ancient tomes or inscriptions, and from ancient creatures (such as the fey) that are steeped in magic.')
 	];
-	res.locals.title = "Class";
-	res.locals.nextPage = `/char/background${url.parse(req.url).search}&class=`;
+	res.locals.title = 'Class';
+	res.locals.nextPage = '/char/background';
+	res.locals.query = req.query
 	res.render('choose');
 });
 
