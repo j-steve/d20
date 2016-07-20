@@ -31,7 +31,7 @@ module.exports = function(err, req, res, next) {
 	console.error('ERROR: ' + errMsg);
 	
 	res.status(err && err.status || 500);
-	res.render('error', {
+	res.render({
 		message : errMsg,
 		error : err,
 		codeSnippets: codeSnippets

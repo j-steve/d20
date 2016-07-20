@@ -31,10 +31,11 @@ app.use('/', require('./routes/index'));
 // Catch 404 and forward to main error handler.
 app.use(function(req, res, next) {
   res.status = 404;
-  res.render('404');
+  res.render('_site/404');
+  
 });
 
 // error handlers
-app.use(require('./routes/error'));
+app.use(require('./routes/_site/error'));
 
 module.exports = app;
