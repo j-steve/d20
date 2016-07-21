@@ -1,0 +1,50 @@
+extends ./layout
+
+block styles
+	link(rel='stylesheet', href='/css/charsheet.css')
+
+block content
+	.panel.panel-default.col-md-6
+		.panel-body
+			header
+				.char-name
+					label.col-md-5
+						input(type="text", value="Qaldrin Tomeguard").form-control.input-lg
+						span.label Character Name
+				.char-details
+					label.col-md-2
+						input(type="text", value="Wizard").form-control
+						span.label Class
+					label.col-md-1
+						input(type="number", name="level", value="1").form-control
+						span.label Level
+					label.col-md-2
+						input(type="text", name="background", value="Archivist").form-control
+						span.label Background
+					label.col-md-2
+						input(type="text", name="playername", value="Steve").form-control
+						span.label Player
+					label.col-md-3
+						input(type="text", name="race", value="Forest Gnome").form-control
+						span.label Race
+					label.col-md-3
+						input(type="text", name="alignment", value="Lawful Neutral").form-control
+						span.label Alignment
+					label.col-md-1
+						input(type="number", name="xp", value="0").form-control
+						span.label XP
+			ul.abilities
+				for ability in abilities
+					li.ability
+						.name=ability
+						.value 8
+						.modifier -1
+			ul.savingThrows
+				for savingThrow in savingThrows
+					li.savingThrow
+						.name=savingThrow
+			ul.skills
+				for skill in skills
+					li.skill
+						.name=skill.name
+						.fromAbility=skill.ability
