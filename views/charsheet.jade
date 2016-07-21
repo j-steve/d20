@@ -2,7 +2,17 @@ extends ./layout
 
 block styles
 	link(rel='stylesheet', href='/css/charsheet.css')
+	
 
+block scripts
+	script.
+		$('.ability input').on('keyup change', function() {
+			var val = +$(this).val() - 10;	
+			val = Math.floor(val / 2)
+			if (val > 0) {val = '+' + val;}
+			$(this).parents('.ability').find('output').val(val);
+		});
+	
 block content
 	.panel.panel-default.col-md-8
 		.panel-body#charsheet
