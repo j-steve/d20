@@ -47,9 +47,14 @@ block content
 				fieldset
 					ul.skills.list-unstyled
 						for skill in skills
-							li.skill
-								.name=skill.name
-								.fromAbility=skill.ability
+							li.skill.col-md-12.form-inline
+								.col-md-2.checkbox
+									input(type="checkbox")
+								.col-md-4
+									input(type="number").form-control.input-sm
+								.col-md-6
+									|#{skill.name}
+									span=skill.ability.substr(0, 3)
 					legend Skills
 			.col-md-4
 				label.col-md-4
