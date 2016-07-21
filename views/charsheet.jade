@@ -9,91 +9,97 @@ block content
 			header.label-below
 				label.col-md-5
 					input(type="text", value="Qaldrin Tomeguard").form-control.input-lg
-					span.label Character Name
+					span.form-label Character Name
 				label.col-md-2
 					input(type="text", value="Wizard").form-control
-					span.label Class
+					span.form-label Class
 				label.col-md-1
 					input(type="number", name="level", value="1").form-control
-					span.label Level
+					span.form-label Level
 				label.col-md-2
 					input(type="text", name="background", value="Archivist").form-control
-					span.label Background
+					span.form-label Background
 				label.col-md-2
 					input(type="text", name="playerName", value="Steve").form-control
-					span.label Player
+					span.form-label Player
 				label.col-md-3
 					input(type="text", name="race", value="Forest Gnome").form-control
-					span.label Race
+					span.form-label Race
 				label.col-md-3
 					input(type="text", name="alignment", value="Lawful Neutral").form-control
-					span.label Alignment
+					span.form-label Alignment
 				label.col-md-1
 					input(type="number", name="xp", value="0").form-control
-					span.label XP
-			ul.abilities.col-md-2.list-unstyled
+					span.form-label XP
+			ul.abilities.col-md-1.list-unstyled
 				for ability in abilities
 					li.ability
-						.name=ability
-						.value 8
-						.modifier -1
-			.col-md-2
+						label
+							span.form-label=ability
+							input(type="number", maxlength="2").form-control
+							output="+2"
+			.col-md-3
 				fieldset
 					ul.savingThrows.list-unstyled
 						for savingThrow in savingThrows
-							li.savingThrow
-								.name=savingThrow
+							li.skill.form-inline
+								.checkbox
+									input(type="checkbox")
+								.form-group
+									input(type="text", maxlength="3").form-control
+									label=savingThrow
 					legend Saving Throws
 				fieldset
-					ul.skills.list-unstyled
+					ul.list-unstyled
 						for skill in skills
 							li.skill.form-inline
 								.checkbox
 									input(type="checkbox")
 								.form-group
-									input(type="text").form-control
 									label
-										|#{skill.name}
-										span=skill.ability.substr(0, 3)
+										input(type="text", maxlength="3").form-control
+										span.form-label
+											|#{skill.name}
+											span.skill-ability=skill.ability.substr(0, 3)
 					legend Skills
 			.col-md-4.label-below
 				label.col-md-4
 					input(type="number", name="armorClass", value="1").form-control
-					span.label Armor Class
+					span.form-label Armor Class
 				label.col-md-4
 					input(type="number", name="initiative", value="1").form-control
-					span.label Initiative
+					span.form-label Initiative
 				label.col-md-4
 					input(type="number", name="speed", value="1").form-control
-					span.label Speed
+					span.form-label Speed
 				label.col-md-4
 					input(type="number", name="currentHP", value="6").form-control
-					span.label Current HP
+					span.form-label Current HP
 				label.col-md-4
 					input(type="number", name="maxHP", value="6").form-control
-					span.label Maximum HP
+					span.form-label Maximum HP
 				label.col-md-4
 					input(type="number", name="tempHP", value="").form-control
-					span.label Temporary HP
+					span.form-label Temporary HP
 				label.col-md-12
 					textarea.form-control.input-sm(name="attacks", rows=15)
-					span.label Attacks
+					span.form-label Attacks
 				label.col-md-12
 					textarea.form-control.input-sm(name="equipment", rows=35)
-					span.label Equipment
+					span.form-label Equipment
 			.col-md-4.label-below
 				label.col-md-12
 					textarea.form-control.input-sm(name="personalityTraits", rows=5)="I've read countless ancient books but lost touch with the modern world. I often use obsolete placenames and speak of countries long forgotten in the present tense."
-					span.label Personality Traits
+					span.form-label Personality Traits
 				label.col-md-12
 					textarea.form-control.input-sm(name="ideals", rows=5)="Knowledge: The path to power and self-improvement is through knowledge. (Neutral)\nLogic: Emotions must not cloud our logical thinking. (Lawful)"
-					span.label Ideals
+					span.form-label Ideals
 				label.col-md-12
 					textarea.form-control.input-sm(name="bonds", rows=5)
-					span.label Bonds
+					span.form-label Bonds
 				label.col-md-12
 					textarea.form-control.input-sm(name="flaws", rows=5)
-					span.label Flaws
+					span.form-label Flaws
 				label.col-md-12
 					textarea.form-control.input-sm(name="features", rows=30)
-					span.label Features & Traits
+					span.form-label Features & Traits
