@@ -1,13 +1,26 @@
-label {
-    position: relative;
-    margin-bottom:15px;
-    
-    .label {
-        position: absolute;
-        left: 15px;
-        bottom: -15px;
-        color: #4e4e4e;
-        font-size: 10px;
+#charsheet {
+    header::after {
+        clear:both;
+        content:"";
+        display:block;
+        margin-bottom: 20px;
     }
     
+    label {
+        position: relative;
+        margin-bottom: 20px;
+        
+        .label {
+            position: absolute;
+            left: 5px;
+            bottom: -15px;
+            color: #4e4e4e;
+            font-size: 10px;
+        }
+    }
+    
+    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 }
