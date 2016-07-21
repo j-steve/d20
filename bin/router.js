@@ -30,6 +30,7 @@ exports.route = function(app) {
 		return returnFiles;
 	}
 	
+	/*
 	// Add auto-render functionality.
 	app.use(function(req, res, next) { 
 		var parentRender = res.render;
@@ -43,6 +44,6 @@ exports.route = function(app) {
 		};
 		
 		next();
-	});
+	});*/
 
 };

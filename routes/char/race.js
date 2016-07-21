@@ -27,7 +27,7 @@ router.get('/', function(req, res, next) {
 		new DDClass('Half-Orc', 'http://aarchonmud.com/aarchon/imgs/race/halforc.png', "Orc and human tribes sometimes form alliances, to the terror of civilized lands nearby. When these alliances are sealed by marriages, half-orcs are born. Some half-orcs rise to become tribal chiefs, their human blood giving them an edge over their full-blooded orc rivals. Many achieve greatness for their mighty deeds and notoriety for their barbaric customs and savage fury."),
 		new DDClass('Tiefling', 'https://s-media-cache-ak0.pinimg.com/736x/ff/b5/ec/ffb5ecb5b7cd13ef11baf6c546d8de92.jpg', "Tieflings are derived from human bloodlines, and in the broadest possible sense, they still look human. However, their infernal heritage has left a clear imprint on their appearance. Tieflings are distrusted by other races, greeted with stares and whispers and suffering violence and insult on the streets. Lacking a homeland, tieflings must make their own way in the world."),
 	];
-	res.locals.title = 'Class';
+	res.locals.title = 'Race';
 	res.locals.nextPage = '/char/class';
 	res.locals.query = req.query
 	res.render('choose');

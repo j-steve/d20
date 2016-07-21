@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('HeartBit:server');
+var debug = require('debug')('D20:server');
 var http = require('http');
 
 /**
@@ -83,8 +83,9 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
+  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  var hostname = process.env.C9_HOSTNAME || require("os").hostname();
+  console.log(`Server is running at http://${hostname}:${addr.port}`);
+  console.log(server.address().address)
 }

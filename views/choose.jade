@@ -2,6 +2,47 @@ extends ./layout
 
 block styles
 	style.
+		body {
+			background:hsl(219, 16%, 36%)
+		}
+		.header {
+			color:white;
+			text-shadow:2px 2px 0px #000000;
+		}
+		img.thumbnail-image {
+			height:300px;
+		}
+		.description {
+			height:210px;
+		}
+		/*
+		.description p {
+			overflow:hidden;
+			text-overflow:ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 10;
+			-webkit-box-orient: vertical;
+		}
+		*/
+		
+		.thumbnail {
+			cursor:pointer;
+		}
+		.thumbnail:focus {
+			background-color:hsl(60, 100%, 91%);
+		}
+		.thumbnail:focus .description p {
+			/*-webkit-line-clamp: 7*/
+		}
+		.choose-class {
+		 	visibility:hidden;
+		 	float:right;
+		 	margin-right:10px;
+		 }
+		.thumbnail:focus .choose-class {
+			visibility:visible;
+		}
+		
 		.modal-body .list-group-item {
 			cursor:pointer;
 		}
@@ -16,22 +57,44 @@ block styles
 			background-color: #f5f5f5;
 		}
 		.list-group-item input[type=checkbox] {display:none;}
+		
+		.submit-blur {
+			position:fixed;
+			top:0px;
+			left:0px;
+			width: 100%;
+			background:black;
+			z-index:999;
+			transition-property: opacity;
+			transition-duration: 500ms;
+			height: 0;
+			opacity: 0;
+		}
+		.submit-blur.shown {
+			transition-property: opacity;
+			transition-duration: 500ms;
+			height: 100%;
+			opacity: .75;
+		}
 
 block content
-	h2 Select a #{title}:
+	.submit-blur
+	h2.header Select a #{title}:
 	div.row
 		for ddclass in ddclasses
 			div.col-sm-4.col-md-2
-				form.thumbnail(action=nextPage)
-					each val, key in query
-						input(type="hidden", name=key, value=val)
+				form.thumbnail(action=nextPage, tabindex="0")
+					each vals, key in query
+						each val in [].concat(vals || [])
+							input(type="hidden", name=key, value=val)
 					input(type="hidden", name=title.toLowerCase(), value=ddclass.name)
-					img(src=ddclass.image, alt="...", style="height:300px;")
+					img(src=ddclass.image, alt="...").thumbnail-image
 					div.caption
 					h3=ddclass.name
-					p(style="height:200px;")=ddclass.description
+					.description: p=ddclass.description
 					p
-						input(type="button", value="Choose " + ddclass.name).btn.btn-primary
+						button(type="button", tabindex="-1", onclick="return false;").btn.btn-primary.choose-class="Choose " + ddclass.name
+						div(style="clear:both;")
 					.decision-dialogs
 						each decision in ddclass.decisions
 							.modal.fade(data-count=decision.count, role="dialog"): .modal-dialog(role="document"): .modal-content
@@ -58,13 +121,16 @@ block content
 append scripts
 	script.
 		$(function() {
-			$('input[type=button]').on('click', function() {
+			
+			$('.choose-class').on('mousedown click', function() {
 				var $dialogs = $(this).parents('.thumbnail').find('.decision-dialogs').children();
 				if ($dialogs.length) {
 					$dialogs.eq(0).modal('show');
 				} else {
+					$('.submit-blur').addClass('shown');
 					nextPage($(this));
 				}
+				return false;
 			});
 			
 			$('.modal-body .list-group-item').on('click', function() {

@@ -5,7 +5,7 @@ router.get('/', function(req, res, next) {
 	var classItems = getItemsFrom(req.query.class);
 	var bkrdItems = getItemsFrom(req.query.background);
 	res.locals.inventory = classItems.concat(bkrdItems);
-	res.render();
+	res.render('inventory');
 });
 
 function getItemsFrom(className) {
