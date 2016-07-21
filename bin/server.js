@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 // Load module dependencies.
-var http = require('http');
-var debug = require('debug')('D20:server');
 var app = require('../app');
+var debug = require('debug')('D20:server');
+var http = require('http');
 
 // Get port from environment and store in Express.
 var port = normalizePort(process.env.PORT || '3000');
