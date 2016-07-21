@@ -4,9 +4,9 @@ block styles
 	link(rel='stylesheet', href='/css/charsheet.css')
 
 block content
-	.panel.panel-default.col-md-6
+	.panel.panel-default.col-md-8
 		.panel-body#charsheet
-			header
+			header.label-below
 				label.col-md-5
 					input(type="text", value="Qaldrin Tomeguard").form-control.input-lg
 					span.label Character Name
@@ -47,16 +47,16 @@ block content
 				fieldset
 					ul.skills.list-unstyled
 						for skill in skills
-							li.skill.col-md-12.form-inline
-								.col-md-2.checkbox
+							li.skill.form-inline
+								.checkbox
 									input(type="checkbox")
-								.col-md-4
-									input(type="number").form-control.input-sm
-								.col-md-6
-									|#{skill.name}
-									span=skill.ability.substr(0, 3)
+								.form-group
+									input(type="text").form-control
+									label
+										|#{skill.name}
+										span=skill.ability.substr(0, 3)
 					legend Skills
-			.col-md-4
+			.col-md-4.label-below
 				label.col-md-4
 					input(type="number", name="armorClass", value="1").form-control
 					span.label Armor Class
@@ -81,7 +81,7 @@ block content
 				label.col-md-12
 					textarea.form-control.input-sm(name="equipment", rows=35)
 					span.label Equipment
-			.col-md-4
+			.col-md-4.label-below
 				label.col-md-12
 					textarea.form-control.input-sm(name="personalityTraits", rows=5)="I've read countless ancient books but lost touch with the modern world. I often use obsolete placenames and speak of countries long forgotten in the present tense."
 					span.label Personality Traits
