@@ -18,7 +18,7 @@
     }
     .ability {
         text-align: center;
-        margin-bottom:15px;
+        margin-bottom: 15px;
         .form-label {
             display: block;
         }
@@ -26,12 +26,23 @@
             width: 50px;
             padding: 3px 6px;
             text-align: center;
+            border-bottom-left-radius: 0%;
+            border-bottom-right-radius: 0%;   
         }
         label {
-            margin-bottom:0px;
+            margin-bottom: 0px;
         }
         output {
             padding-top: 0px;
+            width: 50px;
+            height: 22px;
+            background: #eaeaea;
+            color: black;
+            margin-top: 0px;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;    
+            border: 1px solid silver;
+            border-top: 0px none;
         }
     }
     .skill {
@@ -61,13 +72,11 @@
             }
         }
     }
-    
     /* Always show up and down arrows for number inputs. */
-    input[type='number']::-webkit-inner-spin-button, 
-    input[type='number']::-webkit-outer-spin-button { 
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
         opacity: 1;
     }
-     
     .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
         padding-left: 5px;
         padding-right: 5px;
