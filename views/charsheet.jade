@@ -6,15 +6,31 @@ block styles
 
 block scripts
 	script.
-		$('.ability input').on('keyup change', function() {
-			var val = +$(this).val() - 10;	
-			val = Math.floor(val / 2)
-			if (val > 0) {val = '+' + val;}
-			$(this).parents('.ability').find('output').val(val);
+		$('[data-ability]').on('abilityUpdate', function(e, abilityModifier) {
+			var skillModifier = $(this).parents('.skill').find(':checkbox').prop('checked') * 2;
+			$(this).val(abilityModifier + skillModifier)
+		});
+		
+		$('.skill :checkbox').on('change', function() {
+			 var $skill = $(this).parents('.skill').find('[data-ability]');
+			 var mod = $(this).prop('checked') ? 1 : -1;
+			 var valBefore = +$skill.val();
+			 $skill.val(valBefore + 2 * mod);
 		});
 	
+		$('.ability input').on('keyup change init', function() {
+			var modifier = +$(this).val() - 10;	
+			modifier = Math.floor(modifier / 2)
+			var modifierPrefix = (modifier > 0) ? '+' : '';
+			$(this).parents('.ability').find('.ability-modifier').val(modifierPrefix + modifier);
+			
+			var ability = this.name;
+			$(`[data-ability=${ability}]`).trigger('abilityUpdate', modifier);
+			
+		}).trigger('init');
+	
 block content
-	.panel.panel-default.col-md-8
+	.panel.panel-default.col-md-6
 		.panel-body#charsheet
 			header.label-below
 				label.col-md-5
@@ -41,22 +57,22 @@ block content
 				label.col-md-1
 					input(type="number", name="xp", value="0").form-control
 					span.form-label XP
-			ul.abilities.col-md-1.list-unstyled
+			ul.col-md-2.list-unstyled
 				for ability in abilities
 					li.ability
-						label
+						label.center-block
 							span.form-label=ability
-							input(type="number", maxlength="2").form-control
-							output="+2"
+							input(type="number", name=ability maxlength="2", value="10").form-control.center-block
+						output.ability-modifier="0"
 			.col-md-3
 				fieldset
-					ul.savingThrows.list-unstyled
+					ul.list-unstyled
 						for savingThrow in savingThrows
 							li.skill.form-inline
 								.checkbox
 									input(type="checkbox")
 								.form-group
-									input(type="text", maxlength="3").form-control
+									input(type="text", maxlength="3", data-ability=savingThrow).form-control
 									label=savingThrow
 					legend Saving Throws
 				fieldset
@@ -67,12 +83,12 @@ block content
 									input(type="checkbox")
 								.form-group
 									label
-										input(type="text", maxlength="3").form-control
+										input(type="text", maxlength="3", data-ability=skill.ability).form-control
 										span.form-label
 											|#{skill.name}
 											span.skill-ability=skill.ability.substr(0, 3)
 					legend Skills
-			.col-md-4.label-below
+			.col-md-3.label-below
 				label.col-md-4
 					input(type="number", name="armorClass", value="1").form-control
 					span.form-label Armor Class
@@ -87,10 +103,10 @@ block content
 					span.form-label Current HP
 				label.col-md-4
 					input(type="number", name="maxHP", value="6").form-control
-					span.form-label Maximum HP
+					span.form-label Max HP
 				label.col-md-4
 					input(type="number", name="tempHP", value="").form-control
-					span.form-label Temporary HP
+					span.form-label Temp HP
 				label.col-md-12
 					textarea.form-control.input-sm(name="attacks", rows=15)
 					span.form-label Attacks
