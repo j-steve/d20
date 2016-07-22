@@ -2,32 +2,9 @@ extends ./layout
 
 block styles
 	link(rel='stylesheet', href='/css/charsheet.css')
-	
 
-block scripts
-	script.
-		$('[data-ability]').on('abilityUpdate', function(e, abilityModifier) {
-			var skillModifier = $(this).parents('.skill').find(':checkbox').prop('checked') * 2;
-			$(this).val(abilityModifier + skillModifier)
-		});
-		
-		$('.skill :checkbox').on('change', function() {
-			 var $skill = $(this).parents('.skill').find('[data-ability]');
-			 var mod = $(this).prop('checked') ? 1 : -1;
-			 var valBefore = +$skill.val();
-			 $skill.val(valBefore + 2 * mod);
-		});
-	
-		$('.ability input').on('keyup change init', function() {
-			var modifier = +$(this).val() - 10;	
-			modifier = Math.floor(modifier / 2)
-			var modifierPrefix = (modifier > 0) ? '+' : '';
-			$(this).parents('.ability').find('.ability-modifier').val(modifierPrefix + modifier);
-			
-			var ability = this.name;
-			$(`[data-ability=${ability}]`).trigger('abilityUpdate', modifier);
-			
-		}).trigger('init');
+append scripts
+	script(src="/js/charsheet.js")
 	
 block content
 	.panel.panel-default.col-md-6
@@ -96,7 +73,7 @@ block content
 					input(type="number", name="initiative", value="1").form-control
 					span.form-label Initiative
 				label.col-md-4
-					input(type="number", name="speed", value="1").form-control
+					input(type="number", name="speed", value="30").form-control
 					span.form-label Speed
 				label.col-md-4
 					input(type="number", name="currentHP", value="6").form-control
