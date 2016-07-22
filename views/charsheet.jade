@@ -12,33 +12,33 @@ block content
 			header.label-below
 				label.col-md-5
 					input(type="text", value="Qaldrin Tomeguard").form-control.input-lg
-					span.form-label Character Name
+					span Character Name
 				label.col-md-2
 					input(type="text", value="Wizard").form-control
-					span.form-label Class
+					span Class
 				label.col-md-1
 					input(type="number", name="level", value="1").form-control
-					span.form-label Level
+					span Level
 				label.col-md-2
 					input(type="text", name="background", value="Archivist").form-control
-					span.form-label Background
+					span Background
 				label.col-md-2
 					input(type="text", name="playerName", value="Steve").form-control
-					span.form-label Player
+					span Player
 				label.col-md-3
 					input(type="text", name="race", value="Forest Gnome").form-control
-					span.form-label Race
+					span Race
 				label.col-md-3
 					input(type="text", name="alignment", value="Lawful Neutral").form-control
-					span.form-label Alignment
+					span Alignment
 				label.col-md-1
 					input(type="number", name="xp", value="0").form-control
-					span.form-label XP
+					span XP
 			ul.col-md-2.list-unstyled
 				for ability in abilities
 					li.ability
 						label.center-block
-							span.form-label=ability
+							span=ability
 							input(type="number", name=ability maxlength="2", value="10").form-control.center-block.input-lg
 						output.center-block.ability-modifier="0"
 			.col-md-3
@@ -61,48 +61,48 @@ block content
 								.form-group
 									label
 										input(type="text", maxlength="3", data-ability=skill.ability).form-control
-										span.form-label
+										span
 											|#{skill.name}
 											span.skill-ability=skill.ability.substr(0, 3)
 					legend Skills
 			.col-md-3.label-below
 				label.col-md-4
 					input(type="number", name="armorClass", value="1").form-control
-					span.form-label Armor Class
+					span Armor Class
 				label.col-md-4
 					input(type="number", name="initiative", value="1").form-control
-					span.form-label Initiative
+					span Initiative
 				label.col-md-4
 					input(type="number", name="speed", value="30").form-control
-					span.form-label Speed
+					span Speed
 				label.col-md-4
 					input(type="number", name="currentHP", value="6").form-control
-					span.form-label Current HP
+					span Current HP
 				label.col-md-4
 					input(type="number", name="maxHP", value="6").form-control
-					span.form-label Max HP
+					span Max HP
 				label.col-md-4
 					input(type="number", name="tempHP", value="").form-control
-					span.form-label Temp HP
+					span Temp HP
 				label.col-md-12
 					textarea.form-control.input-sm(name="attacks", rows=15)
-					span.form-label Attacks
+					span Attacks
 				label.col-md-12
 					textarea.form-control.input-sm(name="equipment", rows=35)
-					span.form-label Equipment
+					span Equipment
 			.col-md-4.label-below
 				label.col-md-12
 					textarea.form-control.input-sm(name="personalityTraits", rows=5)="I've read countless ancient books but lost touch with the modern world. I often use obsolete placenames and speak of countries long forgotten in the present tense."
-					span.form-label Personality Traits
+					span Personality Traits
 				label.col-md-12
 					textarea.form-control.input-sm(name="ideals", rows=5)="Knowledge: The path to power and self-improvement is through knowledge. (Neutral)\nLogic: Emotions must not cloud our logical thinking. (Lawful)"
-					span.form-label Ideals
+					span Ideals
 				label.col-md-12
 					textarea.form-control.input-sm(name="bonds", rows=5)
-					span.form-label Bonds
+					span Bonds
 				label.col-md-12
 					textarea.form-control.input-sm(name="flaws", rows=5)
-					span.form-label Flaws
+					span Flaws
 				label.col-md-12
 					textarea.form-control.input-sm(name="features", rows=30)
-					span.form-label Features & Traits
+					span Features & Traits
