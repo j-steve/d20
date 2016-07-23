@@ -8,66 +8,73 @@ append scripts
 	
 block content
 	.container: .row.panel.panel-default#charsheet: .panel-body
-		.row: header.label-below
-			+form-text(5, "Character Name", "charName", "Qaldrin Tomeguard").input-lg
-			+form-text(2, "Class", "class", "Wizard")
-			+form-number(1, "Level", "level", 1)
-			+form-text(2, "Background", "background", "Archivist")
-			+form-text(2, "Player", "playerName", "Steve")
-			+form-text(3, "Race", "race", "Forest Gnome")
-			+form-text(3, "Alignment", "alignment", "Lawful Neutral")
-			+form-number(1, "XP", "xp", 0)
 		.row
-			.col-xs-3.col-sm-2
-				ul.list-unstyled
-					for ability in abilities
-						li.ability
-							label.center-block
-								span=ability
-								input(type="number", name=ability, value="10").form-control.center-block.input-lg
-							output.center-block.ability-modifier="0"
+			header.label-below
+				+form-text(5, "Character Name", "charName", "Qaldrin Tomeguard").input-lg
+				+form-text(2, "Class", "class", "Wizard")
+				+form-number(1, "Level", "level", 1)
+				+form-text(2, "Background", "background", "Archivist")
+				+form-text(2, "Player", "playerName", "Steve")
+				+form-text(3, "Race", "race", "Forest Gnome")
+				+form-text(3, "Alignment", "alignment", "Lawful Neutral")
+				+form-number(1, "XP", "xp", 0)
+		.row
 			.col-sm-3
-				+fieldset-singleton("Proficiency Bonus", "profBonus", "+2")
-				fieldset
-					ul.list-unstyled
-						for savingThrow in savingThrows
-							li.skill.form-inline
-								.checkbox
-									input(type="checkbox")
-								.form-group
-									label
-										input(type="text", maxlength="3", data-ability=savingThrow).form-control
-										span=savingThrow
-					legend Saving Throws
-				fieldset
-					ul.list-unstyled
-						for skill in skills
-							li.skill.form-inline
-								.checkbox
-									input(type="checkbox")
-								.form-group
-									label
-										input(type="text", maxlength="3", data-ability=skill.ability).form-control
-										span
-											|#{skill.name}
-											span.skill-ability=skill.ability.substr(0, 3)
-					legend Skills
-				+fieldset-singleton("Passive Perception", "passivePercep", "+2")
-			.col-sm-3.label-below
-				+form-number(4, "Armor Class", "armorClass", 8)
-				+form-number(4, "Initiative", "initiative", 1)
-				+form-number(4, "Speed", "speed", 30)
-				+form-number(4, "Current HP", "currentHP", 1)
-				+form-number(4, "Max HP", "maxHP", 1)
-				+form-number(4, "Temp HP", "tempHP")
-				+form-textarea(12, "Attacks", "attacks", "", 15)
-				+form-textarea(12, "Equipment", "equipment", "", 35)
-			.col-sm-4.label-below
-				+form-textarea(12, "Personality Traits", "personalityTraits", "I've read books", 5)
-				+form-textarea(12, "Ideals", "ideals", "Knowledge: The path to power", 5)
-				+form-textarea(12, "Bonds", "bonds", "My Bonds", 5)
-				+form-textarea(12, "Flaws", "flaws", "My Flaws", 5)
-				+form-textarea(12, "Features & Traits", "features", "", 30)
+				.row
+					.col-sm-5
+						ul.list-unstyled
+							for ability in abilities
+								li.ability
+									label.center-block
+										span=ability
+										input(type="number", name=ability, value="10").form-control.center-block.input-lg
+									output.center-block.ability-modifier="0"
+					.col-sm-7
+						+fieldset-singleton("Proficiency Bonus", "profBonus", "+2")
+						fieldset
+							ul.list-unstyled
+								for savingThrow in savingThrows
+									li.skill.form-inline
+										.checkbox
+											input(type="checkbox")
+										.form-group
+											label
+												input(type="text", maxlength="3", data-ability=savingThrow).form-control
+												span=savingThrow
+							legend Saving Throws
+						fieldset
+							ul.list-unstyled
+								for skill in skills
+									li.skill.form-inline
+										.checkbox
+											input(type="checkbox")
+										.form-group
+											label
+												input(type="text", maxlength="3", data-ability=skill.ability).form-control
+												span
+													|#{skill.name}
+													span.skill-ability=skill.ability.substr(0, 3)
+							legend Skills
+						+fieldset-singleton("Passive Perception", "passivePercep", "+2")
+				.row.label-below
+					+form-textarea(12, "Other Proficiencies & Languages", "miscSkills", "", 15)
+			.col-sm-9
+				.row.label-below
+					.col-sm-6
+						+form-number(4, "Armor Class", "armorClass", 8)
+						+form-number(4, "Initiative", "initiative", 1)
+						+form-number(4, "Speed", "speed", 30)
+						+form-number(4, "Current HP", "currentHP", 1)
+						+form-number(4, "Max HP", "maxHP", 1)
+						+form-number(4, "Temp HP", "tempHP")
+						+form-textarea(12, "Attacks", "attacks", "", 15)
+						+form-textarea(12, "Equipment", "equipment", "", 35)
+					.col-sm-6
+						+form-textarea(12, "Personality Traits", "personalityTraits", "I've read books", 5)
+						+form-textarea(12, "Ideals", "ideals", "Knowledge: The path to power", 5)
+						+form-textarea(12, "Bonds", "bonds", "My Bonds", 5)
+						+form-textarea(12, "Flaws", "flaws", "My Flaws", 5)
+						+form-textarea(12, "Features & Traits", "features", "", 30)
 
 
 mixin fieldset-singleton(label, name, value)
