@@ -4,7 +4,9 @@ var ERROR_LINE = /at (?:([^(\/\\]+) \()?(.+):(\d+):(\d+)(?:\))?/g;
 
 module.exports = function(err, req, res, next) {
 	var codeSnippets = [];
-	if (err && err.stack) {
+	if (err && err.message && err.message.indexOf('.jade:') !== -1) {
+		res.locals.errorType = 'Jade Error';
+	} else if (err && err.stack) {
 		var match;
 		while ((match = ERROR_LINE.exec(err.stack))) {
 			var file = new File(match[2]);
@@ -31,7 +33,7 @@ module.exports = function(err, req, res, next) {
 	console.error('ERROR: ' + errMsg);
 	
 	res.status(err && err.status || 500);
-	res.render({
+	res.render('_site/error', {
 		message : errMsg,
 		error : err,
 		codeSnippets: codeSnippets

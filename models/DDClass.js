@@ -1,23 +1,32 @@
+"use strict";
 
-function DDClass(name, image, description) {
-	var self = this;
+class DDClass {
 	
-	this.name = name;
-	this.image = image;
-	this.description = description
-	this.decisions = [];
+	constructor(name, image, description) {
+		this.name = name;
+		this.image = image;
+		this.description = description
+		this.decisions = [];
+	}
 	
-	this.decide = function(name, count, paramName) {
+	decide(name, count, paramName) {
 	    if (count == null) {count = 1;}
 	    if (paramName == null) {paramName = name.toLowerCase();}
-		self.decisions.push({name, count, paramName, options: []});
-		return self;
-	};
+		this.decisions.push({name, count, paramName, options: []});
+		return this;
+	}
 	
-	this.of = function(name, description) {
-		self.decisions[self.decisions.length-1].options.push({name, description});
-		return self;
-	};
+	of(name, description) {
+		this.decisions[this.decisions.length-1].options.push({name, description});
+		return this;
+	}
+	
+    
+    attrs(baseHP, savingThrows) {
+    	this.baseHP = baseHP;
+    	this.savingThrows = savingThrows;
+    	return this;
+    }
 }
 
 module.exports = DDClass;

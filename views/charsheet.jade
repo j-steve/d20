@@ -11,13 +11,17 @@ block content
 		.row
 			header.label-below
 				+form-text(5, "Character Name", "charName", "Qaldrin Tomeguard").input-lg
-				+form-text(2, "Class", "class", "Wizard")
-				+form-number(1, "Level", "level", 1)
+				label.col-sm-2
+					select(id="charClass", name="charClass").form-control
+						each charClass in CharClasses
+							option(data-basehp=charClass.baseHP)=charClass.name
+					span="Class"
+				+form-number(1, "Level", "charLevel", 1)(min=1, max=20)
 				+form-text(2, "Background", "background", "Archivist")
 				+form-text(2, "Player", "playerName", "Steve")
 				+form-text(3, "Race", "race", "Forest Gnome")
 				+form-text(3, "Alignment", "alignment", "Lawful Neutral")
-				+form-number(1, "XP", "xp", 0)
+				+form-number(1, "XP", "xp", 0)(min=0)
 		.row
 			.col-sm-3
 				.row
@@ -60,8 +64,8 @@ block content
 						+form-number(4, "Armor Class", "armorClass", 10)(data-ability='Dexterity', data-baseval='10')
 						+form-number(4, "Initiative", "initiative", 0)(data-ability='Dexterity', data-baseval='0')
 						+form-number(4, "Speed", "speed", 30)
-						+form-number(4, "Current HP", "currentHP", 8)(data-ability='Constitution', data-baseval='8')
-						+form-number(4, "Max HP", "maxHP", 8)(data-ability='Constitution', data-baseval='8')
+						+form-number(4, "Current HP", "currentHP", 8)(data-ability='Constitution', data-baseval='8', data-hp=true)
+						+form-number(4, "Max HP", "maxHP", 8)(data-ability='Constitution', data-baseval='8', data-hp=true)
 						+form-number(4, "Temp HP", "tempHP")
 						+form-textarea(12, "Attacks", "attacks", "", 15)
 						+form-textarea(12, "Equipment", "equipment", "", 35)
@@ -80,13 +84,13 @@ mixin fieldset-singleton(label, name, value)
 
 mixin form-text(colspan, label, name, value)
 	label(class='col-sm-' + colspan)
-		input.form-control(type="text", name=name, value=value || "")&attributes(attributes)
+		input.form-control(type="text", id=name, name=name, value=value || "")&attributes(attributes)
 		span=label
 mixin form-number(colspan, label, name, value)
 	label(class='col-sm-' + colspan)
-		input.form-control(type="number", name=name, value=value || "")&attributes(attributes)
+		input.form-control(type="number", id=name, name=name, value=value || "")&attributes(attributes)
 		span=label
 mixin form-textarea(colspan, label, name, value, rows)
 	label(class='col-sm-' + colspan)
-		textarea.form-control.input-sm(name=name, rows=rows)&attributes(attributes)=value || ""
+		textarea.form-control.input-sm(id=name, name=name, rows=rows)&attributes(attributes)=value || ""
 		span=label

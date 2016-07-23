@@ -1,5 +1,6 @@
 var router = require('express').Router();
 var Skill = require('../models/Skill');
+var CharClass = require('../models/CharClass');
 
 router.get('/', function(req, res, next) {
     res.locals.abilities = ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma'];
@@ -12,6 +13,7 @@ router.get('/', function(req, res, next) {
         'Wisdom': ['Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival'],
         'Charisma': ['Deception', 'Intimidation', 'Performance', 'Persuasion']
     });
+    res.locals.CharClasses = CharClass.ALL;
 	res.render('charsheet');
 });
 

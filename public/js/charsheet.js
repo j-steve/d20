@@ -17,6 +17,17 @@
         if (!$(this).is('[type=number]')) {abilityModifier = withPlusSign(abilityModifier);}
         $(this).val(abilityModifier);
     });
+    
+    $('#charClass,#charLevel').on('change init', function() {
+        const charLevel = +$('#charLevel').val();
+        const baseHP = +$('#charClass').find(':selected').data('basehp') * charLevel;
+        $('[data-hp]').each(function() {
+            const lastBaseHP = +$(this).data('baseval') || 0;
+            const currentVal = +$(this).val() || 0;
+            $(this).val(currentVal + baseHP - lastBaseHP);
+            $(this).data('baseval', baseHP);
+        });
+    }).trigger('init');
 
     $('.skill :checkbox').on('change', function() {
         const $skill = $(this).parents('.skill').find('[data-ability]');
