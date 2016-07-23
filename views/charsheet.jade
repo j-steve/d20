@@ -16,12 +16,12 @@ block content
 						each charClass in CharClasses
 							option(data-basehp=charClass.baseHP)=charClass.name
 					span="Class"
-				+form-number(1, "Level", "charLevel", 1)(min=1, max=20)
+				+form-number(1, "Level", "charLevel", 1, 1, 20)
 				+form-text(2, "Background", "background", "Archivist")
 				+form-text(2, "Player", "playerName", "Steve")
 				+form-text(3, "Race", "race", "Forest Gnome")
 				+form-text(3, "Alignment", "alignment", "Lawful Neutral")
-				+form-number(1, "XP", "xp", 0)(min=0)
+				+form-number(1, "XP", "xp", 0, 0)
 		.row
 			.col-sm-3
 				.row
@@ -86,9 +86,9 @@ mixin form-text(colspan, label, name, value)
 	label(class='col-sm-' + colspan)
 		input.form-control(type="text", id=name, name=name, value=value || "")&attributes(attributes)
 		span=label
-mixin form-number(colspan, label, name, value)
+mixin form-number(colspan, label, name, value, min, max)
 	label(class='col-sm-' + colspan)
-		input.form-control(type="number", id=name, name=name, value=value || "")&attributes(attributes)
+		input.form-control(type="number", id=name, name=name, value=value || "", min=min, max=max)&attributes(attributes)
 		span=label
 mixin form-textarea(colspan, label, name, value, rows)
 	label(class='col-sm-' + colspan)
