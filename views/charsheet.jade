@@ -34,30 +34,26 @@ block content
 						fieldset
 							ul.list-unstyled
 								for savingThrow in savingThrows
-									li.skill.form-inline
-										.checkbox
-											input(type="checkbox")
-										.form-group
-											label
-												input(type="text", maxlength="3", data-ability=savingThrow).form-control
-												span=savingThrow
+									-var profName = "prof-save-"+savingThrow;
+									li.row.skill
+										.col-xs-1.col-md-1: input(type="checkbox", id=profName, name=profName)
+										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=savingThrow).form-control
+										.col-xs-8.col-md-8: label(for=profName)=savingThrow
 							legend Saving Throws
 						fieldset
 							ul.list-unstyled
 								for skill in skills
-									li.skill.form-inline
-										.checkbox
-											input(type="checkbox")
-										.form-group
-											label
-												input(type="text", maxlength="3", data-ability=skill.ability).form-control
-												span
-													|#{skill.name}
-													span.skill-ability=skill.ability.substr(0, 3)
+									-var profName = "prof-skill-"+skill.name;
+									li.row.skill
+										.col-xs-1.col-md-1: input(type="checkbox", id=profName, name=profName)
+										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=skill.ability).form-control
+										.col-xs-8.col-md-8: label(for=profName)=savingThrow
+											|#{skill.name}
+											span.skill-ability=skill.ability.substr(0, 3)
 							legend Skills
 						+fieldset-singleton("Passive Perception", "passivePercep", "+2")
 				.row.label-below
-					+form-textarea(12, "Other Proficiencies & Languages", "miscSkills", "", 15)
+					+form-textarea(12, "Other Proficiencies & Languages", "miscSkills", "", 13)
 			.col-sm-9
 				.row.label-below
 					.col-sm-6
@@ -78,11 +74,9 @@ block content
 
 
 mixin fieldset-singleton(label, name, value)
-	fieldset
-		.skill.form-inline
-			label
-				input(type="text", name=name, maxlength="3", value=value)&attributes(attributes).form-control
-				span=label
+	fieldset.row.skill
+		.col-xs-3.col-md-3: input(type="text", id=name, name=name, maxlength="3", value=value)&attributes(attributes).form-control
+		.col-xs-9.col-md-9: label(for=name)=label
 
 mixin form-text(colspan, label, name, value)
 	label(class='col-sm-' + colspan)
