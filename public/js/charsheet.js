@@ -18,6 +18,14 @@
         $(this).val(abilityModifier);
     });
     
+    $('#charClass').on('change init', function() {
+        const savingThrows = $('#charClass').find(':selected').data('savingthrows').split(',');
+        $(`[id^=prof-save-]`).prop('checked', false);
+        for (let savingThrow of savingThrows) {
+            $('#prof-save-' + savingThrow.toLowerCase()).prop('checked', true);
+        }
+    });
+    
     $('#charClass,#charLevel').on('change init', function() {
         const charLevel = +$('#charLevel').val();
         const baseHP = +$('#charClass').find(':selected').data('basehp') * charLevel;
