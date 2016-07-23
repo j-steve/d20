@@ -43,14 +43,20 @@ block content
 						output.center-block.ability-modifier="0"
 			.col-md-3
 				fieldset
+					.skill.form-inline
+						label
+							input(type="text", name="profBonus", maxlength="3", value="+2").form-control
+							span="Proficiency Bonus"
+				fieldset
 					ul.list-unstyled
 						for savingThrow in savingThrows
 							li.skill.form-inline
 								.checkbox
 									input(type="checkbox")
 								.form-group
-									input(type="text", maxlength="3", data-ability=savingThrow).form-control
-									label=savingThrow
+									label
+										input(type="text", maxlength="3", data-ability=savingThrow).form-control
+										span=savingThrow
 					legend Saving Throws
 				fieldset
 					ul.list-unstyled
