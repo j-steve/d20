@@ -5,11 +5,17 @@
     "use strict";
     
     $('[data-ability]').on('abilityUpdate', function(e, abilityModifier) {
-        if (abilityModifier == null) {abilityModifier = $(this).data('abilityModifier');}
-        else {$(this).data('abilityModifier', abilityModifier);}
-        const profBonus = +$('input[name=profBonus]').val();
-        const skillModifier = $(this).parents('.skill').find(':checkbox').prop('checked') * profBonus;
-        $(this).val(withPlusSign(abilityModifier + skillModifier));
+        const $skill = $(this).parents('.skill');
+        if ($skill.length) {
+            if (abilityModifier == null) {abilityModifier = $(this).data('abilityModifier');}
+            else {$(this).data('abilityModifier', abilityModifier);}
+            const profBonus = +$('input[name=profBonus]').val();
+            abilityModifier += $(this).parents('.skill').find(':checkbox').prop('checked') * profBonus;
+        } else {
+            abilityModifier += +$(this).data('baseval') || 0;
+        }
+        if (!$(this).is('[type=number]')) {abilityModifier = withPlusSign(abilityModifier);}
+        $(this).val(abilityModifier);
     });
 
     $('.skill :checkbox').on('change', function() {

@@ -27,7 +27,7 @@ block content
 								li.ability
 									label.center-block
 										span=ability
-										input(type="number", name=ability, value="10").form-control.center-block.input-lg
+										input(type="number", name=ability, value="10").form-control.center-block.input-lg(min=8, max=20)
 									output.center-block.ability-modifier="0"
 					.col-sm-7
 						+fieldset-singleton("Proficiency Bonus", "profBonus", "+2")
@@ -57,11 +57,11 @@ block content
 			.col-sm-9
 				.row.label-below
 					.col-sm-6
-						+form-number(4, "Armor Class", "armorClass", 8)
-						+form-number(4, "Initiative", "initiative", 1)
+						+form-number(4, "Armor Class", "armorClass", 10)(data-ability='Dexterity', data-baseval='10')
+						+form-number(4, "Initiative", "initiative", 0)(data-ability='Dexterity', data-baseval='0')
 						+form-number(4, "Speed", "speed", 30)
-						+form-number(4, "Current HP", "currentHP", 1)
-						+form-number(4, "Max HP", "maxHP", 1)
+						+form-number(4, "Current HP", "currentHP", 8)(data-ability='Constitution', data-baseval='8')
+						+form-number(4, "Max HP", "maxHP", 8)(data-ability='Constitution', data-baseval='8')
 						+form-number(4, "Temp HP", "tempHP")
 						+form-textarea(12, "Attacks", "attacks", "", 15)
 						+form-textarea(12, "Equipment", "equipment", "", 35)
