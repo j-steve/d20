@@ -63,10 +63,10 @@ block content
 					.col-sm-6
 						+form-number(4, "Armor Class", "armorClass", 10)(data-ability='Dexterity', data-baseval='10')
 						+form-number(4, "Initiative", "initiative", 0)(data-ability='Dexterity', data-baseval='0')
-						+form-number(4, "Speed", "speed", 30)
-						+form-number(4, "Current HP", "currentHP", 8)(data-ability='Constitution', data-baseval='8', data-hp=true)
-						+form-number(4, "Max HP", "maxHP", 8)(data-ability='Constitution', data-baseval='8', data-hp=true)
-						+form-number(4, "Temp HP", "tempHP")
+						+form-number(4, "Speed", "speed", 30, 0)
+						+form-number(4, "Current HP", "currentHP", 8, 0)(data-ability='Constitution', data-baseval='8', data-hp=true)
+						+form-number(4, "Max HP", "maxHP", 8, 0)(data-ability='Constitution', data-baseval='8', data-hp=true)
+						+form-number(4, "Temp HP", "tempHP", 0, 0)
 						+form-textarea(12, "Attacks", "attacks", "", 15)
 						+form-textarea(12, "Equipment", "equipment", "", 35)
 					.col-sm-6
