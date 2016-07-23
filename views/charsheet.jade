@@ -27,11 +27,7 @@ block content
 								input(type="number", name=ability, value="10").form-control.center-block.input-lg
 							output.center-block.ability-modifier="0"
 			.col-md-3
-				fieldset
-					.skill.form-inline
-						label
-							input(type="text", name="profBonus", maxlength="3", value="+2").form-control
-							span="Proficiency Bonus"
+				+fieldset-singleton("Proficiency Bonus", "profBonus", "+2")
 				fieldset
 					ul.list-unstyled
 						for savingThrow in savingThrows
@@ -56,11 +52,7 @@ block content
 											|#{skill.name}
 											span.skill-ability=skill.ability.substr(0, 3)
 					legend Skills
-				fieldset
-					.skill.form-inline
-						label
-							input(type="text", name="passivePercep", maxlength="3", value="+2").form-control.col-md-4
-							span.col-md-8="Passive Perception"
+				+fieldset-singleton("Passive Perception", "passivePercep", "+2")
 			.col-md-3.label-below
 				+form-number(4, "Armor Class", "armorClass", 8)
 				+form-number(4, "Initiative", "initiative", 1)
@@ -76,6 +68,14 @@ block content
 				+form-textarea(12, "Bonds", "bonds", "My Bonds", 5)
 				+form-textarea(12, "Flaws", "flaws", "My Flaws", 5)
 				+form-textarea(12, "Features & Traits", "features", "", 30)
+
+
+mixin fieldset-singleton(label, name, value)
+	fieldset
+		.skill.form-inline
+			label
+				input(type="text", name=name, maxlength="3", value=value)&attributes(attributes).form-control
+				span=label
 
 mixin form-text(colspan, label, name, value)
 	label(class='col-md-' + colspan)
