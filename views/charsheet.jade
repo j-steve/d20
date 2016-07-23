@@ -10,37 +10,21 @@ block content
 	.panel.panel-default.col-md-6
 		.panel-body#charsheet
 			header.label-below
-				label.col-md-5
-					input(type="text", value="Qaldrin Tomeguard").form-control.input-lg
-					span Character Name
-				label.col-md-2
-					input(type="text", value="Wizard").form-control
-					span Class
-				label.col-md-1
-					input(type="number", name="level", value="1").form-control
-					span Level
-				label.col-md-2
-					input(type="text", name="background", value="Archivist").form-control
-					span Background
-				label.col-md-2
-					input(type="text", name="playerName", value="Steve").form-control
-					span Player
-				label.col-md-3
-					input(type="text", name="race", value="Forest Gnome").form-control
-					span Race
-				label.col-md-3
-					input(type="text", name="alignment", value="Lawful Neutral").form-control
-					span Alignment
-				label.col-md-1
-					input(type="number", name="xp", value="0").form-control
-					span XP
+				+form-text(5, "Character Name", "charName", "Qaldrin Tomeguard").input-lg
+				+form-text(2, "Class", "class", "Wizard")
+				+form-number(1, "Level", "level", 1)
+				+form-text(2, "Background", "background", "Archivist")
+				+form-text(2, "Player", "playerName", "Steve")
+				+form-text(3, "Race", "race", "Forest Gnome")
+				+form-text(3, "Alignment", "alignment", "Lawful Neutral")
+				+form-number(1, "XP", "xp", 0)
 			.col-md-2
 				ul.list-unstyled
 					for ability in abilities
 						li.ability
 							label.center-block
 								span=ability
-								input(type="number", name=ability maxlength="2", value="10").form-control.center-block.input-lg
+								input(type="number", name=ability, value="10").form-control.center-block.input-lg
 							output.center-block.ability-modifier="0"
 			.col-md-3
 				fieldset
@@ -78,43 +62,30 @@ block content
 							input(type="text", name="passivePercep", maxlength="3", value="+2").form-control.col-md-4
 							span.col-md-8="Passive Perception"
 			.col-md-3.label-below
-				label.col-md-4
-					input(type="number", name="armorClass", value="1").form-control
-					span Armor Class
-				label.col-md-4
-					input(type="number", name="initiative", value="1").form-control
-					span Initiative
-				label.col-md-4
-					input(type="number", name="speed", value="30").form-control
-					span Speed
-				label.col-md-4
-					input(type="number", name="currentHP", value="6").form-control
-					span Current HP
-				label.col-md-4
-					input(type="number", name="maxHP", value="6").form-control
-					span Max HP
-				label.col-md-4
-					input(type="number", name="tempHP", value="").form-control
-					span Temp HP
-				label.col-md-12
-					textarea.form-control.input-sm(name="attacks", rows=15)
-					span Attacks
-				label.col-md-12
-					textarea.form-control.input-sm(name="equipment", rows=35)
-					span Equipment
+				+form-number(4, "Armor Class", "armorClass", 8)
+				+form-number(4, "Initiative", "initiative", 1)
+				+form-number(4, "Speed", "speed", 30)
+				+form-number(4, "Current HP", "currentHP", 1)
+				+form-number(4, "Max HP", "maxHP", 1)
+				+form-number(4, "Temp HP", "tempHP")
+				+form-textarea(12, "Attacks", "attacks", "", 15)
+				+form-textarea(12, "Equipment", "equipment", "", 35)
 			.col-md-4.label-below
-				label.col-md-12
-					textarea.form-control.input-sm(name="personalityTraits", rows=5)="I've read countless ancient books but lost touch with the modern world. I often use obsolete placenames and speak of countries long forgotten in the present tense."
-					span Personality Traits
-				label.col-md-12
-					textarea.form-control.input-sm(name="ideals", rows=5)="Knowledge: The path to power and self-improvement is through knowledge. (Neutral)\nLogic: Emotions must not cloud our logical thinking. (Lawful)"
-					span Ideals
-				label.col-md-12
-					textarea.form-control.input-sm(name="bonds", rows=5)
-					span Bonds
-				label.col-md-12
-					textarea.form-control.input-sm(name="flaws", rows=5)
-					span Flaws
-				label.col-md-12
-					textarea.form-control.input-sm(name="features", rows=30)
-					span Features & Traits
+				+form-textarea(12, "Personality Traits", "personalityTraits", "I've read books", 5)
+				+form-textarea(12, "Ideals", "ideals", "Knowledge: The path to power", 5)
+				+form-textarea(12, "Bonds", "bonds", "My Bonds", 5)
+				+form-textarea(12, "Flaws", "flaws", "My Flaws", 5)
+				+form-textarea(12, "Features & Traits", "features", "", 30)
+
+mixin form-text(colspan, label, name, value)
+	label(class='col-md-' + colspan)
+		input.form-control(type="text", name=name, value=value || "")&attributes(attributes)
+		span=label
+mixin form-number(colspan, label, name, value)
+	label(class='col-md-' + colspan)
+		input.form-control(type="number", name=name, value=value || "")&attributes(attributes)
+		span=label
+mixin form-textarea(colspan, label, name, value, rows)
+	label(class='col-md-' + colspan)
+		textarea.form-control.input-sm(name=name, rows=rows)&attributes(attributes)=value || ""
+		span=label
