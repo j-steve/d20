@@ -7,18 +7,18 @@ append scripts
 	script(src="/js/charsheet.js")
 	
 block content
-	.panel.panel-default.col-md-6
-		.panel-body#charsheet
-			header.label-below
-				+form-text(5, "Character Name", "charName", "Qaldrin Tomeguard").input-lg
-				+form-text(2, "Class", "class", "Wizard")
-				+form-number(1, "Level", "level", 1)
-				+form-text(2, "Background", "background", "Archivist")
-				+form-text(2, "Player", "playerName", "Steve")
-				+form-text(3, "Race", "race", "Forest Gnome")
-				+form-text(3, "Alignment", "alignment", "Lawful Neutral")
-				+form-number(1, "XP", "xp", 0)
-			.col-md-2
+	.container: .row.panel.panel-default#charsheet: .panel-body
+		.row: header.label-below
+			+form-text(5, "Character Name", "charName", "Qaldrin Tomeguard").input-lg
+			+form-text(2, "Class", "class", "Wizard")
+			+form-number(1, "Level", "level", 1)
+			+form-text(2, "Background", "background", "Archivist")
+			+form-text(2, "Player", "playerName", "Steve")
+			+form-text(3, "Race", "race", "Forest Gnome")
+			+form-text(3, "Alignment", "alignment", "Lawful Neutral")
+			+form-number(1, "XP", "xp", 0)
+		.row
+			.col-sm-2
 				ul.list-unstyled
 					for ability in abilities
 						li.ability
@@ -26,7 +26,7 @@ block content
 								span=ability
 								input(type="number", name=ability, value="10").form-control.center-block.input-lg
 							output.center-block.ability-modifier="0"
-			.col-md-3
+			.col-sm-3
 				+fieldset-singleton("Proficiency Bonus", "profBonus", "+2")
 				fieldset
 					ul.list-unstyled
@@ -53,7 +53,7 @@ block content
 											span.skill-ability=skill.ability.substr(0, 3)
 					legend Skills
 				+fieldset-singleton("Passive Perception", "passivePercep", "+2")
-			.col-md-3.label-below
+			.col-sm-3.label-below
 				+form-number(4, "Armor Class", "armorClass", 8)
 				+form-number(4, "Initiative", "initiative", 1)
 				+form-number(4, "Speed", "speed", 30)
@@ -62,7 +62,7 @@ block content
 				+form-number(4, "Temp HP", "tempHP")
 				+form-textarea(12, "Attacks", "attacks", "", 15)
 				+form-textarea(12, "Equipment", "equipment", "", 35)
-			.col-md-4.label-below
+			.col-sm-4.label-below
 				+form-textarea(12, "Personality Traits", "personalityTraits", "I've read books", 5)
 				+form-textarea(12, "Ideals", "ideals", "Knowledge: The path to power", 5)
 				+form-textarea(12, "Bonds", "bonds", "My Bonds", 5)
@@ -78,14 +78,14 @@ mixin fieldset-singleton(label, name, value)
 				span=label
 
 mixin form-text(colspan, label, name, value)
-	label(class='col-md-' + colspan)
+	label(class='col-sm-' + colspan)
 		input.form-control(type="text", name=name, value=value || "")&attributes(attributes)
 		span=label
 mixin form-number(colspan, label, name, value)
-	label(class='col-md-' + colspan)
+	label(class='col-sm-' + colspan)
 		input.form-control(type="number", name=name, value=value || "")&attributes(attributes)
 		span=label
 mixin form-textarea(colspan, label, name, value, rows)
-	label(class='col-md-' + colspan)
+	label(class='col-sm-' + colspan)
 		textarea.form-control.input-sm(name=name, rows=rows)&attributes(attributes)=value || ""
 		span=label

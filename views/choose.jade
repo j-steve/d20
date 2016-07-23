@@ -7,41 +7,42 @@ append scripts
 	script(src="/js/choose.js")
 
 block content
-	.submit-blur
-	h2.page-title Select a #{title}:
-	div.row
-		for ddclass in ddclasses
-			div.col-xs-12.col-sm-6.col-md-4.col-lg-2
-				form.thumbnail(action=nextPage, tabindex="0")
-					each vals, key in query
-						each val in [].concat(vals || [])
-							input(type="hidden", name=key, value=val)
-					input(type="hidden", name=title.toLowerCase(), value=ddclass.name)
-					img(src=ddclass.image, alt="...").thumbnail-image
-					div.caption
-					h3=ddclass.name
-					.description: p=ddclass.description
-					p
-						button(type="button", tabindex="-1", onclick="return false;").btn.btn-primary.choose-class="Choose " + ddclass.name
-						div(style="clear:both;")
-					.decision-dialogs
-						each decision in ddclass.decisions
-							.modal.fade(data-count=decision.count, role="dialog"): .modal-dialog(role="document"): .modal-content
-								.modal-header
-									button.close(type="button", data-dismiss="modal", aria-label="Close"): span(aria-hidden="true") &times;
-									h3.modal-title Select #{decision.name}
-								.modal-body
-									ul.list-group
-										for option in decision.options
-											li.list-group-item
-												h4.list-group-item-heading #{option.name}
-												p.list-group-item-text #{option.description}
-												input(type="checkbox", name=decision.paramName, value=option.name)
-								.modal-footer
-									button(type="button").btn.btn-primary="Continue"
-									span.message 
-										if (decision.count === 1)
-											|Select a #{decision.name.toLowerCase()} to continue.
-										else
-											|Add <span class="deficitCount">#{decision.count}</span> #{decision.name.toLowerCase()} to continue.
-	
+	.container-fluid
+		.submit-blur
+		h2.page-title Select a #{title}:
+		div.row
+			for ddclass in ddclasses
+				div.col-xs-12.col-sm-6.col-md-4.col-lg-2
+					form.thumbnail(action=nextPage, tabindex="0")
+						each vals, key in query
+							each val in [].concat(vals || [])
+								input(type="hidden", name=key, value=val)
+						input(type="hidden", name=title.toLowerCase(), value=ddclass.name)
+						img(src=ddclass.image, alt="...").thumbnail-image
+						div.caption
+						h3=ddclass.name
+						.description: p=ddclass.description
+						p
+							button(type="button", tabindex="-1", onclick="return false;").btn.btn-primary.choose-class="Choose " + ddclass.name
+							div(style="clear:both;")
+						.decision-dialogs
+							each decision in ddclass.decisions
+								.modal.fade(data-count=decision.count, role="dialog"): .modal-dialog(role="document"): .modal-content
+									.modal-header
+										button.close(type="button", data-dismiss="modal", aria-label="Close"): span(aria-hidden="true") &times;
+										h3.modal-title Select #{decision.name}
+									.modal-body
+										ul.list-group
+											for option in decision.options
+												li.list-group-item
+													h4.list-group-item-heading #{option.name}
+													p.list-group-item-text #{option.description}
+													input(type="checkbox", name=decision.paramName, value=option.name)
+									.modal-footer
+										button(type="button").btn.btn-primary="Continue"
+										span.message 
+											if (decision.count === 1)
+												|Select a #{decision.name.toLowerCase()} to continue.
+											else
+												|Add <span class="deficitCount">#{decision.count}</span> #{decision.name.toLowerCase()} to continue.
+		
