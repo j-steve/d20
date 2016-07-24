@@ -52,7 +52,7 @@
         $('#spellcastAbility').val(spellcastAbility);
         
         const $ability = $('#' + spellcastAbility);
-        $('#spellAttackBonus, #spellSaveDC').attr('data-ability', $ability.prop('name'))
+        $('#spellAttackBonus, #spellSaveDC').val("").attr('data-ability', $ability.prop('name'))
         $ability.trigger('change');
     });
     
