@@ -25,10 +25,11 @@
      * Character Sheet Abilities
      */ 
     $('[data-ability]').on('abilityUpdate', function(e, abilityModifier) {
+        if (abilityModifier == null) {abilityModifier = $(this).data('abilityModifier');}
+        else {$(this).data('abilityModifier', abilityModifier);}
+            
         const $skillProf = $(this).parents('.skill').find(':checkbox');
         if ($skillProf.length) {
-            if (abilityModifier == null) {abilityModifier = $(this).data('abilityModifier');}
-            else {$(this).data('abilityModifier', abilityModifier);}
             const profBonus = +$('#profBonus').val();
             abilityModifier += $skillProf.prop('checked') * profBonus;
         } else {
@@ -54,6 +55,13 @@
         const $ability = $('#' + spellcastAbility);
         $('#spellAttackBonus, #spellSaveDC').val("").attr('data-ability', $ability.prop('name'))
         $ability.trigger('change');
+    });
+    
+    $('#charLevel').on('change init', function() {
+        const level = +$(this).val();
+        const profBonus = level >= 17 ? 6 : level >= 13 ? 5 : level >= 9 ? 4 : level >= 5 ? 3 : 2;
+        $('#profBonus').val(profBonus);
+        $('[data-ability]').trigger('abilityUpdate');
     });
     
     $('#charClass,#charLevel').on('change init', function() {
