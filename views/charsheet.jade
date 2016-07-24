@@ -7,8 +7,13 @@ append scripts
 	script(src="/js/charsheet.js")
 	
 block content
-	.container: .row.panel.panel-default#charsheet: .panel-body
-		.row
+	.container: .row.panel.panel-default#charsheet
+		.panel-header
+				ul.nav.nav-tabs
+					li(role="presentation"): a(href="#BasicInfo")="Basic Info"
+					li(role="presentation"): a(href="#CharDetails")="Character Details"
+					li(role="presentation"): a(href="#Spells")="Spells"
+		.panel-body(data-page="BasicInfo")
 			header.label-below
 				+form-text(5, "Character Name", "charName", "Qaldrin Tomeguard").input-lg
 				label.col-sm-2
@@ -22,59 +27,86 @@ block content
 				+form-text(3, "Race", "race", "Forest Gnome")
 				+form-text(3, "Alignment", "alignment", "Lawful Neutral")
 				+form-number(1, "XP", "xp", 0, 0)
-		.row
-			.col-sm-3
-				.row
-					.col-sm-5
-						ul.list-unstyled
-							for ability in abilities
-								li.ability
-									label.center-block
-										span=ability
-										input(type="number", name=ability, value="10").form-control.center-block.input-lg(min=8, max=20)
-									output.center-block.ability-modifier="0"
-					.col-sm-7
-						+fieldset-singleton("Proficiency Bonus", "profBonus", "+2")
-						fieldset
+			.row
+				.col-sm-3
+					.row
+						.col-sm-5
 							ul.list-unstyled
-								for savingThrow in savingThrows
-									-var profName = "prof-save-"+savingThrow.slice(0, 3).toLowerCase();
-									li.row.skill
-										.col-xs-1.col-md-1: input(type="checkbox", id=profName, name=profName)
-										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=savingThrow).form-control
-										.col-xs-8.col-md-8: label(for=profName)=savingThrow
-							legend Saving Throws
-						fieldset
-							ul.list-unstyled
-								for skill in skills
-									-var profName = "prof-skill-"+skill.name;
-									li.row.skill
-										.col-xs-1.col-md-1: input(type="checkbox", id=profName, name=profName)
-										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=skill.ability).form-control
-										.col-xs-8.col-md-8: label(for=profName)=savingThrow
-											|#{skill.name}
-											span.skill-ability=skill.ability.substr(0, 3)
-							legend Skills
-						+fieldset-singleton("Passive Perception", "passivePercep", "+2")
-				.row.label-below
-					+form-textarea(12, "Other Proficiencies & Languages", "miscSkills", "", 13)
-			.col-sm-9
-				.row.label-below
-					.col-sm-6
-						+form-number(4, "Armor Class", "armorClass", 10)(data-ability='Dexterity', data-baseval='10')
-						+form-number(4, "Initiative", "initiative", 0)(data-ability='Dexterity', data-baseval='0')
-						+form-number(4, "Speed", "speed", 30, 0)
-						+form-number(4, "Current HP", "currentHP", 8, 0)(data-ability='Constitution', data-baseval='8', data-hp=true)
-						+form-number(4, "Max HP", "maxHP", 8, 0)(data-ability='Constitution', data-baseval='8', data-hp=true)
-						+form-number(4, "Temp HP", "tempHP", 0, 0)
-						+form-textarea(12, "Attacks", "attacks", "", 15)
-						+form-textarea(12, "Equipment", "equipment", "", 35)
-					.col-sm-6
-						+form-textarea(12, "Personality Traits", "personalityTraits", "I've read books", 5)
-						+form-textarea(12, "Ideals", "ideals", "Knowledge: The path to power", 5)
-						+form-textarea(12, "Bonds", "bonds", "My Bonds", 5)
-						+form-textarea(12, "Flaws", "flaws", "My Flaws", 5)
-						+form-textarea(12, "Features & Traits", "features", "", 30)
+								for ability in abilities
+									li.ability
+										label.center-block
+											span=ability
+											input(type="number", name=ability, value="10").form-control.center-block.input-lg(min=8, max=20)
+										output.center-block.ability-modifier="0"
+						.col-sm-7
+							+fieldset-singleton("Proficiency Bonus", "profBonus", "+2")
+							fieldset
+								ul.list-unstyled
+									for savingThrow in savingThrows
+										-var profName = "prof-save-"+savingThrow.slice(0, 3).toLowerCase();
+										li.row.skill
+											.col-xs-1.col-md-1: input(type="checkbox", id=profName, name=profName)
+											.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=savingThrow).form-control
+											.col-xs-8.col-md-8: label(for=profName)=savingThrow
+								legend Saving Throws
+							fieldset
+								ul.list-unstyled
+									for skill in skills
+										-var profName = "prof-skill-"+skill.name;
+										li.row.skill
+											.col-xs-1.col-md-1: input(type="checkbox", id=profName, name=profName)
+											.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=skill.ability).form-control
+											.col-xs-8.col-md-8: label(for=profName)=savingThrow
+												|#{skill.name}
+												span.skill-ability=skill.ability.substr(0, 3)
+								legend Skills
+							+fieldset-singleton("Passive Perception", "passivePercep", "+2")(data-ability='Wisdom', data-baseval='10')
+					.row.label-below
+						+form-textarea(12, "Other Proficiencies & Languages", "miscSkills", "", 13)
+				.col-sm-9
+					.row.label-below
+						.col-sm-6
+							+form-number(4, "Armor Class", "armorClass", 10)(data-ability='Dexterity', data-baseval='10')
+							+form-text(4, "Initiative", "initiative")(data-ability='Dexterity', data-baseval='0')
+							+form-number(4, "Speed", "speed", 30, 0)
+							+form-number(4, "Current HP", "currentHP", 8, 0)(data-ability='Constitution', data-baseval='8', data-hp=true)
+							+form-number(4, "Max HP", "maxHP", 8, 0)(data-ability='Constitution', data-baseval='8', data-hp=true)
+							+form-number(4, "Temp HP", "tempHP", 0, 0)
+							+form-textarea(12, "Attacks", "attacks", "", 15)
+							+form-textarea(12, "Equipment", "equipment", "", 35)
+						.col-sm-6
+							+form-textarea(12, "Personality Traits", "personalityTraits", "I've read books", 5)
+							+form-textarea(12, "Ideals", "ideals", "Knowledge: The path to power", 5)
+							+form-textarea(12, "Bonds", "bonds", "My Bonds", 5)
+							+form-textarea(12, "Flaws", "flaws", "My Flaws", 5)
+							+form-textarea(12, "Features & Traits", "features", "", 30)
+		.panel-body(data-page="CharDetails")
+			header.label-below
+				+form-text(5, "Character Name", "charName2", "Qaldrin Tomeguard").input-lg
+				//+form-number(2, "Age", "charAge", null, 1)
+				.col-sm-1
+				label.col-sm-2
+					.input-group
+						input.form-control(type="number", id="charAge", name="charAge", min=1)
+						.input-group-addon="years"
+					span="Age"
+				+form-text(2, "Height", "height")
+				label.col-sm-2
+					.input-group
+						input.form-control(type="number", id="charWeight", name="charWeight", min=1)
+						.input-group-addon="lbs"
+					span="Weight"
+				.col-sm-1
+				+form-text(2, "Eyes", "charEyes")
+				+form-text(2, "Skin", "charSkin")
+				+form-text(2, "Hair", "charHair")
+		.panel-body(data-page="Spells")
+			header.label-below
+				.col-sm-3
+				+form-text(2, "Spellcasting Ability", "spellcastAbility").input-lg
+				+form-number(2, "Spell Save DC", "spellSaveDC").input-lg
+				+form-text(2, "Spell Attack Bonus", "spellAttackBonus").input-lg
+				.col-sm-3
 
 
 mixin fieldset-singleton(label, name, value)
@@ -83,14 +115,14 @@ mixin fieldset-singleton(label, name, value)
 		.col-xs-9.col-md-9: label(for=name)=label
 
 mixin form-text(colspan, label, name, value)
-	label(class='col-sm-' + colspan)
+	label(class=`col-sm-${colspan}`)
 		input.form-control(type="text", id=name, name=name, value=value || "")&attributes(attributes)
 		span=label
 mixin form-number(colspan, label, name, value, min, max)
-	label(class='col-sm-' + colspan)
+	label(class=`col-sm-${colspan}`)
 		input.form-control(type="number", id=name, name=name, value=value || "", min=min, max=max)&attributes(attributes)
 		span=label
 mixin form-textarea(colspan, label, name, value, rows)
-	label(class='col-sm-' + colspan)
+	label(class=`col-sm-${colspan}`)
 		textarea.form-control.input-sm(id=name, name=name, rows=rows)&attributes(attributes)=value || ""
 		span=label

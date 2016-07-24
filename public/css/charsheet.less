@@ -1,4 +1,12 @@
 #charsheet {
+    /* Tab Navigation */
+    [data-page] {
+        display:none;
+        &.active-page {
+            display:initial;
+        }
+    }
+    
     margin-bottom: 0px;
     header::after {
         clear: both;

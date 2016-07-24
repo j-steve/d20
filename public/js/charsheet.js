@@ -1,16 +1,36 @@
-
 /* global jQuery */
 
 (function($) {
     "use strict";
     
+    /**
+     * Tab Navigation
+     */ 
+    $('.nav-tabs li').on('click', function() {
+        $('.nav-tabs .active').removeClass('active');
+        $(this).addClass('active');
+        let hash = $(this).find('a').prop('href');
+        hash = hash.substr(hash.indexOf('#') + 1);
+        $('[data-page].active-page').removeClass('active-page');
+        $(`[data-page="${hash}"]`).addClass('active-page');
+    });
+    if (!window.location.hash) {
+        window.location = $('.nav-tabs li a').first().trigger('click').prop('href');
+    } else {
+         $(`.nav-tabs li a[href="${window.location.hash}"]`).trigger('click');
+    }
+    
+    
+    /**
+     * Character Sheet Abilities
+     */ 
     $('[data-ability]').on('abilityUpdate', function(e, abilityModifier) {
-        const $skill = $(this).parents('.skill');
-        if ($skill.length) {
+        const $skillProf = $(this).parents('.skill').find(':checkbox');
+        if ($skillProf.length) {
             if (abilityModifier == null) {abilityModifier = $(this).data('abilityModifier');}
             else {$(this).data('abilityModifier', abilityModifier);}
             const profBonus = +$('input[name=profBonus]').val();
-            abilityModifier += $(this).parents('.skill').find(':checkbox').prop('checked') * profBonus;
+            abilityModifier += $skillProf.prop('checked') * profBonus;
         } else {
             abilityModifier += +$(this).data('baseval') || 0;
         }
