@@ -19,7 +19,7 @@ block content
 				label.col-sm-2
 					select(id="charClass", name="charClass").form-control
 						each charClass in CharClasses
-							option(data-basehp=charClass.baseHP, data-savingthrows=charClass.savingThrows.join(','))=charClass.name
+							option(data-basehp=charClass.baseHP, data-savingthrows=charClass.savingThrows.join(','), data-spellcastability=charClass.spellcastAbility)=charClass.name
 					span="Class"
 				+form-number(1, "Level", "charLevel", 1, 1, 20)
 				+form-text(2, "Background", "background", "Archivist")
@@ -35,7 +35,7 @@ block content
 								li.ability
 									label.center-block
 										span=ability
-										input(type="number", name=ability, value="10").form-control.center-block.input-lg(min=8, max=20)
+										input(type="number", id=ability.substr(0, 3).toUpperCase(), name=ability, value="10").form-control.center-block.input-lg(min=8, max=20)
 									output.center-block.ability-modifier="0"
 					.col-sm-7
 						+fieldset-singleton("Proficiency Bonus", "profBonus", "+2")
@@ -103,8 +103,8 @@ block content
 			header.label-below
 				.col-sm-3
 				+form-text(2, "Spellcasting Ability", "spellcastAbility").input-lg
-				+form-number(2, "Spell Save DC", "spellSaveDC").input-lg
-				+form-text(2, "Spell Attack Bonus", "spellAttackBonus").input-lg
+				+form-number(2, "Spell Save DC", "spellSaveDC").input-lg(data-ability=true, data-profBonus=true, data-baseval="8")
+				+form-text(2, "Spell Attack Bonus", "spellAttackBonus").input-lg(data-ability=true, data-profBonus=true)
 				.col-sm-3
 
 

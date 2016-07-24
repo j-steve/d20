@@ -22,9 +22,11 @@ class DDClass {
 	}
 	
     
-    attrs(baseHP, savingThrows) {
+    
+    attrs(baseHP, savingThrows, spellcastAbility) {
     	this.baseHP = baseHP;
     	this.savingThrows = savingThrows;
+    	this.spellcastAbility = spellcastAbility;
     	return this;
     }
 }

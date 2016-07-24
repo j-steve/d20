@@ -29,21 +29,31 @@
         if ($skillProf.length) {
             if (abilityModifier == null) {abilityModifier = $(this).data('abilityModifier');}
             else {$(this).data('abilityModifier', abilityModifier);}
-            const profBonus = +$('input[name=profBonus]').val();
+            const profBonus = +$('#profBonus').val();
             abilityModifier += $skillProf.prop('checked') * profBonus;
         } else {
             abilityModifier += +$(this).data('baseval') || 0;
+            if ($(this).is('[data-profBonus]')) {
+                abilityModifier += +$('#profBonus').val();
+            }
         }
         if (!$(this).is('[type=number]')) {abilityModifier = withPlusSign(abilityModifier);}
         $(this).val(abilityModifier);
     });
     
     $('#charClass').on('change init', function() {
-        const savingThrows = $('#charClass').find(':selected').data('savingthrows').split(',');
+        const $charClass =  $('#charClass').find(':selected');
+        const savingThrows = $charClass.data('savingthrows').split(',');
         $(`[id^=prof-save-]`).prop('checked', false);
         for (let savingThrow of savingThrows) {
             $('#prof-save-' + savingThrow.toLowerCase()).prop('checked', true);
         }
+        const spellcastAbility = $charClass.data('spellcastability');
+        $('#spellcastAbility').val(spellcastAbility);
+        
+        const $ability = $('#' + spellcastAbility);
+        $('#spellAttackBonus, #spellSaveDC').attr('data-ability', $ability.prop('name'))
+        $ability.trigger('change');
     });
     
     $('#charClass,#charLevel').on('change init', function() {
