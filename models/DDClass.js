@@ -20,15 +20,6 @@ class DDClass {
 		this.decisions[this.decisions.length-1].options.push({name, description});
 		return this;
 	}
-	
-    
-    
-    attrs(baseHP, savingThrows, spellcastAbility) {
-    	this.baseHP = baseHP;
-    	this.savingThrows = savingThrows;
-    	this.spellcastAbility = spellcastAbility;
-    	return this;
-    }
 }
 
 module.exports = DDClass;

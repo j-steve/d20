@@ -28,7 +28,16 @@ block content
 				+form-number(1, "Level", "charLevel", 1, 20, 1)
 				+form-text(2, "Background", "background", "Archivist")
 				+form-text(2, "Player", "playerName", "Steve")
-				+form-text(3, "Race", "race", "Forest Gnome")
+				label.col-sm-3
+					select(id="charRace", name="charRace").form-control
+						each race in CharRaces
+							if race.subraces.length
+								optgroup(label=race.name)
+									each subrace in race.subraces
+										option=subrace.name
+							else
+								option(selected=race.name==="Human")=race.name
+					span="Race"
 				label.col-sm-3
 					select(id="alignment", name="alignment").form-control
 						each alignment in Alignments

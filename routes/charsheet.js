@@ -3,6 +3,7 @@
 const router = require('express').Router();
 const Skill = require('../models/Skill');
 const CharClass = require('../models/CharClass');
+const CharRace = require('../models/CharRace');
 const File = require('si-file');
 
 router.post('/:charID?', function(req, res, next) {
@@ -33,6 +34,7 @@ router.all('/:charID?', function(req, res, next) {
         'CHA': ['Deception', 'Intimidation', 'Performance', 'Persuasion']
     });
     res.locals.CharClasses = CharClass.ALL;
+    res.locals.CharRaces = CharRace.ALL;
     res.locals.Alignments = ['Lawful Good', 'Neutral Good', 'Chaotic Good', 'Lawful Neutral', 'True Neutral', 'Chaotic Neutral', 'Lawful Evil', 'Neutral Evil', 'Chaotic Evil'];
 	res.render('charsheet');
 });
