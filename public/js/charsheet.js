@@ -21,11 +21,15 @@
     }
     
     /**
-     * Saving 
+     * Saving & Loading
      */
     $('input,textarea,select').on('change', function() {
         $('#save-panel').show();
     });
+    
+    for (let key of Object.keys(CHAR_DATA)) { /* global CHAR_DATA */
+       $('#' + key).val(CHAR_DATA[key]); 
+    };
     
     /**
      * Character Sheet Abilities

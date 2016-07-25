@@ -4,6 +4,8 @@ block styles
 	link(rel='stylesheet', href='/css/charsheet.css')
 
 append scripts
+	script.
+		var CHAR_DATA = !{charData}
 	script(src="/js/charsheet.js")
 	
 block content
@@ -38,20 +40,22 @@ block content
 					.col-sm-5
 						ul.list-unstyled
 							for ability in abilities
+								-var abilityID = ability.substr(0, 3).toUpperCase();
 								li.ability
 									label.center-block
 										span=ability
-										input(type="number", id=ability.substr(0, 3).toUpperCase(), name=ability, value="10").form-control.center-block.input-lg(min=8, max=20)
+										input(type="number", id=abilityID, name=abilityID, value="10").form-control.center-block.input-lg(min=8, max=20)
 									output.center-block.ability-modifier="0"
 					.col-sm-7
 						+fieldset-singleton("Proficiency Bonus", "profBonus", "+2")
 						fieldset
 							ul.list-unstyled
 								for savingThrow in savingThrows
-									-var profName = "prof-save-"+savingThrow.slice(0, 3).toLowerCase();
+									-var abilityID = savingThrow.slice(0, 3).toUpperCase();
+									-var profName = "prof-save-" + abilityID.toLowerCase();
 									li.row.skill
 										.col-xs-1.col-md-1: input(type="checkbox", id=profName, name=profName)
-										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=savingThrow).form-control
+										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=abilityID).form-control
 										.col-xs-8.col-md-8: label(for=profName)=savingThrow
 							legend Saving Throws
 						fieldset
@@ -63,19 +67,19 @@ block content
 										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=skill.ability).form-control
 										.col-xs-8.col-md-8: label(for=profName)=savingThrow
 											|#{skill.name}
-											span.skill-ability=skill.ability.substr(0, 3)
+											span.skill-ability=skill.ability
 							legend Skills
-						+fieldset-singleton("Passive Perception", "passivePercep", "+2")(data-ability='Wisdom', data-baseval='10')
+						+fieldset-singleton("Passive Perception", "passivePercep", "+2")(data-ability='WIS', data-baseval='10')
 				.row.label-below
 					+form-textarea(12, "Other Proficiencies & Languages", "miscSkills", "", 13)
 			.col-sm-9
 				.row.label-below
 					.col-sm-6
-						+form-number(4, "Armor Class", "armorClass", 10)(data-ability='Dexterity', data-baseval='10')
-						+form-text(4, "Initiative", "initiative")(data-ability='Dexterity', data-baseval='0')
+						+form-number(4, "Armor Class", "armorClass", 10)(data-ability='DEX', data-baseval='10')
+						+form-text(4, "Initiative", "initiative")(data-ability='DEX', data-baseval='0')
 						+form-number(4, "Speed", "speed", 30, 0)
-						+form-number(4, "Current HP", "currentHP", 8, 0)(data-ability='Constitution', data-baseval='8', data-hp=true)
-						+form-number(4, "Max HP", "maxHP", 8, 0)(data-ability='Constitution', data-baseval='8', data-hp=true)
+						+form-number(4, "Current HP", "currentHP", 8, 0)(data-ability='CON', data-baseval='8', data-hp=true)
+						+form-number(4, "Max HP", "maxHP", 8, 0)(data-ability='CON', data-baseval='8', data-hp=true)
 						+form-number(4, "Temp HP", "tempHP", 0, 0)
 						+form-textarea(12, "Attacks", "attacks", "", 15)
 						+form-textarea(12, "Equipment", "equipment", "", 35)
