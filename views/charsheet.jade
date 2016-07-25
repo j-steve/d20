@@ -9,11 +9,13 @@ append scripts
 block content
 	.container: .row.panel.panel-default#charsheet
 		.panel-header
-				ul.nav.nav-tabs
-					li(role="presentation"): a(href="#BasicInfo")="Basic Info"
-					li(role="presentation"): a(href="#CharDetails")="Character Details"
-					li(role="presentation"): a(href="#Spells")="Spells"
-		.panel-body(data-page="BasicInfo")
+			ul.nav.nav-tabs
+				li(role="presentation"): a(href="#BasicInfo")="Basic Info"
+				li(role="presentation"): a(href="#CharDetails")="Character Details"
+				li(role="presentation"): a(href="#Spells")="Spells"
+		form.panel-body(method="POST", data-page="BasicInfo")
+			#save-panel
+				input(type="submit", value="Save Changes").btn.btn-success.btn-lg.center-block
 			header.label-below
 				+form-text(5, "Character Name", "charName", "Qaldrin Tomeguard").input-lg
 				label.col-sm-2
@@ -128,4 +130,4 @@ mixin form-number(colspan, label, name, value, min, max)
 mixin form-textarea(colspan, label, name, value, rows)
 	label(class=`col-sm-${colspan}`)
 		textarea.form-control.input-sm(id=name, name=name, rows=rows)&attributes(attributes)=value || ""
-		span=label
+		span=label	

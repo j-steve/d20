@@ -1,17 +1,13 @@
 #charsheet {
     /* Tab Navigation */
     [data-page] {
-        display:none;
+        display: none;
         &.active-page {
-            display:initial;
+            display: initial;
         }
     }
-    
     margin-bottom: 0px;
-    header::after {
-        clear: both;
-        content: "";
-        display: block;
+    header {
         margin-bottom: 20px;
     }
     .label-below label {
@@ -54,7 +50,7 @@
     }
     .skill {
         font-size: small;
-        margin-bottom:2px;
+        margin-bottom: 2px;
         input[type=text] {
             padding: 2px 4px;
             text-align: center;
@@ -63,7 +59,7 @@
             height: 25px;
         }
         label {
-            float:left;
+            float: left;
             margin-bottom: -10px;
             line-height: 12px;
             font-weight: normal;
@@ -88,4 +84,17 @@
         padding-left: 5px;
         padding-right: 5px;
     }
+}
+
+#save-panel {
+    display: none;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    z-index: 99;
+    background: yellow;
+    background: #373737;
+    border-top: 1px solid black;
+    padding: 5px;
 }

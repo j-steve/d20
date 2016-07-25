@@ -1,8 +1,18 @@
-var router = require('express').Router();
-var Skill = require('../models/Skill');
-var CharClass = require('../models/CharClass');
+"use strict";
+const router = require('express').Router();
+const Skill = require('../models/Skill');
+const CharClass = require('../models/CharClass');
+const Crypto = require('crypto');
+const File = require('si-file');
 
-router.get('/', function(req, res, next) {
+router.post('/:charID?', function(req, res, next) {
+    if (!req.params.charID) {
+        const charID = Crypto.randomBytes(2).toString('hex');
+        res.redirect(req.originalUrl + '/' + charID);
+    }
+});
+
+router.all('/:charID?', function(req, res, next) {
     res.locals.abilities = ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma'];
     res.locals.savingThrows = ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma'];
     res.locals.skills = Skill.populate({

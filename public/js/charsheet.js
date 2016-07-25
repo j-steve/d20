@@ -15,11 +15,17 @@
         $(`[data-page="${hash}"]`).addClass('active-page');
     });
     if (!window.location.hash) {
-        window.location = $('.nav-tabs li a').first().trigger('click').prop('href');
+        $('.nav-tabs li a').first().trigger('click');
     } else {
          $(`.nav-tabs li a[href="${window.location.hash}"]`).trigger('click');
     }
     
+    /**
+     * Saving 
+     */
+    $('input,textarea,select').on('change', function() {
+        $('#save-panel').show();
+    });
     
     /**
      * Character Sheet Abilities
