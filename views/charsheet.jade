@@ -9,7 +9,7 @@ append scripts
 	script(src="/js/charsheet.js")
 	
 block content
-	form.container: .row.panel.panel-default#charsheet
+	form(method="POST").container: .row.panel.panel-default#charsheet
 		#save-panel
 			input(type="submit", value="Save Changes").btn.btn-success.btn-lg.center-block
 		.panel-header
@@ -17,7 +17,7 @@ block content
 				li(role="presentation"): a(href="#BasicInfo")="Basic Info"
 				li(role="presentation"): a(href="#CharDetails")="Character Details"
 				li(role="presentation"): a(href="#Spells")="Spells"
-		.panel-body(method="POST", data-page="BasicInfo")
+		.panel-body(data-page="BasicInfo")
 			
 			header.label-below
 				+form-text(5, "Character Name", "charName", "Qaldrin Tomeguard").input-lg
@@ -76,7 +76,7 @@ block content
 			.col-sm-9
 				.row.label-below
 					.col-sm-6
-						+form-number(4, "Armor Class", "armorClass", 10)(data-ability='DEX', data-baseval='10')
+						+form-number(4, "Armor Class", "armorClass")(data-ability='DEX', data-baseval='10')
 						+form-text(4, "Initiative", "initiative")(data-ability='DEX', data-baseval='0')
 						+form-number(4, "Speed", "speed", 30, 0)
 						+form-number(4, "Current HP", "currentHP", 8, 0)(data-ability='CON', data-baseval='8', data-hp=true)
