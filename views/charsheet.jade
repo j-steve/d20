@@ -8,7 +8,7 @@ append scripts
 	script(src="/js/charsheet.js")
 	
 block content
-	form(method="POST").container: .row.panel.panel-default#charsheet
+	form(method="POST")#charsheet.container: .row.panel.panel-default
 		#save-panel
 			input(type="submit", value="Save Changes").btn.btn-success.btn-lg.center-block
 		.panel-header
@@ -25,7 +25,7 @@ block content
 						each charClass in CharClasses
 							option(data-basehp=charClass.baseHP, data-savingthrows=charClass.savingThrows.join(','), data-spellcastability=charClass.spellcastAbility)=charClass.name
 					span="Class"
-				+form-number(1, "Level", "charLevel", 1, 1, 20)
+				+form-number(1, "Level", "charLevel", 1, 20, 1)
 				+form-text(2, "Background", "background", "Archivist")
 				+form-text(2, "Player", "playerName", "Steve")
 				+form-text(3, "Race", "race", "Forest Gnome")
@@ -34,7 +34,7 @@ block content
 						each alignment in Alignments
 							option=alignment
 					span="Alignment"
-				+form-number(1, "XP", "xp", 0, 0)
+				+form-number(1, "XP", "xp", 0)
 			.col-sm-3
 				.row
 					.col-sm-5
@@ -44,8 +44,8 @@ block content
 								li.ability
 									label.center-block
 										span=ability
-										input(type="number", id=abilityID, name=abilityID, value="10").form-control.center-block.input-lg(min=8, max=20)
-									output.center-block.ability-modifier="0"
+										input(type="number", id=abilityID, name=abilityID, value="10", min=8, max=20).form-control.center-block.input-lg
+									output.center-block.ability-modifier(data-ability=abilityID)
 					.col-sm-7
 						+fieldset-singleton("Proficiency Bonus", "profBonus", "+2")
 						fieldset
@@ -77,10 +77,10 @@ block content
 					.col-sm-6
 						+form-number(4, "Armor Class", "armorClass")(data-ability='DEX', data-baseval='10')
 						+form-text(4, "Initiative", "initiative")(data-ability='DEX', data-baseval='0')
-						+form-number(4, "Speed", "speed", 30, 0)
-						+form-number(4, "Current HP", "currentHP", 8, 0)(data-ability='CON', data-baseval='8', data-hp=true)
-						+form-number(4, "Max HP", "maxHP", 8, 0)(data-ability='CON', data-baseval='8', data-hp=true)
-						+form-number(4, "Temp HP", "tempHP", 0, 0)
+						+form-number(4, "Speed", "speed", 0, null, 30)
+						+form-number(4, "Current HP", "currentHP", 0)(data-ability='CON', data-hp=true)
+						+form-number(4, "Max HP", "maxHP", 0)(data-ability='CON', data-hp=true)
+						+form-number(4, "Temp HP", "tempHP", 0)
 						+form-textarea(12, "Attacks", "attacks", "", 15)
 						+form-textarea(12, "Equipment", "equipment", "", 35)
 					.col-sm-6
@@ -113,8 +113,8 @@ block content
 			header.label-below
 				.col-sm-3
 				+form-text(2, "Spellcasting Ability", "spellcastAbility").input-lg
-				+form-number(2, "Spell Save DC", "spellSaveDC").input-lg(data-ability=true, data-profBonus=true, data-baseval="8")
-				+form-text(2, "Spell Attack Bonus", "spellAttackBonus").input-lg(data-ability=true, data-profBonus=true)
+				+form-number(2, "Spell Save DC", "spellSaveDC").input-lg(data-ability=true, data-profbonus="true", data-baseval="8")
+				+form-text(2, "Spell Attack Bonus", "spellAttackBonus").input-lg(data-ability=true, data-profbonus="true")
 				.col-sm-3
 
 
@@ -127,7 +127,7 @@ mixin form-text(colspan, label, name, value)
 	label(class=`col-sm-${colspan}`)
 		input.form-control(type="text", id=name, name=name, value=value || "")&attributes(attributes)
 		span=label
-mixin form-number(colspan, label, name, value, min, max)
+mixin form-number(colspan, label, name, min, max, value)
 	label(class=`col-sm-${colspan}`)
 		input.form-control(type="number", id=name, name=name, value=value || "", min=min, max=max)&attributes(attributes)
 		span=label

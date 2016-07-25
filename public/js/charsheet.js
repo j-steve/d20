@@ -1,6 +1,7 @@
 /* global jQuery */
+/* global CHAR_DATA */
 
-(function($) {
+jQuery((function($) {
     "use strict";
     
     /**
@@ -21,37 +22,35 @@
     }
     
     /**
-     * Saving & Loading
-     */
-    $('input,textarea,select').on('change', function() {
-        $('#save-panel').show();
-    });
-    
-    for (let key of Object.keys(CHAR_DATA)) { /* global CHAR_DATA */
-       $('#' + key).val(CHAR_DATA[key]); 
-    };
-    
-    /**
      * Character Sheet Abilities
      */ 
+    
+    // Proficiency Bonus
+    const $profBonus = $('#profBonus').on('keyup change', function() {
+        $('[data-ability]').trigger('abilityUpdate');
+    });
+    const $charLevel = $('#charLevel').on('change init', function() {
+        const level = +$(this).val();
+        const profBonus = level >= 17 ? 6 : level >= 13 ? 5 : level >= 9 ? 4 : level >= 5 ? 3 : 2;
+        $profBonus.val(profBonus).triggerHandler('change');
+    }).trigger('init');
+     
+    // Ability-Dependent Stats
     $('[data-ability]').on('abilityUpdate', function(e, abilityModifier) {
-        if (abilityModifier == null) {abilityModifier = $(this).data('abilityModifier');}
-        else {$(this).data('abilityModifier', abilityModifier);}
-            
-        const $skillProf = $(this).parents('.skill').find(':checkbox');
-        if ($skillProf.length) {
-            const profBonus = +$('#profBonus').val();
-            abilityModifier += $skillProf.prop('checked') * profBonus;
-        } else {
-            abilityModifier += +$(this).data('baseval') || 0;
-            if ($(this).is('[data-profBonus]')) {
-                abilityModifier += +$('#profBonus').val();
-            }
-        }
-        if (!$(this).is('[type=number]')) {abilityModifier = withPlusSign(abilityModifier);}
-        $(this).val(abilityModifier);
+        const self = $(this);
+        if (abilityModifier == null) {abilityModifier = self.data('abilityModifier');}
+        else {self.data('abilityModifier', abilityModifier);}
+        
+        abilityModifier += +self.data('baseval') || 0;
+        if (self.data('profbonus')) {abilityModifier += +$profBonus.val();}
+        
+        if (self.is('[data-hp]')) {abilityModifier *= $charLevel.val();}
+        
+        if (abilityModifier > 0 && !self.is('[type=number]')) {abilityModifier = '+' + abilityModifier;}
+        self.val(abilityModifier);
     });
     
+    // Character Classes
     $('#charClass').on('change init', function() {
         const $charClass =  $('#charClass').find(':selected');
         const savingThrows = $charClass.data('savingthrows').split(',');
@@ -65,51 +64,36 @@
         const $ability = $('#' + spellcastAbility);
         $('#spellAttackBonus, #spellSaveDC').val("").attr('data-ability', $ability.prop('name'))
         $ability.trigger('change');
-    });
-    
-    $('#charLevel').on('change init', function() {
-        const level = +$(this).val();
-        const profBonus = level >= 17 ? 6 : level >= 13 ? 5 : level >= 9 ? 4 : level >= 5 ? 3 : 2;
-        $('#profBonus').val(profBonus);
-        $('[data-ability]').trigger('abilityUpdate');
-    });
-    
-    $('#charClass,#charLevel').on('change init', function() {
-        const charLevel = +$('#charLevel').val();
-        const baseHP = +$('#charClass').find(':selected').data('basehp') * charLevel;
-        $('[data-hp]').each(function() {
-            const lastBaseHP = +$(this).data('baseval') || 0;
-            const currentVal = +$(this).val() || 0;
-            $(this).val(currentVal + baseHP - lastBaseHP);
-            $(this).data('baseval', baseHP);
-        });
+        $('[data-hp]').data('baseval', $charClass.data('basehp')).trigger('abilityUpdate');
     }).trigger('init');
-
-    $('.skill :checkbox').on('change', function() {
-        const $skill = $(this).parents('.skill').find('[data-ability]');
-        const mod = $(this).prop('checked') ? 1 : -1;
-        const valBefore = +$skill.val();
-        const profBonus = +$('input[name=profBonus]').val();
-        $skill.val(withPlusSign(valBefore + profBonus * mod));
-    });
     
-    $('input[name=profBonus]').on('keyup change', function() {
-        $('[data-ability]').trigger('abilityUpdate');
-    });
-
+    // Ability Modifiers
     $('.ability input').on('keyup change init', function() {
         var modifier = +$(this).val() - 10;
         modifier = Math.floor(modifier / 2)
-        $(this).parents('.ability').find('.ability-modifier').val(withPlusSign(modifier));
-
-        const ability = this.name;
-        $(`[data-ability=${ability}]`).trigger('abilityUpdate', modifier);
-
+        $(`[data-ability=${this.name}]`).trigger('abilityUpdate', modifier);
     }).trigger('init');
 
-    function withPlusSign(number) {
-        const prefix = (number > 0) ? '+' : '';
-        return prefix + number;
-    }
+    // Skill Proficiencies
+    $('.skill :checkbox').on('change init', function() {
+        const isChecked = $(this).is(':checked')
+        $(this).parents('.skill').find('[data-ability]').data('profbonus', isChecked).trigger('abilityUpdate');
+    }).trigger('init');
     
-})(jQuery);
+    /**
+     * Saving & Loading
+     */
+    const $allInputs = $('#charsheet').find('input,textarea,select');
+    $allInputs.each(function() {
+        const savedValue = CHAR_DATA[this.name];
+        if (savedValue) {$(this).val(savedValue);}
+        $(this).data('initialValue', $(this).val());
+    });
+    $allInputs.on('change', function() {
+        const $changed = $allInputs.filter(function() {
+            return $(this).val() !== $(this).data('initialValue');
+        });
+        $('#save-panel').toggle($changed.length > 0);
+    });
+    
+}).bind(null, jQuery));
