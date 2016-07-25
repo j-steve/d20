@@ -9,6 +9,8 @@ append scripts
 	script(src="/js/charsheet.js")
 	
 block content
+	#save-panel
+		input(type="submit", value="Save Changes").btn.btn-success.btn-lg.center-block
 	.container: .row.panel.panel-default#charsheet
 		.panel-header
 			ul.nav.nav-tabs
@@ -16,8 +18,7 @@ block content
 				li(role="presentation"): a(href="#CharDetails")="Character Details"
 				li(role="presentation"): a(href="#Spells")="Spells"
 		form.panel-body(method="POST", data-page="BasicInfo")
-			#save-panel
-				input(type="submit", value="Save Changes").btn.btn-success.btn-lg.center-block
+			
 			header.label-below
 				+form-text(5, "Character Name", "charName", "Qaldrin Tomeguard").input-lg
 				label.col-sm-2
