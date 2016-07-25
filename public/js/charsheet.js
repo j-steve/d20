@@ -36,42 +36,47 @@ jQuery((function($) {
     }).trigger('init');
      
     // Ability-Dependent Stats
-    $('[data-ability]').on('abilityUpdate', function(e, abilityModifier) {
+    $('[data-ability]').on('abilityUpdate', function() {
         const self = $(this);
-        if (abilityModifier == null) {abilityModifier = self.data('abilityModifier');}
-        else {self.data('abilityModifier', abilityModifier);}
+        let value = self.data('abilitymdifier') || 0;
         
-        abilityModifier += +self.data('baseval') || 0;
-        if (self.data('profbonus')) {abilityModifier += +$profBonus.val();}
+        value += +self.data('baseval') || 0;
+        if (self.data('profbonus')) {value += +$profBonus.val();}
         
-        if (self.is('[data-hp]')) {abilityModifier *= $charLevel.val();}
+        if (self.is('[data-hp]')) {value *= $charLevel.val();}
         
-        if (abilityModifier > 0 && !self.is('[type=number]')) {abilityModifier = '+' + abilityModifier;}
-        self.val(abilityModifier);
+        if (value > 0 && !self.is('[type=number]')) {value = '+' + value;}
+        self.val(value);
     });
     
     // Character Classes
     $('#charClass').on('change init', function() {
         const $charClass =  $('#charClass').find(':selected');
+        
+        // Update saving throws;
         const savingThrows = $charClass.data('savingthrows').split(',');
-        $(`[id^=prof-save-]`).prop('checked', false);
+        $(`[id^=prof-save-]`).prop('checked', false).trigger('change')
         for (let savingThrow of savingThrows) {
-            $('#prof-save-' + savingThrow.toLowerCase()).prop('checked', true);
+            $('#prof-save-' + savingThrow.toLowerCase()).prop('checked', true).trigger('change')
         }
+        
+        // Update spellcast abilities
         const spellcastAbility = $charClass.data('spellcastability');
         $('#spellcastAbility').val(spellcastAbility);
-        
         const $ability = $('#' + spellcastAbility);
         $('#spellAttackBonus, #spellSaveDC').val("").attr('data-ability', $ability.prop('name'))
         $ability.trigger('change');
+        
+        // Update hitpoint abilities.
         $('[data-hp]').data('baseval', $charClass.data('basehp')).trigger('abilityUpdate');
+        
     }).trigger('init');
     
     // Ability Modifiers
     $('.ability input').on('keyup change init', function() {
         var modifier = +$(this).val() - 10;
         modifier = Math.floor(modifier / 2)
-        $(`[data-ability=${this.name}]`).trigger('abilityUpdate', modifier);
+        $(`[data-ability=${this.name}]`).data('abilitymdifier', modifier).trigger('abilityUpdate');
     }).trigger('init');
 
     // Skill Proficiencies
