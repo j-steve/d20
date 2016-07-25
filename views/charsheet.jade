@@ -9,15 +9,15 @@ append scripts
 	script(src="/js/charsheet.js")
 	
 block content
-	#save-panel
-		input(type="submit", value="Save Changes").btn.btn-success.btn-lg.center-block
-	.container: .row.panel.panel-default#charsheet
+	form.container: .row.panel.panel-default#charsheet
+		#save-panel
+			input(type="submit", value="Save Changes").btn.btn-success.btn-lg.center-block
 		.panel-header
 			ul.nav.nav-tabs
 				li(role="presentation"): a(href="#BasicInfo")="Basic Info"
 				li(role="presentation"): a(href="#CharDetails")="Character Details"
 				li(role="presentation"): a(href="#Spells")="Spells"
-		form.panel-body(method="POST", data-page="BasicInfo")
+		.panel-body(method="POST", data-page="BasicInfo")
 			
 			header.label-below
 				+form-text(5, "Character Name", "charName", "Qaldrin Tomeguard").input-lg
