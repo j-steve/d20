@@ -1,13 +1,16 @@
-var router = require('express').Router();
-var CharRace = require ('../../models/CharRace');
+"use strict";
+const router = require('express').Router();
+const CharRace = require('../../models/CharRace');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.locals.ddclasses = CharRace.ALL;
-	res.locals.title = 'Race';
-	res.locals.nextPage = '/char/class';
-	res.locals.query = req.query
-	res.render('choose');
+	res.render('choose', {
+		title: 'Race',
+		formField: 'charRace',
+		ddclasses: CharRace.ALL,
+		nextPage: '/char/class',
+		query: req.query
+	});
 });
 
 module.exports = router;

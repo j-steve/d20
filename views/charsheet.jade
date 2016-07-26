@@ -26,8 +26,8 @@ block content
 							option(data-basehp=charClass.baseHP, data-savingthrows=charClass.savingThrows.join(','), data-spellcastability=charClass.spellcastAbility)=charClass.name
 					span="Class"
 				+form-number(1, "Level", "charLevel", 1, 20, 1)
-				+form-text(2, "Background", "background", "Archivist")
-				+form-text(2, "Player", "playerName", "Steve")
+				+form-text(2, "Background", "background")
+				+form-text(2, "Player", "playerName")
 				label.col-sm-3
 					select(id="charRace", name="charRace").form-control
 						each race in CharRaces
@@ -80,7 +80,7 @@ block content
 							legend Skills
 						+fieldset-singleton("Passive Perception", "passivePercep", "+2")(data-ability='WIS', data-baseval='10')
 				.row.label-below
-					+form-textarea(12, "Other Proficiencies & Languages", "miscSkills", "", 13)
+					+form-textarea(12, "Other Proficiencies & Languages", "miscSkills", 13)
 			.col-sm-9
 				.row.label-below
 					.col-sm-6
@@ -90,17 +90,17 @@ block content
 						+form-number(4, "Current HP", "currentHP", 0)(data-ability='CON', data-hp=true)
 						+form-number(4, "Max HP", "maxHP", 0)(data-ability='CON', data-hp=true)
 						+form-number(4, "Temp HP", "tempHP", 0)
-						+form-textarea(12, "Attacks", "attacks", "", 15)
-						+form-textarea(12, "Equipment", "equipment", "", 35)
+						+form-textarea(12, "Attacks", "attacks", 15)
+						+form-textarea(12, "Equipment", "equipment", 35)
 					.col-sm-6
-						+form-textarea(12, "Personality Traits", "personalityTraits", "I've read books", 5)
-						+form-textarea(12, "Ideals", "ideals", "Knowledge: The path to power", 5)
-						+form-textarea(12, "Bonds", "bonds", "My Bonds", 5)
-						+form-textarea(12, "Flaws", "flaws", "My Flaws", 5)
-						+form-textarea(12, "Features & Traits", "features", "", 30)
+						+form-textarea(12, "Personality Traits", "personalityTraits", 5)
+						+form-textarea(12, "Ideals", "ideals", 5)
+						+form-textarea(12, "Bonds", "bonds", 5)
+						+form-textarea(12, "Flaws", "flaws", 5)
+						+form-textarea(12, "Features & Traits", "features",  30)
 		.panel-body(data-page="CharDetails")
 			header.label-below
-				+form-text(5, "Character Name", "charName2", "Qaldrin Tomeguard").input-lg
+				+form-text(5, "Character Name", "charName2").input-lg
 				//+form-number(2, "Age", "charAge", null, 1)
 				.col-sm-1
 				label.col-sm-2
@@ -140,7 +140,7 @@ mixin form-number(colspan, label, name, min, max, value)
 	label(class=`col-sm-${colspan}`)
 		input.form-control(type="number", id=name, name=name, value=value || "", min=min, max=max)&attributes(attributes)
 		span=label
-mixin form-textarea(colspan, label, name, value, rows)
+mixin form-textarea(colspan, label, name, rows)
 	label(class=`col-sm-${colspan}`)
 		textarea.form-control.input-sm(id=name, name=name, rows=rows)&attributes(attributes)=value || ""
 		span=label	

@@ -1,10 +1,11 @@
-var router = require('express').Router();
-var url = require('url');
-var DDClass = require ('../../models/DDClass');
+"use strict";
+const router = require('express').Router();
+const DDClass = require('../../models/DDClass');
+const Skill = require('../../models/Skill');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.locals.ddclasses = [
+	const BACKGROUNDS = [
 		new DDClass('Acolyte', 'http://1.bp.blogspot.com/-sHNLXhEVEYs/VJHDEhKFMcI/AAAAAAAABYc/2DOUmxXzvhM/s1600/PZO8500-DeaganCallimedes.jpg', 'You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine.'),
 		new DDClass('Charlatan', '/img/backgrounds/charlatan.png', 'You have always had a way with people. You know what makes them tick, you can tease out their hearts\' desires after a few minutes of conversation, and with a few leading questions you can read them like a book. It\'s a useful talent, and one that you\'re perfectly willing to use for your advantage. Common sense should steer people away, but you make it sound like the real deal.'), //http://files.meetup.com/252197/Trader.jpg
 		new DDClass('Criminal', '/img/backgrounds/criminal.png', 'You are an experienced criminal with a history of breaking the law. You have spent a lot of time among other criminals and still have contacts within the criminal underworld. You’re far closer than most people to the world of murder, theft, and violence that pervades the underbelly of civilization, and you have survived up to this point by flouting the rules of society.'),
@@ -17,12 +18,17 @@ router.get('/', function(req, res, next) {
 		new DDClass('Sage', '/img/backgrounds/sage.png', 'You spent years learning the lore of the multiverse. You scoured manuscripts, studied scrolls, and listened to the greatest experts on the subjects that interest you. Your efforts have made you a master in your fields of study.'), //https://s-media-cache-ak0.pinimg.com/736x/b5/2f/5e/b52f5ef08fded7f696f7cf0d0cb07026.jpg
 		new DDClass('Sailor', '/img/backgrounds/sailor.png', 'You sailed on a seagoing vessel for years. In that time, you faced down mighty storms, monsters of the deep, and those w ho wanted to sink your craft to the bottom less depths. Your first love is the distant line of the horizon, but the time has come to try your hand at something new.'),
 		new DDClass('Soldier', 'https://s-media-cache-ak0.pinimg.com/236x/82/ca/04/82ca04a43d67d80635805b8afabf334c.jpg', 'War has been your life for as long as you care to remember. You trained as a youth, studied the use of weapons and armor, learned basic survival techniques, including how to stay alive on the battlefield. You might have been part of a standing national army or a mercenary company, or perhaps a member of a local militia who rose to prominence during a recent war.'), //http://images2.wikia.nocookie.net/__cb20111202143725/assassinscreed/images/9/96/ACR_Soldier_Art_HD.png
-		new DDClass('Urchin', 'http://66.media.tumblr.com/24f0d2bb4eba69d9d0b972e45de1d6cd/tumblr_nu8c62VkND1ufp1n9o1_500.jpg', 'You grew up on the streets alone, orphaned, and poor, so you learned to provide for yourself. You fought fiercely over food and kept a constant watch out for other desperate souls who might steal from you. You slept on rooftops and in alleyways, exposed to the elements. You’ve survived despite all odds, and did so through cunning, strength, speed, or some combination of each.')
+		new DDClass('Urchin', 'http://66.media.tumblr.com/24f0d2bb4eba69d9d0b972e45de1d6cd/tumblr_nu8c62VkND1ufp1n9o1_500.jpg', 'You grew up on the streets alone, orphaned, and poor, so you learned to provide for yourself. You fought fiercely over food and kept a constant watch out for other desperate souls who might steal from you. You slept on rooftops and in alleyways, exposed to the elements. You’ve survived despite all odds, and did so through cunning, strength, speed, or some combination of each.'),
+		new DDClass('Custom', 'https://upload.wikimedia.org/wikipedia/commons/3/37/No_person.jpg', 'If none of the background archetypes are appropriate you may create a custom background with its own set of skills.')
+			.decide('Skills', 2, Skill.ALL.map(x => x.name))
 	];
-	res.locals.title = 'Background'
-	res.locals.nextPage = '/inventory'
-	res.locals.query = req.query
-	res.render('choose');
+	res.render('choose', {
+		title: 'Background',
+		formField: 'background',
+		ddclasses: BACKGROUNDS,
+		nextPage: '/char/finish',
+		query: req.query
+	});
 });
 
 module.exports = router;

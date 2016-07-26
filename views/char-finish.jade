@@ -1,0 +1,10 @@
+extends ./layout
+
+block content
+	form(method="POST", action="/charsheet").container
+		.submit-blur
+		h2.page-title Select Attributes
+			each vals, key in query
+				each val in [].concat(vals || [])
+					input(type="hidden", name=key, value=val)
+		input(type="submit", value="Finish >")

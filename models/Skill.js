@@ -7,7 +7,7 @@ Skill.ALL = populateSkills({
     'STR': ['Athletics'],
     'DEX': ['Acrobatics', 'Sleight of Hand', 'Stealth'],
     'CON': [],
-    'INT': ['Arcana', 'History', 'Investigation', 'Nature', 'Religon'],
+    'INT': ['Arcana', 'History', 'Investigation', 'Nature', 'Religion'],
     'WIS': ['Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival'],
     'CHA': ['Deception', 'Intimidation', 'Performance', 'Persuasion']
 });
