@@ -9,15 +9,20 @@ class DDClass {
 		this.decisions = [];
 	}
 	
-	decide(name, count, paramName) {
+	decide(name, count, paramName, options) {
 	    if (count == null) {count = 1;}
 	    if (paramName == null) {paramName = name.toLowerCase();}
-		this.decisions.push({name, count, paramName, options: []});
+	    if (options == null) {options = [];} 
+	    else if (options.length && typeof options[1] === 'string') {
+	    	options = options.map(x => ({name:x}));
+	    }
+		this.decisions.push({name, count, paramName, options});
 		return this;
 	}
 	
 	of(name, description) {
-		this.decisions[this.decisions.length-1].options.push({name, description});
+		const lastDecision = this.decisions[this.decisions.length-1];
+		lastDecision.options.push({name, description});
 		return this;
 	}
 }

@@ -3,7 +3,16 @@ function Skill(name, ability) {
     this.ability = ability;
 }
 
-Skill.populate = function(data) {
+Skill.ALL = populateSkills({
+    'STR': ['Athletics'],
+    'DEX': ['Acrobatics', 'Sleight of Hand', 'Stealth'],
+    'CON': [],
+    'INT': ['Arcana', 'History', 'Investigation', 'Nature', 'Religon'],
+    'WIS': ['Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival'],
+    'CHA': ['Deception', 'Intimidation', 'Performance', 'Persuasion']
+});
+
+function populateSkills(data) {
     var skills = [];
     for (var abilityName of Object.keys(data)) {
         for (var skillName of data[abilityName]) {

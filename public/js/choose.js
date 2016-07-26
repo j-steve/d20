@@ -32,7 +32,11 @@
         if (!$(this).hasClass('disabled')) {
             const $modal = $(this).parents('.modal');
             $modal.modal('hide');
-            nextPage($modal);
+            if ($modal.next().length) {
+                $modal.next().modal('show');
+            } else {
+                nextPage($modal);    
+            }
         }
     });
 

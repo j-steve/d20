@@ -25,14 +25,7 @@ router.all('/:charID?', function(req, res, next) {
     
     res.locals.abilities = ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma'];
     res.locals.savingThrows = ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma'];
-    res.locals.skills = Skill.populate({
-        'STR': ['Athletics'],
-        'DEX': ['Acrobatics', 'Sleight of Hand', 'Stealth'],
-        'CON': [],
-        'INT': ['Arcana', 'History', 'Investigation', 'Nature', 'Religon'],
-        'WIS': ['Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival'],
-        'CHA': ['Deception', 'Intimidation', 'Performance', 'Persuasion']
-    });
+    res.locals.skills = Skill.ALL;
     res.locals.CharClasses = CharClass.ALL;
     res.locals.CharRaces = CharRace.ALL;
     res.locals.Alignments = ['Lawful Good', 'Neutral Good', 'Chaotic Good', 'Lawful Neutral', 'True Neutral', 'Chaotic Neutral', 'Lawful Evil', 'Neutral Evil', 'Chaotic Evil'];

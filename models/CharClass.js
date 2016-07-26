@@ -1,5 +1,6 @@
 "use strict";
 const DDClass = require('./DDClass');
+const Skill = require('./Skill');
 
 class CharClass extends DDClass {
 
@@ -15,14 +16,14 @@ class CharClass extends DDClass {
 	}
 
 }
-
 CharClass.ALL = [
 	new CharClass('Barbarian', 'http://static.fjcdn.com/pictures/How_bddcce_5492235.jpg', 'Barbarians come alive in the chaos of combat. They can enter a berserk state where rage takes over, giving them superhuman strength and resilience. A barbarian can draw on this reservoir of fury only a few times without resting, but those few rages are usually sufficient to defeat whatever threats arise.')
 		.attrs(12, ['STR', 'CON'], null)
-		.decide('Skills', 2).of('Animal Handling').of('Athletics').of('Intimidation').of('Nature').of('Perception').of('Survival'),
+		.decide('Skills', 2, null, ['Animal Handling', 'Athletics', 'Intimidation', 'Nature', 'Perception', 'Survival']),
 	new CharClass('Bard', '/img/classes/bard.png', 'The bard is a master of song, speech, and the magic they contain. The greatest strength of bards is their sheer versatility. Many bards prefer to stick to the sidelines in combat, using their magic to inspire their allies and hinder their foes from a distance. But bards are capable of defending themselves in melee if necessary, using their magic to bolster their swords and armor.')
 		.attrs(8, ['DEX', 'CHA'], 'CHA')
-		.decide('Musical Instrument Proficiencies', 3, 'instruments').of('Bagpipes').of('Drum').of('Dulcimer').of('Flute').of('Lute').of('Lyre').of('Horn').of('Pan flute').of('Shawn').of('Viol'),
+		.decide('Skills', 3, null, Skill.ALL.map(x => x.name))
+		.decide('Musical Instrument Proficiencies', 3, null, ['instruments', 'Bagpipes', 'Drum', 'Dulcimer', 'Flute', 'Lute', 'Lyre', 'Horn', 'Pan flute', 'Shawn', 'Viol']),
 	new CharClass('Cleric', 'https://cdnb3.artstation.com/p/assets/images/images/001/103/579/large/magnus-noren-dwarf-cleric1.jpg?1440110780', 'Clerics are conduits for divine power, manifesting a god\'s power as miraculous effects. A cleric might learn formulaic prayers and ancient rites, but the ability to cast cleric spells relies on devotion and an intuitive sense of thier deity’s wishes.')
 		.attrs(8, ['WIS', 'CHA'], 'WIS'),
 	new CharClass('Druid', 'http://api.ning.com/files/sOStUTCPGwuVCiYZOM1nPnqrQXAS7cj6IFcagCRfCnQqYGrFWvisxt3EThFXhp3IoAA0bNn0gf7qVcl4dLEEfR71ObSfFooS/DruidPaintedWeb.png', 'Druids revere nature above all, gaining their spells and other magical powers either from the force of nature itself or from a nature deity. Many druids pursue a mystic spirituality o f transcendent union with nature rather than devotion to a divine entity, while others serve gods of wild nature, animals, or elemental forces.')
