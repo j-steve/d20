@@ -55,9 +55,9 @@ jQuery((function($) {
         
         // Update saving throws;
         const savingThrows = $charClass.data('savingthrows').split(',');
-        $(`[id^=prof-save-]`).prop('checked', false).trigger('change')
+        const $throws = $('[name=savingThrows]').prop('checked', false).trigger('change');
         for (let savingThrow of savingThrows) {
-            $('#prof-save-' + savingThrow.toLowerCase()).prop('checked', true).trigger('change')
+            $throws.filter(`[value=${savingThrow}]`).prop('checked', true).trigger('change')
         }
         
         // Update spellcast abilities
