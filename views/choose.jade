@@ -35,8 +35,11 @@ block content
 										ul.list-group
 											for option in decision.options
 												li.list-group-item
-													h4.list-group-item-heading #{option.name}
-													p.list-group-item-text #{option.description}
+													if (decision.options.find(x => x.description))
+														h4.list-group-item-heading #{option.name}
+														p.list-group-item-text #{option.description}
+													else
+														b.list-group-item-text #{option.name}
 													input(type="checkbox", name=decision.paramName, value=option.name)
 									.modal-footer
 										button(type="button").btn.btn-primary="Continue"

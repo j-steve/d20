@@ -1,6 +1,6 @@
 /* global jQuery */
 
-(function($) {
+jQuery((function($) {
     "use strict";
 
     $('.choose-class').on('mousedown click', function() {
@@ -18,13 +18,20 @@
     $('.modal-body .list-group-item').on('click', function() {
         const $self = $(this);
         if (!$self.hasClass('disabled')) {
-            $self.toggleClass('active');
             $self.find(':checkbox').toggleProp('checked');
             const $modal = $self.parents('.modal');
             const $items = $modal.find('.list-group-item');
-            const deficitCount = $modal.data('count') - $items.filter('.active').length;
-            $items.not('.active').toggleClass('disabled', deficitCount <= 0);
-            $modal.find('.modal-footer').toggleClass('show-button', deficitCount <= 0).find('.deficitCount').text(deficitCount);
+            const reqdCount = $modal.data('count');
+            if (reqdCount === 1) {
+                $items.removeClass('active');
+                $self.addClass('active');
+                $modal.find('.modal-footer').toggleClass('show-button', true);
+            } else {
+                $self.toggleClass('active');
+                const deficitCount = reqdCount - $items.filter('.active').length;
+                $items.not('.active').toggleClass('disabled', deficitCount <= 0);
+                $modal.find('.modal-footer').toggleClass('show-button', deficitCount <= 0).find('.deficitCount').text(deficitCount);
+            }
         }
     });
 
@@ -44,4 +51,4 @@
         $target.parents('form').submit();
     }
 
-})(jQuery);
+}).bind(null, jQuery));
