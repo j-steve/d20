@@ -91,8 +91,16 @@ jQuery((function($) {
     const $allInputs = $('#charsheet').find('input,textarea,select');
     $allInputs.each(function() {
         const savedValue = CHAR_DATA[this.name];
-        if (savedValue) {$(this).val(savedValue);}
-        $(this).data('initialValue', $(this).val());
+        if ($(this).is(':checkbox,:radio')) { 
+            if (savedValue) {
+                const checkVal = $(this).val();
+                $(this).prop('checked', savedValue.includes(checkVal)).trigger('change');
+            }
+            $(this).data('initialValue', $(this).prop('checked'));
+        } else {
+            if (savedValue) {$(this).val(savedValue);}
+            $(this).data('initialValue', $(this).val());
+        }
     });
     $allInputs.on('change', function() {
         const $changed = $allInputs.filter(function() {

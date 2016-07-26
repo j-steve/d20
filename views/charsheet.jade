@@ -72,7 +72,7 @@ block content
 								for skill in skills
 									-var profName = "prof-skill-"+skill.name;
 									li.row.skill
-										.col-xs-1.col-md-1: input(type="checkbox", id=profName, name=profName)
+										.col-xs-1.col-md-1: input(type="checkbox", id=profName, name='skills', value=skill.name)
 										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=skill.ability).form-control
 										.col-xs-8.col-md-8: label(for=profName)=savingThrow
 											|#{skill.name}

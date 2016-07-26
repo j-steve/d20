@@ -24,7 +24,7 @@ CharClass.ALL = [
 		.decide('Skills', 2, ['Animal Handling', 'Athletics', 'Intimidation', 'Nature', 'Perception', 'Survival']),
 	new CharClass('Bard', '/img/classes/bard.png', 'The bard is a master of song, speech, and the magic they contain. The greatest strength of bards is their sheer versatility. Many bards prefer to stick to the sidelines in combat, using their magic to inspire their allies and hinder their foes from a distance. But bards are capable of defending themselves in melee if necessary, using their magic to bolster their swords and armor.')
 		.attrs(8, ['DEX', 'CHA'], 'CHA')
-		.decide('Skills', 3, Skill.ALL.map(x => x.name))
+		.decide('Skills', 3, Skill.ALL)
 		.decide('Musical Instrument Skills', 3, INSTRUMENTS).alias('instrumentSkills'),
 	new CharClass('Cleric', 'https://cdnb3.artstation.com/p/assets/images/images/001/103/579/large/magnus-noren-dwarf-cleric1.jpg?1440110780', 'Clerics are conduits for divine power, manifesting a god\'s power as miraculous effects. A cleric might learn formulaic prayers and ancient rites, but the ability to cast cleric spells relies on devotion and an intuitive sense of thier deity’s wishes.')
 		.attrs(8, ['WIS', 'CHA'], 'WIS')
