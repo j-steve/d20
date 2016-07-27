@@ -9,6 +9,11 @@ class DDClass {
 		this.decisions = [];
 	}
 	
+	['set'](attrName, values) {
+		this[attrName] = values;
+		return this;
+	}
+	
 	decide(name, count, options) {
 	    if (count == null) {count = 1;}
 	    if (options == null) {options = [];} 
