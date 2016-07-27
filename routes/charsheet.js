@@ -2,6 +2,7 @@
 "use strict";
 const router = require('express').Router();
 const Skill = require('../models/Skill');
+const DDClass = require('../models/DDClass');
 const CharClass = require('../models/CharClass');
 const CharRace = require('../models/CharRace');
 const Background = require('../models/Background');
@@ -15,18 +16,18 @@ router.post('/:charID?', function(req, res, next) {
 		do {charID = Number(Math.random()).toString(36).substr(2, 5);} 
 		while (charFile(charID).existsSync())
 		charUrl = (req.originalUrl + '/' + charID).replace('//', '/');
-		const charRace = CharRace.ALL.find(x => x.name === req.body.charRace);
-		//const charRace = CharRace.ALL.find(x => x.name === req.body.subrace);
-		const charClass = CharClass.ALL.find(x => x.name === req.body.charClass);
-		const background = Background.ALL.find(x => x.name === req.body.background);
-		getFeature(req, 'equipment', charClass, charRace, background, '\n');
-		getFeature(req, 'features', charClass, charRace, background, '\n\n');
-		getFeature(req, 'languages', charClass, charRace, background, ', ');
-		let miscSkils = [];
-		if (req.body.languages) {miscSkils = miscSkils.concat('LANGUAGES: ' + [].concat(req.body.languages).join(', '));}
-		if (req.body.tools) {miscSkils = miscSkils.concat('TOOLS: ' + [].concat(req.body.tools).join(', '));}
-		req.body.miscSkills = miscSkils.join('\n\n');
-		req.body.speed = charRace.speed;
+		
+		//const char = new DDClass();
+		for (let ddclass of ['charRace', 'charClass', 'background']) {
+			DDClass.ALL[req.body[ddclass]].forEachAttr(function(values, attrName) {
+				req.body[attrName] = (req.body[attrName] || []).concat(values);
+			});
+		}
+		//let miscSkils = [];
+		//if (req.body.languages) {miscSkils = miscSkils.concat('LANGUAGES: ' + [].concat(req.body.languages).join(', '));}
+		//if (req.body.tools) {miscSkils = miscSkils.concat('TOOLS: ' + [].concat(req.body.tools).join(', '));}
+		//req.body.miscSkills = miscSkils.join('\n\n');
+		//req.body.speed = charRace.speed;
 		if (!req.body.subrace) {req.body.subrace = req.body.charRace;}
 	}
 	const charData = JSON.stringify(req.body);

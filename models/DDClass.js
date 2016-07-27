@@ -7,11 +7,18 @@ class DDClass {
 		this.image = image;
 		this.description = description;
 		this.decisions = [];
+		this.attrs = {};
+		if (name) {DDClass.ALL[this.name] = this;}
 	}
 	
-	['set'](attrName, values) {
-		this[attrName] = (this[attrName] || []).concat(values || []);
+	attr(attrName, values) {
+		const existingVals = this.attrs[attrName] || [];
+		this.attrs[attrName] = existingVals.concat(values || []);
 		return this;
+	}
+	
+	forEachAttr(callback) {
+		Object.keys(this.attrs).forEach(key => callback.call(null, this.attrs[key], key));	
 	}
 	
 	decide(name, count, options) {
@@ -36,5 +43,7 @@ class DDClass {
 		return this;
 	}
 }
+
+DDClass.ALL = {};
 
 module.exports = DDClass;
