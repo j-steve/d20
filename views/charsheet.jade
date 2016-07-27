@@ -53,27 +53,25 @@ block content
 				.row
 					.col-sm-5
 						ul.list-unstyled
-							for ability in abilities
-								-var abilityID = ability.substr(0, 3).toUpperCase();
+							for ability in Abilities
 								li.ability
 									label.center-block
-										span=ability
-										input(type="number", id=abilityID, name=abilityID, value="10", min=8, max=20).form-control.center-block.input-lg
-									output.center-block.ability-modifier(data-ability=abilityID)
+										span=ability.name
+										input(type="number", id=ability.id, name=ability.id, value="10", min=8, max=20).form-control.center-block.input-lg
+									output.center-block.ability-modifier(data-ability=ability.id)
 					.col-sm-7
 						+fieldset-singleton("Proficiency Bonus", "profBonus", "+2")
 						fieldset
 							ul.list-unstyled
-								for savingThrow in savingThrows
-									-var abilityID = savingThrow.slice(0, 3).toUpperCase();
+								for ability in Abilities
 									li.row.skill
-										.col-xs-1.col-md-1: input(type="checkbox", id="savingThrows"+abilityID, name="savingThrows", value=abilityID)
-										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=abilityID).form-control
-										.col-xs-8.col-md-8: label(for="savingThrows"+abilityID)=savingThrow
+										.col-xs-1.col-md-1: input(type="checkbox", id="savingThrows"+ability.id, name="savingThrows", value=ability.id)
+										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=ability.id).form-control
+										.col-xs-8.col-md-8: label(for="savingThrows"+ability.id)=ability.name
 							legend Saving Throws
 						fieldset
 							ul.list-unstyled
-								for skill in skills
+								for skill in Skills
 									li.row.skill
 										.col-xs-1.col-md-1: input(type="checkbox", id="skills-"+skill.name, name="skills", value=skill.name)
 										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=skill.ability).form-control
