@@ -112,7 +112,7 @@ jQuery((function($) {
             }
             $(this).data('initialValue', $(this).prop('checked'));
         } else {
-            if (savedValue) {$(this).val(savedValue);}
+            if (savedValue) {$(this).val(savedValue).trigger('change');}
             $(this).data('initialValue', $(this).val());
         }
     });
