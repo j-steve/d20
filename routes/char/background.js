@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 		title: 'Background',
 		formField: 'background',
 		ddclasses: Background.ALL,
-		nextPage: '/char/finish',
+		nextPage: '/char/class',
 		query: req.query
 	});
 });
