@@ -72,6 +72,21 @@ jQuery((function($) {
         
     }).trigger('init');
     
+    // Character Backgrounds
+    $('#background').on('change init', function() {
+        const $background =  $('#background').find(':selected');
+        const skills = $background.data('skills').split(',');
+        $('[name=skills]').each(function() {
+           if (skills.includes(this.value)) {
+               if (!$(this).is(':checked')) {
+                   $(this).data('fromBackground', true).prop('checked', true).trigger('update');
+               }
+           } else if ($(this).data('fromBackground')) {
+               $(this).prop('checked', false).trigger('update');
+           }
+        });
+    }).trigger('init');
+    
     // Ability Modifiers
     $('.ability input').on('keyup change init', function() {
         var modifier = +$(this).val() - 10;
@@ -92,9 +107,8 @@ jQuery((function($) {
     $allInputs.each(function() {
         const savedValue = CHAR_DATA[this.name];
         if ($(this).is(':checkbox,:radio')) { 
-            if (savedValue) {
-                const checkVal = $(this).val();
-                $(this).prop('checked', savedValue.includes(checkVal)).trigger('change');
+            if (savedValue && savedValue.includes(this.value)) {
+                $(this).prop('checked', true).trigger('change');
             }
             $(this).data('initialValue', $(this).prop('checked'));
         } else {
