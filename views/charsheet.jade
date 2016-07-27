@@ -33,7 +33,7 @@ block content
 					span="Background"
 				+form-text(2, "Player", "playerName")
 				label.col-sm-3
-					select(id="charRace", name="charRace").form-control
+					select(id="subrace", name="subrace").form-control
 						each race in CharRaces
 							if race.subraces.length
 								optgroup(label=race.name)
@@ -143,5 +143,5 @@ mixin form-number(colspan, label, name, min, max, value)
 		span=label
 mixin form-textarea(colspan, label, name, rows)
 	label(class=`col-sm-${colspan}`)
-		textarea.form-control.input-sm(id=name, name=name, rows=rows)&attributes(attributes)=value || ""
+		textarea.form-control.input-sm(id=name, name=name, rows=rows)&attributes(attributes)
 		span=label	

@@ -10,7 +10,7 @@ class DDClass {
 	}
 	
 	['set'](attrName, values) {
-		this[attrName] = values;
+		this[attrName] = (this[attrName] || []).concat(values || []);
 		return this;
 	}
 	
