@@ -11,7 +11,8 @@ class DDClass {
 		if (name) {DDClass.ALL[this.name] = this;}
 	}
 	
-	attr(attrName, values) {
+	attr(attrName, values, description) {
+		if (description != null) {values = {name:values, description}};
 		const existingVals = this.attrs[attrName] || [];
 		this.attrs[attrName] = existingVals.concat(values || []);
 		return this;

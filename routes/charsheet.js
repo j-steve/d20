@@ -17,20 +17,17 @@ router.post('/:charID?', function(req, res, next) {
 		while (charFile(charID).existsSync())
 		charUrl = (req.originalUrl + '/' + charID).replace('//', '/');
 		
-		//const char = new DDClass();
 		for (let ddclass of ['charRace', 'charClass', 'background']) {
 			DDClass.ALL[req.body[ddclass]].forEachAttr(function(values, attrName) {
 				req.body[attrName] = (req.body[attrName] || []).concat(values);
 			});
 		}
-		//let miscSkils = [];
-		//if (req.body.languages) {miscSkils = miscSkils.concat('LANGUAGES: ' + [].concat(req.body.languages).join(', '));}
-		//if (req.body.tools) {miscSkils = miscSkils.concat('TOOLS: ' + [].concat(req.body.tools).join(', '));}
-		//req.body.miscSkills = miscSkils.join('\n\n');
-		//req.body.speed = charRace.speed;
+		
 		if (!req.body.subrace) {req.body.subrace = req.body.charRace;}
+		req.body.speed = DDClass.ALL[req.body.subrace].speed;
+		
 	}
-	const charData = JSON.stringify(req.body);
+	const charData = JSON.stringify(req.body, null, '\t');
 	charFile(charID).write(charData).then(function() {
 		if (charUrl) res.redirect(charUrl);
 		else next();
@@ -38,8 +35,10 @@ router.post('/:charID?', function(req, res, next) {
 });
 
 router.all('/:charID?', function(req, res, next) {
+	const charDataStr = req.params.charID ? charFile(req.params.charID).readSync() : {};
 	res.render('charsheet', {
-		charData: req.params.charID ? charFile(req.params.charID).readSync() : '{}',
+		charDataStr,
+		charData: JSON.parse(charDataStr),
 		Abilities: Ability.ALL,
 		Skills: Skill.ALL,
 		CharClasses: CharClass.ALL,
