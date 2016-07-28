@@ -1,0 +1,67 @@
+{
+	"charName": "",
+	"charClass": "Cleric",
+	"charLevel": "1",
+	"background": "Criminal",
+	"playerName": "",
+	"subrace": "Stout Halfling",
+	"alignment": "",
+	"xp": "",
+	"STR": "10",
+	"DEX": "10",
+	"CON": "10",
+	"INT": "10",
+	"WIS": "10",
+	"CHA": "10",
+	"profBonus": "2",
+	"savingThrows": [
+		"WIS",
+		"CHA"
+	],
+	"skills": [
+		"Deception",
+		"Medicine",
+		"Religion",
+		"Stealth",
+		"Survival"
+	],
+	"passivePercep": "+10",
+	"languages": "Common,Halfling",
+	"miscSkills": "",
+	"armorClass": "10",
+	"initiative": "0",
+	"speed": "25",
+	"currentHP": "8",
+	"maxHP": "8",
+	"tempHP": "",
+	"attacks": "",
+	"equipment": "mace OR warhammer (if proficient),scale mail OR leather armor OR chain mail (if proficient),light crossbow and 20x bolts OR any simple weapon,priest's pack OR explorer's pack,shield,holy symbol,crowbar,set of dark common clothes with hood,belt pouch,15gp",
+	"personalityTraits": "",
+	"ideals": "",
+	"bonds": "",
+	"flaws": "",
+	"features": [
+		{
+			"name": "Lucky",
+			"description": "When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."
+		},
+		{
+			"name": "Brave",
+			"description": "You have advantage on saving throws against being frightened."
+		},
+		{
+			"name": "Halfling Nimbleness",
+			"description": "You can move through the space of any creature that is of a size larger than yours."
+		}
+	],
+	"charName2": "",
+	"charAge": "",
+	"height": "",
+	"charWeight": "",
+	"charEyes": "",
+	"charSkin": "",
+	"charHair": "",
+	"spellcastAbility": "WIS",
+	"spellSaveDC": "10",
+	"spellAttackBonus": "+2"
+}

@@ -15,7 +15,7 @@ class CharRace extends DDClass {
 	addSubrace(name, abilities, description) {
 		if (!this.subraces.length) {this.decide('Subrace');}
 		this.of(name, description);
-		this.subraces.push(new CharRace(name, this.speed, abilities, description));
+		this.subraces.push(new CharRace(name, this.speed, abilities, null, description));
 		return this;
 	}
 

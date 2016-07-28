@@ -19,15 +19,19 @@
 	}
 }
 
-.modal-body .list-group-item {
-	cursor: pointer;
-	&:hover {
-		color: #555;
-		text-decoration: none;
-		background-color: #f5f5f5;
-	}
-	input[type=checkbox] {
-		display: none;
+.modal-body {
+	max-height: 500px;
+	overflow-y: scroll;
+	.list-group-item {
+		cursor: pointer;
+		&:hover {
+			color: #555;
+			text-decoration: none;
+			background-color: #f5f5f5;
+		}
+		input[type=checkbox] {
+			display: none;
+		}
 	}
 }
 

@@ -1,0 +1,66 @@
+{
+	"charRace": "Human",
+	"languages": "GoblinCommonDruidic",
+	"background": "Charlatan",
+	"charClass": "Druid",
+	"cantrips": [
+		"Guidance",
+		"Poison Spray"
+	],
+	"leve1 1 spells": [
+		"Charm Person",
+		"Detect Poison and Disease"
+	],
+	"skills": [
+		"Medicine",
+		"Nature"
+	],
+	"armor": [
+		"light armor",
+		"medium armor",
+		"shields"
+	],
+	"weapons": [
+		"clubs",
+		"daggers",
+		"darts",
+		"javelins",
+		"maces",
+		"quarterstaffs",
+		"scimitars",
+		"sickles",
+		"slings",
+		"spears"
+	],
+	"tools": [
+		"herbalism kit"
+	],
+	"features": [
+		{
+			"name": "Druidic Language",
+			"description": "You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 Wisdom (Perception) check but can’t decipher it without magic."
+		},
+		{
+			"name": "Ritual Casting",
+			"description": "You can cast any druid spell you know as a ritual if that spell has the ritual tag."
+		},
+		{
+			"name": "Spellcasting Focus",
+			"description": "You can use a druidic focus as a spellcasting focus for your druid spells."
+		}
+	],
+	"equipment": [
+		"wooden shield OR any simple weapon",
+		"scimitar OR any simple melee weapon",
+		"leather armor",
+		"explorer's pack",
+		"druidic focus",
+		"set of fine clothes",
+		"disguise kit",
+		"con tools: 10x stoppered bottles filled with colored liquid OR set of weighted dice OR deck of marked cards OR signet ring of imaginary duke",
+		"belt pouch",
+		"15gp"
+	],
+	"subrace": "Human",
+	"speed": 30
+}
