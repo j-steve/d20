@@ -30,7 +30,7 @@ block content
 								.modal.fade(data-count=decision.count, role="dialog"): .modal-dialog(role="document"): .modal-content
 									.modal-header
 										button.close(type="button", data-dismiss="modal", aria-label="Close"): span(aria-hidden="true") &times;
-										h3.modal-title Select #{decision.name}
+										h3.modal-title Select #{decision.count} #{decision.name}
 									.modal-body
 										ul.list-group
 											for option in decision.options
@@ -47,4 +47,4 @@ block content
 											if (decision.count === 1)
 												|Select a #{decision.name.toLowerCase()} to continue.
 											else
-												|Add <span class="deficitCount">#{decision.count}</span> #{decision.name.toLowerCase()} to continue.
+												|Add <span class="deficitCount">#{decision.count}</span> more #{decision.name.toLowerCase()} to continue.
