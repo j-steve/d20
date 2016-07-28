@@ -35,7 +35,7 @@ router.post('/:charID?', function(req, res, next) {
 });
 
 router.all('/:charID?', function(req, res, next) {
-	const charDataStr = req.params.charID ? charFile(req.params.charID).readSync() : {};
+	const charDataStr = req.params.charID ? charFile(req.params.charID).readSync() : "{}";
 	res.render('charsheet', {
 		charDataStr,
 		charData: JSON.parse(charDataStr),

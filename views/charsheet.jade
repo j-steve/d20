@@ -98,7 +98,7 @@ block content
 						+form-textarea(12, "Attacks", "attacks", 15)
 						h5.col-sm-12="Equipment"
 						ul.col-sm-12
-							each equipmentItem, i in charData.equipment
+							each equipmentItem, i in charData.equipment || []
 								input(name=`equipment[${i}]` value=equipmentItem).form-control
 					.col-sm-6
 						+form-textarea(12, "Personality Traits", "personalityTraits", 5)
@@ -107,7 +107,7 @@ block content
 						+form-textarea(12, "Flaws", "flaws", 5)
 						h5.col-sm-12="Features"
 						ul.col-sm-12
-							each feature, i in charData.features
+							each feature, i in charData.features || []
 								li
 									dt: input(name=`features[${i}][name]`, value=feature.name).form-control
 									dt: textarea(name=`features[${i}][description]`).form-control=feature.description
