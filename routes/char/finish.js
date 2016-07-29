@@ -9,7 +9,9 @@ router.get('/', function(req, res, next) {
     abilities.forEach(a => a.bonus = 0);
 	for (let ddclassType of ['charRace', 'subrace']) {
 		let ddclass = DDClass.ALL[req.query[ddclassType]];
-	    abilities.forEach(a => a.bonus += ddclass.abilities[a.id] || 0);
+		if (ddclass) {
+	        abilities.forEach(a => a.bonus += ddclass.abilities[a.id] || 0);
+		}
 	}
 	res.render('char-finish', {
 	    abilities,
