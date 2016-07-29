@@ -28,7 +28,7 @@ class Decision {
 	}
 	
 	ofAttr(attrType, name, description) {
-		const attrObj = new DDClass(name, null, description).attr(attrType, name, description);
+		const attrObj = new DDClass(name, description).attr(attrType, name, description);
 		return this.of(attrObj);
 	}
 	
@@ -39,13 +39,13 @@ class Decision {
 
 class DDClass {
 	
-	constructor(name, image, description) {
+	constructor(name, description, image) {
 		this.name = name;
-		this.image = image;
 		this.description = description;
 		this.decisions = [];
 		this.attrs = {};
 		if (name) {DDClass.ALL[this.name] = this;}
+		this.image = image;
 	}
 	
 	attr(attrName, values, description) {

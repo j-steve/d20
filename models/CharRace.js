@@ -4,8 +4,8 @@ const ddData = require('./ddData');
 
 class CharRace extends DDClass {
 
-	constructor(name, abilities, image, description, parent) {
-		super(name, image, description);
+	constructor(name, abilities, description, image, parent) {
+		super(name, description, image);
 		this.subraces = [];
 		this.decideSubrace = null;
 		this.abilities = abilities;
@@ -16,7 +16,7 @@ class CharRace extends DDClass {
 		if (this.parent) {throw new Error('Cannot add race to a subrace');}
 		if (!this._subrace) {this._subrace = this.decide('Subrace');}
 		this._subrace.of(name, description);
-		const subrace = new CharRace(name, abilities, null, description, this);
+		const subrace = new CharRace(name, abilities, description, null, this);
 		this.subraces.push(subrace);
 		return subrace;
 	}
@@ -24,7 +24,7 @@ class CharRace extends DDClass {
 }
 
 CharRace.ALL = [
-	new CharRace('Dwarf', {CON:2}, '/img/races/dwarf.png', "Dwarves are solid and enduring like the mountains they love, weathering the passage of centuries with stoic endurance and little change. They respect the traditions of their clans, tracing their ancestry back to the founding of their most ancient strongholds. Individual dwarves are determined, loyal, and decisive in action, sometimes to the point of stubbornness.")
+	new CharRace('Dwarf', {CON:2}, "Dwarves are solid and enduring like the mountains they love, weathering the passage of centuries with stoic endurance and little change. They respect the traditions of their clans, tracing their ancestry back to the founding of their most ancient strongholds. Individual dwarves are determined, loyal, and decisive in action, sometimes to the point of stubbornness.", '/img/races/dwarf.png')
 		.attr('speed', 25)
 		.attr('languages', ['Common', 'Dwarvish'])
 		.attr('features', "Darkvision", "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.")
@@ -40,7 +40,7 @@ CharRace.ALL = [
 			//.attr('features', 'Dwarven Armor Traning', "Dwarven Armor Training. You have proficiency with light and medium armor")
 			.attr('armor', ['light armor', 'medium armor'])
 			.parent,
-	new CharRace('Elf', {DEX:2}, '/img/races/elf.png', "Elves are a magical people of otherworldly grace, living in the world but not entirely part of it. They live in places of ethereal beauty, in the midst of ancient forests or in silvery spires glittering with faerie light, where soft music drifts through the air. Elves love nature and magic, art and artistry, music and poetry, and the good things of the world.")
+	new CharRace('Elf', {DEX:2}, "Elves are a magical people of otherworldly grace, living in the world but not entirely part of it. They live in places of ethereal beauty, in the midst of ancient forests or in silvery spires glittering with faerie light, where soft music drifts through the air. Elves love nature and magic, art and artistry, music and poetry, and the good things of the world.", '/img/races/elf.png')
 		.attr('languages', ['Common', 'Elvish'])
 		.attr('features', "Darkvision", "Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.")
 		.attr('features', "Keen Senses", "You have proficiency in the Perception skill.")
@@ -68,7 +68,7 @@ CharRace.ALL = [
 			.attr('features', "Drow Magic", "You know the dancing lights cantrip. When you reach 3rd level, you can cast the faerie fire spell once per day. When you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells.")
 			.attr('cantrips', "Dancing Lights")
 			.parent,
-	new CharRace('Halfling', {DEX:2}, '/img/races/halfling.png', "The comforts of home are the goals of most halflings' lives: a place to settle in peace and quiet, far from marauding monsters and clashing armies; a blazing fire and a generous meal, fine drink and fine conversation. The diminutive halflings survive in a world full of larger creatures by avoiding notice or, barring that, avoiding offense.")
+	new CharRace('Halfling', {DEX:2}, "The comforts of home are the goals of most halflings' lives: a place to settle in peace and quiet, far from marauding monsters and clashing armies; a blazing fire and a generous meal, fine drink and fine conversation. The diminutive halflings survive in a world full of larger creatures by avoiding notice or, barring that, avoiding offense.", '/img/races/halfling.png')
 		.attr('speed', 25)
 		.attr('languages', ['Common', 'Halfling'])
 		.attr('features', 'Lucky', 'When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.')
@@ -80,12 +80,12 @@ CharRace.ALL = [
 		.addSubrace('Stout Halfling', {CON:1}, "Some say that stouts have dwarven blood. As a stout halfling, you’re hardier than average and have some resistance to poison.")
 			.attr('features', "Stout Resilience", " You have advantage on saving throws against poison, and you have resistance against poison damage.")
 			.parent,
-	new CharRace('Human', {STR:1, DEX:1, CON:1, INT:1, WIS:1, CHA:1}, '/img/races/human.png', "Humans are the most adaptable and ambitious people among the common races. In the reckonings of most worlds, humans are the youngest of the common races, late to arrive on the world scene and short-lived in comparison to dwarves or elves. Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds.")
+	new CharRace('Human', {STR:1, DEX:1, CON:1, INT:1, WIS:1, CHA:1}, "Humans are the most adaptable and ambitious people among the common races. In the reckonings of most worlds, humans are the youngest of the common races, late to arrive on the world scene and short-lived in comparison to dwarves or elves. Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds.", '/img/races/human.png')
 		.attr('speed', 30)
 		.attr('languages', ['Common'])
 		.decide('Language', 1, ddData.languages.filter(x => x !== "Common")).alias('languages')
 			.parent,
-	new CharRace('Gnome', {INT:2}, '/img/races/gnome.png', "As far as gnomes are concerned, being alive is a wonderful thing, and they squeeze every ounce of enjoyment out of their three to five centuries of life. Humans might wonder about getting bored over the course of such a long life, but gnomes seem to worry that even with all that time, they can't get in enough of the things they want to do and see.")
+	new CharRace('Gnome', {INT:2}, "As far as gnomes are concerned, being alive is a wonderful thing, and they squeeze every ounce of enjoyment out of their three to five centuries of life. Humans might wonder about getting bored over the course of such a long life, but gnomes seem to worry that even with all that time, they can't get in enough of the things they want to do and see.", '/img/races/gnome.png')
 		.attr('speed', 25)
 		.attr('languages', ['Common', 'Gnomish'])
 		.attr('features', "Darkvision", "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.")
@@ -101,7 +101,7 @@ CharRace.ALL = [
 			.parent
 		.addSubrace('Deep Gnome', {}, "Deep gnomes (or svirfneblin) live in small communities scattered in the Underdark. Unlike the duergar and the drow, svirfneblin are as good as their surface cousins. However, their humor and enthusiasm are dampened by their oppressive environment, and their inventive expertise is directed mostly toward stonework.")
 			.parent,
-	new CharRace('Half-Elf', {CHA:2}, '/img/races/half-elf.png', "To humans, half-elves look like elves, and to elves, they look human. Walking in two worlds but truly belonging to neither, half-elves combine what some say are the best qualities of their elf and human parents: human curiosity, inventiveness, and ambition tempered by the refined senses, love of nature, and artistic tastes of the elves.")
+	new CharRace('Half-Elf', {CHA:2}, "To humans, half-elves look like elves, and to elves, they look human. Walking in two worlds but truly belonging to neither, half-elves combine what some say are the best qualities of their elf and human parents: human curiosity, inventiveness, and ambition tempered by the refined senses, love of nature, and artistic tastes of the elves.", '/img/races/half-elf.png')
 		.attr('speed', 30)
 		.attr('languages', ['Common', 'Elvish'])
 		.attr('features', "Darkvision", "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.")
@@ -112,13 +112,13 @@ CharRace.ALL = [
 			.parent //TODO: previous existing background skills from appearing in this list.
 		.decide('Abilities', 2, ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom'])
 			.parent,
-	new CharRace('Half-Orc', {STR:2, CON:1}, '/img/races/half-orc.png', "Orc and human tribes sometimes form alliances, to the terror of civilized lands nearby. When these alliances are sealed by marriages, half-orcs are born. Some half-orcs rise to become tribal chiefs, their human blood giving them an edge over their full-blooded orc rivals. Many achieve greatness for their mighty deeds and notoriety for their barbaric customs and savage fury.")
+	new CharRace('Half-Orc', {STR:2, CON:1}, "Orc and human tribes sometimes form alliances, to the terror of civilized lands nearby. When these alliances are sealed by marriages, half-orcs are born. Some half-orcs rise to become tribal chiefs, their human blood giving them an edge over their full-blooded orc rivals. Many achieve greatness for their mighty deeds and notoriety for their barbaric customs and savage fury.", '/img/races/half-orc.png')
 		.attr('speed', 30)
 		.attr('languages', ['Common', 'Orc'])
 		.attr('skills', ['Intimidation'])
 		.attr('features', "Relentless Endurance", "When you are reduced to 0 hit points but not k illed outright, you can drop to 1 hit point instead. You can’t use this feature again until you finish a long rest.")
 		.attr('features', "Savage Attacks", "When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit."),
-	new CharRace('Tiefling', {CHA:2, INT:1}, '/img/races/tiefling.png', "Tieflings are derived from human bloodlines, and in the broadest possible sense, they still look human. However, their infernal heritage has left a clear imprint on their appearance. Tieflings are distrusted by other races, greeted with stares and whispers and suffering violence and insult on the streets. Lacking a homeland, tieflings must make their own way in the world.")
+	new CharRace('Tiefling', {CHA:2, INT:1}, "Tieflings are derived from human bloodlines, and in the broadest possible sense, they still look human. However, their infernal heritage has left a clear imprint on their appearance. Tieflings are distrusted by other races, greeted with stares and whispers and suffering violence and insult on the streets. Lacking a homeland, tieflings must make their own way in the world.", '/img/races/tiefling.png')
 		.attr('speed', 30)
 		.attr('languages', ['Common', 'Infernal'])
 		.attr('features', "Darkvision", "Thanks to your invernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.")
