@@ -6,7 +6,7 @@ const DDClass = require('../models/DDClass');
 const CharClass = require('../models/CharClass');
 const CharRace = require('../models/CharRace');
 const Background = require('../models/Background');
-const Ability = require('../models/Ability');
+const ddData = require('../models/ddData');
 const File = require('si-file');
 
 router.post('/:charID?', function(req, res, next) {
@@ -42,7 +42,7 @@ router.all('/:charID?', function(req, res, next) {
 	res.render('charsheet', {
 		charDataStr,
 		charData: JSON.parse(charDataStr),
-		Abilities: Ability.ALL,
+		ddData,
 		Skills: Skill.ALL,
 		CharClasses: CharClass.ALL,
 		CharRaces: CharRace.ALL,

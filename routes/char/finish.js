@@ -1,12 +1,11 @@
 "use strict";
 const router = require('express').Router();
 const DDClass = require('../../models/DDClass');
-const Ability = require('../../models/Ability');
+const ddData = require('../../models/ddData');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    const abilities = JSON.parse(JSON.stringify(Ability.ALL))
-    abilities.forEach(a => a.bonus = 0);
+    const abilities = Object.map(ddData.abilities, (name, id) => ({id, name, bonus: 0}));
 	for (let ddclassType of ['charRace', 'subrace']) {
 		let ddclass = DDClass.ALL[req.query[ddclassType]];
 		if (ddclass) {

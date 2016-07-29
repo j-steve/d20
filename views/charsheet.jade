@@ -52,22 +52,22 @@ block content
 				.row
 					.col-sm-5
 						ul.list-unstyled
-							for ability in Abilities
+							each abilityName, abilityID in ddData.abilities
 								li.ability
 									label.center-block
-										span=ability.name
-										-var abilityValue = charData.abilities && charData.abilities[ability.id] || 10
-										input(type="number", id=ability.id, name=`abilities[${ability.id}]`, value=abilityValue, min=8, max=20).form-control.center-block.input-lg
-									output.center-block.ability-modifier(data-ability=ability.id)
+										span=abilityName
+										-var abilityValue = charData.abilities && charData.abilities[abilityID] || 10
+										input(type="number", id=abilityID, name=`abilities[${abilityID}]`, value=abilityValue, min=8, max=20).form-control.center-block.input-lg
+									output.center-block.ability-modifier(data-ability=abilityID)
 					.col-sm-7
 						+fieldset-singleton("Proficiency Bonus", "profBonus", "+2")
 						fieldset
 							ul.list-unstyled
-								for ability in Abilities
+								each abilityName, abilityID in ddData.abilities
 									li.row.skill
-										.col-xs-1.col-md-1: input(type="checkbox", id="savingThrows"+ability.id, name="savingThrows", value=ability.id)
-										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=ability.id).form-control
-										.col-xs-8.col-md-8: label(for="savingThrows"+ability.id)=ability.name
+										.col-xs-1.col-md-1: input(type="checkbox", id="savingThrows"+abilityID, name="savingThrows", value=abilityID)
+										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=abilityID).form-control
+										.col-xs-8.col-md-8: label(for="savingThrows"+abilityID)=abilityName
 							legend Saving Throws
 						fieldset
 							ul.list-unstyled
@@ -75,7 +75,7 @@ block content
 									li.row.skill
 										.col-xs-1.col-md-1: input(type="checkbox", id="skills-"+skill.name, name="skills", value=skill.name)
 										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=skill.ability).form-control
-										.col-xs-8.col-md-8: label(for='skills-'+skill.name)=savingThrow
+										.col-xs-8.col-md-8: label(for='skills-'+skill.name)
 											|#{skill.name}
 											span.skill-ability=skill.ability
 							legend Skills
