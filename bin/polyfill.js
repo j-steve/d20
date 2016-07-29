@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 Object.forEach = function(obj, callback) {
     return Object.keys(obj).forEach(key => callback(obj[key], key));

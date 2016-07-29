@@ -2,8 +2,6 @@
 const DDClass = require('./DDClass');
 const ddData = require('./ddData');
 
-const priv = new WeakMap();
-
 class CharRace extends DDClass {
 
 	constructor(name, abilities, image, description, parent) {
