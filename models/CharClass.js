@@ -1,6 +1,6 @@
 "use strict";
 const DDClass = require('./DDClass');
-const Skill = require('./Skill');
+const ddData = require('./ddData');
 
 class CharClass extends DDClass {
 
@@ -11,8 +11,6 @@ class CharClass extends DDClass {
 		this.spellcastAbility = spellcastAbility;
 	}
 }
-
-const INSTRUMENTS = ['Bagpipes', 'Drum', 'Dulcimer', 'Flute', 'Lute', 'Lyre', 'Horn', 'Pan flute', 'Shawn', 'Viol'];
 
 CharClass.ALL = [
 	new CharClass('Barbarian', 12, ['STR', 'CON'], null, 'http://static.fjcdn.com/pictures/How_bddcce_5492235.jpg', 'Barbarians come alive in the chaos of combat. They can enter a berserk state where rage takes over, giving them superhuman strength and resilience. A barbarian can draw on this reservoir of fury only a few times without resting, but those few rages are usually sufficient to defeat whatever threats arise.')
@@ -34,9 +32,9 @@ CharClass.ALL = [
 			.parent
 		.decide('Level-One Spells', 4, ['Animal Friendship', 'Bane', 'Charm Person', 'Comprehend Languages', 'Cure Wounds', 'Detect Magic', 'Disguise Self', 'Dissonant Whispers', 'Faerie Fire', 'Feather Fall', 'Healing Word', 'Heroism', 'Identify', 'Illusory Script', 'Longstrider', 'Silent Image', 'Sleep', 'Speak with Animals', "Tasha's Hideous Laughter", 'Thunderwave', 'Unseen Servant'])
 			.parent
-		.decide('Skills', 3, Skill.ALL)
+		.decide('Skills', 3, ddData.skills)
 			.parent
-		.decide('Musical Instrument Skills', 3, INSTRUMENTS).alias('tools')
+		.decide('Musical Instrument Skills', 3, ddData.instruments).alias('tools')
 			.parent,
 	new CharClass('Cleric', 8, ['WIS', 'CHA'], 'WIS', 'https://cdnb3.artstation.com/p/assets/images/images/001/103/579/large/magnus-noren-dwarf-cleric1.jpg?1440110780', 'Clerics are conduits for divine power, manifesting a god\'s power as miraculous effects. A cleric might learn formulaic prayers and ancient rites, but the ability to cast cleric spells relies on devotion and an intuitive sense of thier deity’s wishes.')
 		.attr('armor', ['light armor', 'medium armor', 'shields'])
@@ -90,7 +88,7 @@ CharClass.ALL = [
 		.attr('features', 'Martial Arts', 'At 1st level, your practice of martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons, which are shortswords and any simple melee weapons that don’t have the two-handed or heavy property. See Player\'s Handbook pp72 for details.')
 		.decide('Skills', 2, ['Acrobatics', 'Athletics', 'History', 'Insight', 'Religion', 'Stealth'])
 			.parent
-		.decide('Tool Skills', 1, ["Artisan's tools"].concat(INSTRUMENTS)).alias('tools')
+		.decide('Tool Skills', 1, ["Artisan's tools"].concat(ddData.instruments)).alias('tools')
 			.parent,
 	new CharClass('Paladin', 10, ['WIS', 'CHA'], 'CHA', 'http://i10.photobucket.com/albums/a117/elbriga/5f7e782a85cb177b874613c504699887.jpg', 'A paladin swears to uphold justice and righteousness, to stand with the good things of the world against the encroaching darkness, and to hunt the forces of evil wherever they lurk. Different paladins focus on various aspects of the cause of righteousness, but all are bound by the oaths that grant them power to do their sacred work.')
 		.attr('armor', ['light armor', 'medium armor', 'heavy armor', 'shields'])

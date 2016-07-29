@@ -68,17 +68,17 @@ block content
 										.col-xs-1.col-md-1: input(type="checkbox", id="savingThrows"+abilityID, name="savingThrows", value=abilityID)
 										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=abilityID).form-control
 										.col-xs-8.col-md-8: label(for="savingThrows"+abilityID)=abilityName
-							legend Saving Throws
+							legend="Saving Throws"
 						fieldset
 							ul.list-unstyled
-								for skill in Skills
+								for skill in ddData.skills
 									li.row.skill
 										.col-xs-1.col-md-1: input(type="checkbox", id="skills-"+skill.name, name="skills", value=skill.name)
 										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=skill.ability).form-control
 										.col-xs-8.col-md-8: label(for='skills-'+skill.name)
 											|#{skill.name}
 											span.skill-ability=skill.ability
-							legend Skills
+							legend="Skills"
 						+fieldset-singleton("Passive Perception", "passivePercep", "+2")(data-ability='WIS', data-baseval='10')
 				.row.label-below
 					+form-textarea(12, "Languages", "languages", 2, [].concat(charData.languages || []).join(', '))

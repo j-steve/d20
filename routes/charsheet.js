@@ -1,7 +1,6 @@
 /* global ROOT_PATH */
 "use strict";
 const router = require('express').Router();
-const Skill = require('../models/Skill');
 const DDClass = require('../models/DDClass');
 const CharClass = require('../models/CharClass');
 const CharRace = require('../models/CharRace');
@@ -43,7 +42,6 @@ router.all('/:charID?', function(req, res, next) {
 		charDataStr,
 		charData: JSON.parse(charDataStr),
 		ddData,
-		Skills: Skill.ALL,
 		CharClasses: CharClass.ALL,
 		CharRaces: CharRace.ALL,
 		Backgrounds: Background.ALL,

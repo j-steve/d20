@@ -1,6 +1,5 @@
 "use strict";
 const DDClass = require('./DDClass');
-const Skill = require('./Skill');
 const ddData = require('./ddData');
 
 const priv = new WeakMap();
@@ -111,7 +110,7 @@ CharRace.ALL = [
 		.attr('features', "Fey Ancestry", "You have advantage on saving throws against being charmed, and magic can't put you to sleep.")
 		.decide('Language', 1, ['Dwarvish', 'Giant', 'Gnomish', 'Goblin', 'Halfling', 'Orc', 'Abyssal', 'Celestial', 'Draconic', 'Deep Speech', 'Infernal', 'Primordial', 'Sylvan', 'Undercommon']).alias('languages')
 			.parent
-		.decide('Skills', 2, Skill.ALL)
+		.decide('Skills', 2, ddData.skills)
 			.parent //TODO: previous existing background skills from appearing in this list.
 		.decide('Abilities', 2, ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom'])
 			.parent,
