@@ -36,7 +36,7 @@ CharClass.ALL = [
 			.parent
 		.decide('Skills', 3, Skill.ALL)
 			.parent
-		.decide('Musical Instrument Skills', 3, INSTRUMENTS).alias('instrumentSkills')
+		.decide('Musical Instrument Skills', 3, INSTRUMENTS).alias('tools')
 			.parent,
 	new CharClass('Cleric', 8, ['WIS', 'CHA'], 'WIS', 'https://cdnb3.artstation.com/p/assets/images/images/001/103/579/large/magnus-noren-dwarf-cleric1.jpg?1440110780', 'Clerics are conduits for divine power, manifesting a god\'s power as miraculous effects. A cleric might learn formulaic prayers and ancient rites, but the ability to cast cleric spells relies on devotion and an intuitive sense of thier deity’s wishes.')
 		.attr('armor', ['light armor', 'medium armor', 'shields'])
@@ -87,7 +87,7 @@ CharClass.ALL = [
 		.attr('weapons', ['all simple weapons', 'shortswords'])
 		.attr('equipment', ['shortsword OR any simple weapon', '10x darts', "dungeoneer's pack OR explorer's pack"])
 		.attr('features', 'Unarmored Defense', 'Beginning at 1st level, while you are wearing no armor and not wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.')
-		.attr('features', 'Martial Arts', 'At 1st level, your practice o f martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons, which are shortswords and any simple melee weapons that don’t have the two-handed or heavy property. See Player\'s Handbook pp72 for details.')
+		.attr('features', 'Martial Arts', 'At 1st level, your practice of martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons, which are shortswords and any simple melee weapons that don’t have the two-handed or heavy property. See Player\'s Handbook pp72 for details.')
 		.decide('Skills', 2, ['Acrobatics', 'Athletics', 'History', 'Insight', 'Religion', 'Stealth'])
 			.parent
 		.decide('Tool Skills', 1, ["Artisan's tools"].concat(INSTRUMENTS)).alias('tools')

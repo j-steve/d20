@@ -17,10 +17,13 @@ router.post('/:charID?', function(req, res, next) {
 		while (charFile(charID).existsSync())
 		charUrl = (req.originalUrl + '/' + charID).replace('//', '/');
 		
-		for (let ddclass of ['charRace', 'charClass', 'background']) {
-			DDClass.ALL[req.body[ddclass]].forEachAttr(function(values, attrName) {
-				req.body[attrName] = (req.body[attrName] || []).concat(values);
-			});
+		for (let key of Object.keys(req.body)) {
+			let ddClass = DDClass.ALL[req.body[key]];
+			if (ddClass) {
+				ddClass.forEachAttr(function(values, attrName) {
+					req.body[attrName] = (req.body[attrName] || []).concat(values);
+				});
+			}
 		}
 		
 		if (!req.body.subrace) {req.body.subrace = req.body.charRace;}
