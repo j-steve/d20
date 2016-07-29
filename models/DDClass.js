@@ -1,5 +1,36 @@
 "use strict";
 
+const priv = new WeakMap();
+
+class Decision {
+	constructor(parent, name, count, options) {
+		this.name = name;
+		this.count = (count == null) ? 1 : count;
+	    if (options == null) {
+	    	options = [];
+	    } else if (options.length && typeof options[1] === 'string') {
+	    	options = options.map(x => ({name:x}));
+	    }
+		this.options = options;
+		this.paramName = name.toLowerCase();
+		priv[this] = {parent};
+	}
+	
+	alias(paramName) {
+		this.paramName = paramName;
+		return this;
+	}
+	
+	of(name, description) {
+		this.options.push({name, description});
+		return this;
+	}
+	
+	get parent() {
+		return priv[this].parent;
+	}
+}
+
 class DDClass {
 	
 	constructor(name, image, description) {
@@ -23,25 +54,9 @@ class DDClass {
 	}
 	
 	decide(name, count, options) {
-	    if (count == null) {count = 1;}
-	    if (options == null) {options = [];} 
-	    else if (options.length && typeof options[1] === 'string') {
-	    	options = options.map(x => ({name:x}));
-	    }
-		this.decisions.push({name, count, paramName: name.toLowerCase(), options});
-		return this;
-	}
-	
-	alias(paramName) {
-		const lastDecision = this.decisions[this.decisions.length-1];
-		lastDecision.paramName = paramName;
-		return this;
-	}
-	
-	of(name, description) {
-		const lastDecision = this.decisions[this.decisions.length-1];
-		lastDecision.options.push({name, description});
-		return this;
+		const decision = new Decision(this, name, count, options);
+		this.decisions.push(decision);
+		return decision;
 	}
 }
 

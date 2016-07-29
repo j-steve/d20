@@ -54,7 +54,7 @@ Background.ALL = [
         .attr('equipment', ["small knife", "map of the city you grew up in", "pet mouse", "token to remember your parents by", "set of common clothes", "belt pouch", "10gp"]),
     new Background('Custom', 'https://upload.wikimedia.org/wikipedia/commons/3/37/No_person.jpg', 'If none of the background archetypes are appropriate you may create a custom background with its own set of skills.')
         .skills()
-        .decide('Skills', 2, Skill.ALL)
+        .decide('Skills', 2, Skill.ALL).parent
 ];
 
 module.exports = Background;
