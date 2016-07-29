@@ -9,28 +9,29 @@ const ddData = require('../models/ddData');
 const File = require('si-file');
 
 router.post('/:charID?', function(req, res, next) {
-	let charID = req.params.charID,
-		charUrl = null;
+	let charID = req.params.charID;
+	let charData = req.body;
+	let charUrl = null;
 	if (!charID) {
 		do {charID = Number(Math.random()).toString(36).substr(2, 5);} 
 		while (charFile(charID).existsSync())
 		charUrl = (req.originalUrl + '/' + charID).replace('//', '/');
 		
+		const playerChar = new DDClass("");
+		
 		for (let key of Object.keys(req.body)) {
 			let ddClass = DDClass.ALL[req.body[key]];
 			if (ddClass) {
 				ddClass.forEachAttr(function(values, attrName) {
-					req.body[attrName] = (req.body[attrName] || []).concat(values);
+					playerChar.attr(attrName, values);
 				});
 			}
+			playerChar.attr(key, req.body[key]);
 		}
-		
-		if (!req.body.subrace) {req.body.subrace = req.body.charRace;}
-		req.body.speed = DDClass.ALL[req.body.subrace].speed;
-		
+		charData = playerChar.attrs;
 	}
-	const charData = JSON.stringify(req.body, null, '\t');
-	charFile(charID).write(charData).then(function() {
+	const charDataJson = JSON.stringify(charData, null, '\t');
+	charFile(charID).write(charDataJson).then(function() {
 		if (charUrl) res.redirect(charUrl);
 		else next();
 	}).catch(next);

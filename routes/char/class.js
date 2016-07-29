@@ -11,8 +11,7 @@ router.get('/', function(req, res, next) {
 		for (let decision of charClass.decisions) {
 			if (decision.paramName === 'skills') {
 				
-				console.log(decision.options.filter(x => background.skills.indexOf(x.name) !== -1));
-				decision.options = decision.options.filter(x => background.skills.indexOf(x.name) === -1);
+				decision.options = decision.options.filter(x => !background.attrs.skills.includes(x.name));
 			}
 		}
 	}

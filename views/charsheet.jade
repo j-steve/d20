@@ -8,6 +8,7 @@ append scripts
 	script(src="/js/charsheet.js")
 	
 block content
+	-function listJoin(val, joinChar) {return [].concat(val || []).join(joinChar == null ? ', ' : joinChar);}
 	form(method="POST")#charsheet.container: .row.panel.panel-default
 		#save-panel
 			input(type="submit", value="Save Changes").btn.btn-success.btn-lg.center-block
@@ -20,15 +21,12 @@ block content
 			header.label-below
 				+form-text(5, "Character Name", "charName").input-lg
 				label.col-sm-2
-					select(id="charClass", name="charClass").form-control
-						each charClass in CharClasses
-							option(data-basehp=charClass.baseHP, data-savingthrows=charClass.savingThrows.join(','), data-spellcastability=charClass.spellcastAbility)=charClass.name
+					-var charClassAttrs = CharClasses.map(function(x) {var c = x.attrs; c.name=x.name; return c;});
+					+select("charClass", charClassAttrs, 'name', ['baseHP', 'savingThrows', 'spellcastAbility'])
 					span="Class"
 				+form-number(1, "Level", "charLevel", 1, 20, 1)
 				label.col-sm-2
-					select(id="background", name="background").form-control
-						each background in Backgrounds
-							option(data-skills=background.skills.join(','))=background.name
+					+select("background", Backgrounds, 'name', 'skills')
 					span="Background"
 				+form-text(2, "Player", "playerName")
 				label.col-sm-3
@@ -37,15 +35,12 @@ block content
 							if race.subraces.length
 								optgroup(label=race.name)
 									each subrace in race.subraces
-										option=subrace.name
+										option(selected=subrace.name===charData.subrace)=subrace.name
 							else
-								option(selected=race.name==="Human")=race.name
+								option(selected=race.name===charData.race)=race.name
 					span="Race"
 				label.col-sm-3
-					select(id="alignment", name="alignment").form-control
-						option=""
-						each alignment in Alignments
-							option=alignment
+					+select("alignment", [""].concat(Alignments))
 					span="Alignment"
 				+form-number(1, "XP", "xp", 0)
 			.col-sm-3
@@ -65,7 +60,7 @@ block content
 							ul.list-unstyled
 								each abilityName, abilityID in ddData.abilities
 									li.row.skill
-										.col-xs-1.col-md-1: input(type="checkbox", id="savingThrows"+abilityID, name="savingThrows", value=abilityID)
+										.col-xs-1.col-md-1: input(type="checkbox", id="savingThrows"+abilityID, name="savingThrows", value=abilityID, checked=charData.savingThrows.indexOf(abilityID) > -1)
 										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=abilityID).form-control
 										.col-xs-8.col-md-8: label(for="savingThrows"+abilityID)=abilityName
 							legend="Saving Throws"
@@ -73,7 +68,7 @@ block content
 							ul.list-unstyled
 								for skill in ddData.skills
 									li.row.skill
-										.col-xs-1.col-md-1: input(type="checkbox", id="skills-"+skill.name, name="skills", value=skill.name)
+										.col-xs-1.col-md-1: input(type="checkbox", id="skills-"+skill.name, name="skills", value=skill.name, checked=charData.skills.indexOf(skill.name) > -1)
 										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=skill.ability).form-control
 										.col-xs-8.col-md-8: label(for='skills-'+skill.name)
 											|#{skill.name}
@@ -81,10 +76,10 @@ block content
 							legend="Skills"
 						+fieldset-singleton("Passive Perception", "passivePercep", "+2")(data-ability='WIS', data-baseval='10')
 				.row.label-below
-					+form-textarea(12, "Languages", "languages", 2, [].concat(charData.languages || []).join(', '))
-					+form-textarea(12, "Armor", "armor", 2, [].concat(charData.armor || []).join(', '))
-					+form-textarea(12, "Weapons", "weapons", 2, [].concat(charData.weapons || []).join(', '))
-					+form-textarea(12, "Tools", "tools", 2, [].concat(charData.tools || []).join(', '))
+					+form-textarea(12, "Languages", "languages", 2, listJoin(charData.languages))
+					+form-textarea(12, "Armor", "armor", 2, listJoin(charData.arrmor))
+					+form-textarea(12, "Weapons", "weapons", 2, listJoin(charData.weapons))
+					+form-textarea(12, "Tools", "tools", 2, listJoin(charData.tools))
 					+form-textarea(12, "Other Proficiencies & Languages", "miscSkills", 13)
 			.col-sm-9
 				.row.label-below
@@ -93,7 +88,7 @@ block content
 						+form-text(4, "Initiative", "initiative")(data-ability='DEX', data-baseval='0')
 						+form-number(4, "Speed", "speed", 0, null, 30)
 						+form-number(4, "Current HP", "currentHP", 0)(data-ability='CON', data-hp=true)
-						+form-number(4, "Max HP", "maxHP", 0)(data-ability='CON', data-hp=true)
+						+form-number(4, "Max HP", "maxHP", 0)(data-ability='CON', data-hp=true, value=charData.baseHP)
 						+form-number(4, "Temp HP", "tempHP", 0)
 						+form-textarea(12, "Attacks", "attacks", 15)
 						h5.col-sm-12="Equipment"
@@ -118,13 +113,13 @@ block content
 				.col-sm-1
 				label.col-sm-2
 					.input-group
-						input.form-control(type="number", id="charAge", name="charAge", min=1)
+						+input("number", "charAge")&attributes(min=1)
 						.input-group-addon="years"
 					span="Age"
 				+form-text(2, "Height", "height")
 				label.col-sm-2
 					.input-group
-						input.form-control(type="number", id="charWeight", name="charWeight", min=1)
+						+input("number", "charWeight")&attributes(min=1)
 						.input-group-addon="lbs"
 					span="Weight"
 				.col-sm-1
@@ -140,20 +135,33 @@ block content
 				.col-sm-3
 
 
-mixin fieldset-singleton(label, name, value)
+mixin fieldset-singleton(label, controlID, value)
 	fieldset.row.skill
-		.col-xs-3.col-md-3: input(type="text", id=name, name=name, maxlength="3", value=value)&attributes(attributes).form-control
+		.col-xs-3.col-md-3: +input("text", controlID)&attributes(attributes)&attributes(maxlength=3)
 		.col-xs-9.col-md-9: label(for=name)=label
 
-mixin form-text(colspan, label, name, value)
+mixin form-text(colspan, label, controlID)
 	label(class=`col-sm-${colspan}`)
-		input.form-control(type="text", id=name, name=name, value=value || "")&attributes(attributes)
+		+input("text", controlID)&attributes({min, max})&attributes(attributes)
 		span=label
-mixin form-number(colspan, label, name, min, max, value)
+
+mixin form-number(colspan, label, controlID, min, max)
 	label(class=`col-sm-${colspan}`)
-		input.form-control(type="number", id=name, name=name, value=value || "", min=min, max=max)&attributes(attributes)
+		+input("number", controlID)&attributes({min, max})&attributes(attributes)
 		span=label
-mixin form-textarea(colspan, label, name, rows)
+
+mixin form-textarea(colspan, label, controlID, rows)
 	label(class=`col-sm-${colspan}`)
-		textarea.form-control.input-sm(id=name, name=name, rows=rows)&attributes(attributes)
-		span=label	
+		textarea.form-control.input-sm(id=controlID, name=controlID, rows=rows)&attributes(attributes)=listJoin(charData[controlID])
+		span=label
+
+mixin input(type, controlID)
+	input.form-control(type=type, id=controlID, name=controlID, value=listJoin(charData[controlID]))&attributes(attributes)
+
+mixin select(controlID, optionList, displayProperty, dataProperty)
+	select(id=controlID, name=controlID).form-control
+		each option in optionList
+			-var optionName = typeof option !== 'object' ? option : option[displayProperty || 'name'];
+			-var optionAttrs = {selected: [].concat(charData[controlID] || []).indexOf(optionName) > -1};
+			-[].concat(dataProperty || []).forEach(x => optionAttrs['data-' + x] = listJoin(option[x], ','));
+			option&attributes(optionAttrs)=optionName
