@@ -5,6 +5,7 @@ const priv = new WeakMap();
 class Decision {
 	constructor(parent, name, count, options) {
 		this.name = name;
+		this.paramName = name.toLowerCase();
 		this.count = (count == null) ? 1 : count;
 	    if (options == null) {
 	    	options = [];
@@ -12,7 +13,6 @@ class Decision {
 	    	options = options.map(x => ({name:x}));
 	    }
 		this.options = options;
-		this.paramName = name.toLowerCase();
 		priv[this] = {parent};
 	}
 	
