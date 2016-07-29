@@ -17,7 +17,6 @@ block content
 				li(role="presentation"): a(href="#CharDetails")="Character Details"
 				li(role="presentation"): a(href="#Spells")="Spells"
 		.panel-body(data-page="BasicInfo")
-			
 			header.label-below
 				+form-text(5, "Character Name", "charName").input-lg
 				label.col-sm-2
@@ -57,7 +56,8 @@ block content
 								li.ability
 									label.center-block
 										span=ability.name
-										input(type="number", id=ability.id, name=ability.id, value="10", min=8, max=20).form-control.center-block.input-lg
+										-var abilityValue = charData.abilities && charData.abilities[ability.id] || 10
+										input(type="number", id=ability.id, name=`abilities[${ability.id}]`, value=abilityValue, min=8, max=20).form-control.center-block.input-lg
 									output.center-block.ability-modifier(data-ability=ability.id)
 					.col-sm-7
 						+fieldset-singleton("Proficiency Bonus", "profBonus", "+2")

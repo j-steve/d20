@@ -1,0 +1,35 @@
+.ability {
+    text-align: center;
+    margin-bottom: 15px;
+    .form-label {
+        display: block;
+    }
+    input {
+        width: 50px;
+        padding: 3px 6px;
+        text-align: center;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+    }
+    label {
+        margin-bottom: 0px;
+    }
+    output {
+        padding-top: 0px;
+        width: 50px;
+        height: 22px;
+        background: #eaeaea;
+        color: black;
+        margin-top: 0px;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border: 1px solid silver;
+        border-top: 0px none;
+    }
+}
+
+/* Always show up and down arrows for number inputs. */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    opacity: 1;
+}

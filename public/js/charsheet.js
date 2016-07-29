@@ -91,7 +91,7 @@ jQuery((function($) {
     $('.ability input').on('keyup change init', function() {
         var modifier = +$(this).val() - 10;
         modifier = Math.floor(modifier / 2)
-        $(`[data-ability=${this.name}]`).data('abilitymdifier', modifier).trigger('abilityUpdate');
+        $(`[data-ability=${this.id}]`).data('abilitymdifier', modifier).trigger('abilityUpdate');
     }).trigger('init');
 
     // Skill Proficiencies

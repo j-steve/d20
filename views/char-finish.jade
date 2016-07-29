@@ -1,10 +1,26 @@
 extends ./layout
 
+block styles
+	link(rel='stylesheet', href='/css/char-finish.css')
+append scripts 
+	script(src="/js/char-finish.js")
+
 block content
 	form(method="POST", action="/charsheet").container
 		.submit-blur
-		h2.page-title Select Attributes
-			each vals, key in query
-				each val in [].concat(vals || [])
+		each vals, key in query
+			each val in [].concat(vals || [])
 					input(type="hidden", name=key, value=val)
-		input(type="submit", value="Finish >")
+		
+		h2.page-title Select Attributes
+		div.panel
+			.panel-body
+				ul.list-unstyled
+					each ability in abilities
+						li.ability.col-sm-2
+							label.center-block
+								span=ability.name
+								input(type="number", name=`abilities[${ability.id}]`, value=8+ability.bonus, min=8+ability.bonus, max=20).form-control.center-block.input-lg
+							output.center-block.ability-modifier
+			.panel-footer.clearfix
+				input(type="submit", value="Finish >").btn.btn-primary.pull-right
