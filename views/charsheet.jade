@@ -110,7 +110,7 @@ block content
 							each feature, i in charData.features || []
 								li
 									dt: input(name=`features[${i}][name]`, value=feature.name).form-control
-									dt: textarea(name=`features[${i}][description]`).form-control=feature.description
+									dd: textarea(name=`features[${i}][description]`).form-control=feature.description
 		.panel-body(data-page="CharDetails")
 			header.label-below
 				+form-text(5, "Character Name", "charName2").input-lg

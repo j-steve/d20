@@ -1,27 +1,29 @@
-//var File = require('si-file');
-var fs = require('fs');
-var path = require('path');
-var url = require('url');
+/* global ROOT_PATH */
+'use strict';
+const fs = require('fs');
+const path = require('path');
 
-var ROUTES_DIR = ROOT_PATH + '/routes';
+const ROUTES_DIR = ROOT_PATH + '/routes';
 
 exports.route = function(app) {
 	
 	// Require all files in routes directory.
 	readAllFiles(ROUTES_DIR).filter(x => path.extname(x) === '.js').forEach(function(file) {
-		var name = file.substr(0, file.indexOf('.'));
-		var url = (file === 'index.js') ? path.basename(name) : name;
+		const name = file.substr(0, file.indexOf('.'));
+		const pathParts = name.split('/');
+		const url = pathParts.pop() === 'index' ? pathParts.join('/') + '/' : name;
+		console.log('using', name, 'for', url);
 		app.use('/' + url, require(ROUTES_DIR + '/' + name));
 	});;
 		
 	function readAllFiles(dir) {
 		if (dir.slice(-1) !== '/') {dir += '/';}
-		var returnFiles = [];
-		var filesToRead = fs.readdirSync(dir);
+		const returnFiles = [];
+		let filesToRead = fs.readdirSync(dir);
 		while (filesToRead.length > 0) {
-			var file = filesToRead.pop();
+			let file = filesToRead.pop();
 			if (fs.statSync(dir + file).isDirectory()) {
-				var children = fs.readdirSync(dir + file).map(x => file + '/' + x);
+				let children = fs.readdirSync(dir + file).map(x => file + '/' + x);
 				filesToRead = filesToRead.concat(children);
 			} else {
 				returnFiles.push(file);
