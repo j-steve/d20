@@ -22,8 +22,14 @@ class Decision {
 	}
 	
 	of(name, description) {
-		this.options.push({name, description});
+		const obj = (typeof name === 'object') ? name : {name, description};
+		this.options.push(obj);
 		return this;
+	}
+	
+	ofAttr(attrType, name, description) {
+		const attrObj = new DDClass(name, null, description).attr(attrType, name, description);
+		return this.of(attrObj);
 	}
 	
 	get parent() {
