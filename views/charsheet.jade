@@ -22,15 +22,15 @@ block content
 				+form-text(5, "Character Name", "charName").input-lg
 				label.col-sm-2
 					-var charClassAttrs = CharClasses.map(function(x) {var c = x.attrs; c.name=x.name; return c;});
-					+select("charClass", charClassAttrs, 'name', ['baseHP', 'savingThrows', 'spellcastAbility'])
+					+select("charClass", charClassAttrs, 'name', ['baseHP', 'savingThrows', 'spellcastAbility'], {disabled:true})
 					span="Class"
 				+form-number(1, "Level", "charLevel", 1, 20, 1)
 				label.col-sm-2
-					+select("background", Backgrounds, 'name', 'skills')
+					+select("background", Backgrounds, 'name', 'skills', {disabled:true})
 					span="Background"
 				+form-text(2, "Player", "playerName")
 				label.col-sm-3
-					select(id="subrace", name="subrace").form-control
+					select(id="subrace", name="subrace", disabled=true).form-control
 						each race in CharRaces
 							if race.subraces.length
 								optgroup(label=race.name)
@@ -60,16 +60,16 @@ block content
 							ul.list-unstyled
 								each abilityName, abilityID in ddData.abilities
 									li.row.skill
-										.col-xs-1.col-md-1: input(type="checkbox", id="savingThrows"+abilityID, name="savingThrows", value=abilityID, checked=charData.savingThrows.indexOf(abilityID) > -1)
-										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=abilityID).form-control
+										.col-xs-1.col-md-1: input(type="checkbox", id="savingThrows"+abilityID, name="savingThrows", value=abilityID, checked=charData.savingThrows.indexOf(abilityID) > -1, disabled=true)
+										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=abilityID, disabled=true).form-control
 										.col-xs-8.col-md-8: label(for="savingThrows"+abilityID)=abilityName
 							legend="Saving Throws"
 						fieldset
 							ul.list-unstyled
 								for skill in ddData.skills
 									li.row.skill
-										.col-xs-1.col-md-1: input(type="checkbox", id="skills-"+skill.name, name="skills", value=skill.name, checked=charData.skills.indexOf(skill.name) > -1)
-										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=skill.ability).form-control
+										.col-xs-1.col-md-1: input(type="checkbox", id="skills-"+skill.name, name="skills", value=skill.name, checked=charData.skills.indexOf(skill.name) > -1, disabled=true)
+										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=skill.ability, disabled=true).form-control
 										.col-xs-8.col-md-8: label(for='skills-'+skill.name)
 											|#{skill.name}
 											span.skill-ability=skill.ability
@@ -88,7 +88,7 @@ block content
 						+form-text(4, "Initiative", "initiative")(data-ability='DEX', data-baseval='0')
 						+form-number(4, "Speed", "speed", 0, null, 30)
 						+form-number(4, "Current HP", "currentHP", 0)(data-ability='CON', data-hp=true)
-						+form-number(4, "Max HP", "maxHP", 0)(data-ability='CON', data-hp=true, value=charData.baseHP)
+						+form-number(4, "Max HP", "maxHP", 0)(data-ability='CON', data-hp=true)
 						+form-number(4, "Temp HP", "tempHP", 0)
 						+form-textarea(12, "Attacks", "attacks", 15)
 						h5.col-sm-12="Equipment"
@@ -158,8 +158,8 @@ mixin form-textarea(colspan, label, controlID, rows)
 mixin input(type, controlID)
 	input.form-control(type=type, id=controlID, name=controlID, value=listJoin(charData[controlID]))&attributes(attributes)
 
-mixin select(controlID, optionList, displayProperty, dataProperty)
-	select(id=controlID, name=controlID).form-control
+mixin select(controlID, optionList, displayProperty, dataProperty, selectAttrs)
+	select(id=controlID, name=controlID).form-control&attributes(selectAttrs || {})
 		each option in optionList
 			-var optionName = typeof option !== 'object' ? option : option[displayProperty || 'name'];
 			-var optionAttrs = {selected: [].concat(charData[controlID] || []).indexOf(optionName) > -1};

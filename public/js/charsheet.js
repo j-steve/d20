@@ -21,6 +21,22 @@ jQuery((function($) {
          $(`.nav-tabs li a[href="${window.location.hash}"]`).trigger('click');
     }
     
+    /**
+     * Saving & Loading
+     */
+    const $allInputs = $('#charsheet').find('input,textarea,select');
+    $allInputs.on('init change input', function(e) {
+        const val = $(this).is(':checkbox,:radio') ? $(this).prop('checked') : $(this).val();
+        if (e.type === 'init') {
+             $(this).data('initialValue', val);
+        } else {
+            const isChanged = val !== $(this).data('initialValue');
+             $(this).data('isChanged', isChanged);
+            const $changed = $allInputs.filter(function() {return $(this).data('isChanged');});
+            $('#save-panel').toggle($changed.length > 0);
+        }
+    }).trigger('init');
+    
     // /**
     //  * Character Sheet Abilities
     //  */ 
