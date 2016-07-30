@@ -2,31 +2,12 @@
 /* global CHAR_DATA */
 
 jQuery((function($) {
-    "use strict";
-    
-    /**
-     * Tab Navigation
-     */ 
-    $('.nav-tabs li').on('click', function() {
-        $('.nav-tabs .active').removeClass('active');
-        $(this).addClass('active');
-        let hash = $(this).find('a').prop('href');
-        hash = hash.substr(hash.indexOf('#') + 1);
-        $('[data-page].active-page').removeClass('active-page');
-        $(`[data-page="${hash}"]`).addClass('active-page');
-    });
-    if (!window.location.hash) {
-        $('.nav-tabs li a').first().trigger('click');
-    } else {
-         $(`.nav-tabs li a[href="${window.location.hash}"]`).trigger('click');
-    }
-    
-    
-    
-    /**
-     * Character Sheet Abilities
-     */ 
-    
+    "use strict"; 
+
+    // ----------------------------------------------------------------------    
+    // Character Sheet Abilities
+    // ----------------------------------------------------------------------
+     
     // Proficiency Bonus
     const $charLevel = $('#charLevel').on('input', () => $profBonus.trigger('levelChange'));
     const $profBonus = $('#profBonus').on('init levelChange', function(e) {
@@ -41,11 +22,11 @@ jQuery((function($) {
         if (this.value === '') {this.value = $(this).data('lvlProfBonus');}
     });
     
-    
-    
-    /**
-     * Saving & Loading
-     */
+
+    // ----------------------------------------------------------------------    
+    // Saving & Loading
+    // ----------------------------------------------------------------------
+     
     const $allInputs = $('#charsheet').find('input,textarea,select');
     $allInputs.on('init input', function(e) {
         const val = $(this).is(':checkbox,:radio') ? $(this).prop('checked') : $(this).val();
@@ -63,6 +44,7 @@ jQuery((function($) {
     $('form#charsheet').on('submit', function() {
         $allInputs.prop('disabled', false);
     });
+    
     
     // /**
     //  * Character Sheet Abilities

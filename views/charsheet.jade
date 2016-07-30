@@ -1,156 +1,154 @@
 extends ./layout
 
-block styles
-	link(rel='stylesheet', href='/css/charsheet.css')
+append styles
+	link(rel="stylesheet", href="/css/charsheet.css")
 
 append scripts
-	script var CHAR_DATA = !{charDataStr}
 	script(src="/js/charsheet.js")
 	
 block content
 	-function listJoin(val, joinChar) {return [].concat(val || []).join(joinChar == null ? ', ' : joinChar);}
 	form(method="POST")#charsheet.container: .row.panel.panel-default
-		#save-panel
-			input(type="submit", value="Save Changes").btn.btn-success.btn-lg.center-block
 		.panel-header
 			ul.nav.nav-tabs
-				li(role="presentation"): a(href="#BasicInfo")="Basic Info"
-				li(role="presentation"): a(href="#CharDetails")="Character Details"
-				li(role="presentation"): a(href="#Spells")="Spells"
-		.panel-body(data-page="BasicInfo")
-			header.label-below
-				+form-text(5, "Character Name", "charName").input-lg
-				label.col-sm-2
-					-var charClassAttrs = CharClasses.map(function(x) {var c = x.attrs; c.name=x.name; return c;});
-					+select("charClass", charClassAttrs, 'name', ['baseHP', 'savingThrows', 'spellcastAbility'], {disabled:true})
-					span="Class"
-				+form-number(1, "Level", "charLevel", 1, 20, 1)
-				label.col-sm-2
-					+select("background", Backgrounds, 'name', 'skills', {disabled:true})
-					span="Background"
-				+form-text(2, "Player", "playerName")
-				label.col-sm-3
-					select(id="subrace", name="subrace", disabled=true).form-control
-						each race in CharRaces
-							if race.subraces.length
-								optgroup(label=race.name)
-									each subrace in race.subraces
-										option(selected=subrace.name===charData.subrace)=subrace.name
-							else
-								option(selected=race.name===charData.race)=race.name
-					span="Race"
-				label.col-sm-3
-					+select("alignment", [""].concat(Alignments))
-					span="Alignment"
-				+form-number(1, "XP", "xp", 0)
-			.col-sm-3
-				.row
-					.col-sm-5
-						ul.list-unstyled
-							each abilityName, abilityID in ddData.abilities
-								li.ability
-									label.center-block
-										span=abilityName
-										-var abilityValue = charData.abilities && charData.abilities[abilityID] || 10
-										input(type="number", id=abilityID, name=`abilities[${abilityID}]`, value=abilityValue, min=8, max=20).form-control.center-block.input-lg
-									output.center-block.ability-modifier(data-ability=abilityID)
-					.col-sm-7
-						+fieldset-singleton("Proficiency Bonus", "profBonus", "+2")
-						fieldset
+				li.active: a(data-toggle="tab" href="#BasicInfo")="Basic Info"
+				li: a(data-toggle="tab" href="#CharDetails")="Character Details"
+				li: a(data-toggle="tab" href="#Spells")="Spells"
+		.panel-body.tab-content
+			#BasicInfo.tab-pane.fade-in.active
+				header.label-below
+					+form-text(5, "Character Name", "charName").input-lg
+					label.col-xs-2
+						-var charClassAttrs = CharClasses.map(function(x) {var c = x.attrs; c.name=x.name; return c;});
+						+select("charClass", charClassAttrs, 'name', ['baseHP', 'savingThrows', 'spellcastAbility'], {disabled:true})
+						span="Class"
+					+form-number(1, "Level", "charLevel", 1, 20, 1)
+					label.col-xs-2
+						+select("background", Backgrounds, 'name', 'skills', {disabled:true})
+						span="Background"
+					+form-text(2, "Player", "playerName")
+					label.col-xs-3
+						select(id="subrace", name="subrace", disabled=true).form-control
+							each race in CharRaces
+								if race.subraces.length
+									optgroup(label=race.name)
+										each subrace in race.subraces
+											option(selected=subrace.name===charData.subrace)=subrace.name
+								else
+									option(selected=race.name===charData.race)=race.name
+						span="Race"
+					label.col-xs-3
+						+select("alignment", [""].concat(Alignments))
+						span="Alignment"
+					+form-number(1, "XP", "xp", 0)
+				.col-xs-4
+					.row
+						.col-xs-4
 							ul.list-unstyled
 								each abilityName, abilityID in ddData.abilities
-									li.row.skill
-										.col-xs-1.col-md-1: input(type="checkbox", id="savingThrows"+abilityID, name="savingThrows", value=abilityID, checked=charData.savingThrows.indexOf(abilityID) > -1, disabled=true)
-										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=abilityID, disabled=true).form-control
-										.col-xs-8.col-md-8: label(for="savingThrows"+abilityID)=abilityName
-							legend="Saving Throws"
-						fieldset
-							ul.list-unstyled
-								for skill in ddData.skills
-									li.row.skill
-										.col-xs-1.col-md-1: input(type="checkbox", id="skills-"+skill.name, name="skills", value=skill.name, checked=charData.skills.indexOf(skill.name) > -1, disabled=true)
-										.col-xs-3.col-md-3: input(type="text", maxlength="3", data-ability=skill.ability, disabled=true).form-control
-										.col-xs-8.col-md-8: label(for='skills-'+skill.name)
-											|#{skill.name}
-											span.skill-ability=skill.ability
-							legend="Skills"
-						+fieldset-singleton("Passive Perception", "passivePercep", "+2")(data-ability='WIS', data-baseval='10')
-				.row.label-below
-					+form-textarea(12, "Languages", "languages", 2, listJoin(charData.languages))
-					+form-textarea(12, "Armor", "armor", 2, listJoin(charData.arrmor))
-					+form-textarea(12, "Weapons", "weapons", 2, listJoin(charData.weapons))
-					+form-textarea(12, "Tools", "tools", 2, listJoin(charData.tools))
-					+form-textarea(12, "Other Proficiencies & Languages", "miscSkills", 13)
-			.col-sm-9
-				.row.label-below
-					.col-sm-6
-						+form-number(4, "Armor Class", "armorClass")(data-ability='DEX', data-baseval='10')
-						+form-text(4, "Initiative", "initiative")(data-ability='DEX', data-baseval='0')
-						+form-number(4, "Speed", "speed", 0, null, 30)
-						+form-number(4, "Current HP", "currentHP", 0)(data-ability='CON', data-hp=true)
-						+form-number(4, "Max HP", "maxHP", 0)(data-ability='CON', data-hp=true)
-						+form-number(4, "Temp HP", "tempHP", 0)
-						+form-textarea(12, "Attacks", "attacks", 15)
-						h5.col-sm-12="Equipment"
-						ul.col-sm-12
-							each equipmentItem, i in charData.equipment || []
-								input(name=`equipment[${i}]` value=equipmentItem).form-control
-					.col-sm-6
-						+form-textarea(12, "Personality Traits", "personalityTraits", 5)
-						+form-textarea(12, "Ideals", "ideals", 5)
-						+form-textarea(12, "Bonds", "bonds", 5)
-						+form-textarea(12, "Flaws", "flaws", 5)
-						h5.col-sm-12="Features"
-						ul.col-sm-12
-							each feature, i in charData.features || []
-								li
-									dt: input(name=`features[${i}][name]`, value=feature.name).form-control
-									dd: textarea(name=`features[${i}][description]`).form-control=feature.description
-		.panel-body(data-page="CharDetails")
-			header.label-below
-				+form-text(5, "Character Name", "charName2").input-lg
-				//+form-number(2, "Age", "charAge", null, 1)
-				.col-sm-1
-				label.col-sm-2
-					.input-group
-						+input("number", "charAge")&attributes(min=1)
-						.input-group-addon="years"
-					span="Age"
-				+form-text(2, "Height", "height")
-				label.col-sm-2
-					.input-group
-						+input("number", "charWeight")&attributes(min=1)
-						.input-group-addon="lbs"
-					span="Weight"
-				.col-sm-1
-				+form-text(2, "Eyes", "charEyes")
-				+form-text(2, "Skin", "charSkin")
-				+form-text(2, "Hair", "charHair")
-		.panel-body(data-page="Spells")
-			header.label-below.row
-				.col-sm-3
-				+form-text(2, "Spellcasting Ability", "spellcastAbility").input-lg
-				+form-number(2, "Spell Save DC", "spellSaveDC").input-lg(data-ability=true, data-profbonus="true", data-baseval="8")
-				+form-text(2, "Spell Attack Bonus", "spellAttackBonus").input-lg(data-ability=true, data-profbonus="true")
-				.col-sm-3
-			.row
-				.col-sm-3
-					h4.col-sm-12="Cantrips"
-					ul.col-sm-12
-						each cantrip, i in charData.cantrips || []
-							input(name=`cantrips[${i}]` value=cantrip).form-control
-				for spellLevel in [1, 2, 3, 4, 5]
-					.col-sm-3
-						h4.col-sm-12=`Level ${spellLevel} Spells`
-						ul.col-sm-12
-							each spell, i in charData['spells' + spellLevel] || []
-								input(name=`spells${spellLevel}[${i}]` value=spell).form-control
+									li.ability
+										label.center-block
+											span=abilityName
+											-var abilityValue = charData.abilities && charData.abilities[abilityID] || 10
+											input(type="number", id=abilityID, name=`abilities[${abilityID}]`, value=abilityValue, min=8, max=20).form-control.center-block.input-lg
+										output.center-block.ability-modifier(data-ability=abilityID)
+						.col-xs-8
+							fieldset.skill.singleton-skill
+								.col-xs-3: +input("text", "profBonus")&attributes(maxlength=3)
+								.col-xs-9: label(for="profBonus")="Proficiency Bonus"
+							fieldset
+								legend="Saving Throws"
+								ul.list-unstyled.skill-list
+									each abilityName, abilityID in ddData.abilities
+										li.skill
+											input(type="checkbox", id="savingThrows"+abilityID, name="savingThrows", value=abilityID, checked=charData.savingThrows.indexOf(abilityID) > -1, disabled=true)
+											input(type="text", maxlength="3", data-ability=abilityID, disabled=true).form-control
+											label(for="savingThrows"+abilityID)=abilityName
+							fieldset
+								legend="Skills"
+								ul.list-unstyled.skill-list
+									for skill in ddData.skills
+										li.skill
+											input(type="checkbox", id="skills-"+skill.name, name="skills", value=skill.name, checked=charData.skills.indexOf(skill.name) > -1, disabled=true)
+											input(type="text", maxlength="3", data-ability=skill.ability, disabled=true).form-control
+											span.skill-label
+												label(for='skills-'+skill.name)=skill.name
+												span.skill-ability=skill.ability
+							fieldset.skill.singleton-skill
+								.col-xs-3: +input("text", "passivePercep")&attributes({"data-ability":"WIS", "data-baseval":"10", "maxlength":"3"})
+								.col-xs-9: label(for="passivePercep")="Passive Perception"
+					.row.label-below
+						+form-textarea(12, "Languages", "languages", 2, listJoin(charData.languages))
+						+form-textarea(12, "Armor", "armor", 2, listJoin(charData.arrmor))
+						+form-textarea(12, "Weapons", "weapons", 2, listJoin(charData.weapons))
+						+form-textarea(12, "Tools", "tools", 2, listJoin(charData.tools))
+				.col-xs-8
+					.row.label-below
+						.col-xs-5
+							+form-number(4, "Armor Class", "armorClass")(data-ability='DEX', data-baseval='10')
+							+form-text(4, "Initiative", "initiative")(data-ability='DEX', data-baseval='0')
+							+form-number(4, "Speed", "speed", 0, null, 30)
+							+form-number(4, "Current HP", "currentHP", 0)(data-ability='CON', data-hp=true)
+							+form-number(4, "Max HP", "maxHP", 0)(data-ability='CON', data-hp=true)
+							+form-number(4, "Temp HP", "tempHP", 0)
+							+form-textarea(12, "Attacks", "attacks", 15)
+							h5.col-xs-12="Equipment"
+							ul.col-xs-12
+								each equipmentItem, i in charData.equipment || []
+									input(name=`equipment[${i}]` value=equipmentItem).form-control
+						.col-xs-7
+							+form-textarea(12, "Personality Traits", "personalityTraits", 5)
+							+form-textarea(12, "Ideals", "ideals", 5)
+							+form-textarea(12, "Bonds", "bonds", 5)
+							+form-textarea(12, "Flaws", "flaws", 5)
+							h5.col-xs-12="Features"
+							ul.col-xs-12
+								each feature, i in charData.features || []
+									li
+										dt: input(name=`features[${i}][name]`, value=feature.name).form-control
+										dd: textarea(name=`features[${i}][description]`).form-control=feature.description
+			#CharDetails.tab-pane.fade
+				header.label-below
+					+form-text(5, "Character Name", "charName2").input-lg
+					//+form-number(2, "Age", "charAge", null, 1)
+					.col-xs-1
+					label.col-xs-2
+						.input-group
+							+input("number", "charAge")&attributes(min=1)
+							.input-group-addon="years"
+						span="Age"
+					+form-text(2, "Height", "height")
+					label.col-xs-2
+						.input-group
+							+input("number", "charWeight")&attributes(min=1)
+							.input-group-addon="lbs"
+						span="Weight"
+					.col-xs-1
+					+form-text(2, "Eyes", "charEyes")
+					+form-text(2, "Skin", "charSkin")
+					+form-text(2, "Hair", "charHair")
+			#Spells.tab-pane.fade
+				header.label-below.row
+					.col-xs-3
+					+form-text(2, "Spellcasting Ability", "spellcastAbility").input-lg
+					+form-number(2, "Spell Save DC", "spellSaveDC").input-lg(data-ability=true, data-profbonus="true", data-baseval="8")
+					+form-text(2, "Spell Attack Bonus", "spellAttackBonus").input-lg(data-ability=true, data-profbonus="true")
+					.col-xs-3
+				.row
+					.col-xs-3
+						h4.col-xs-12="Cantrips"
+						ul.col-xs-12
+							each cantrip, i in charData.cantrips || []
+								input(name=`cantrips[${i}]` value=cantrip).form-control
+					for spellLevel in [1, 2, 3, 4, 5]
+						.col-xs-3
+							h4.col-xs-12=`Level ${spellLevel} Spells`
+							ul.col-xs-12
+								each spell, i in charData['spells' + spellLevel] || []
+									input(name=`spells${spellLevel}[${i}]` value=spell).form-control
+			#save-panel
+				input(type="submit", value="Save Changes").btn.btn-success.btn-lg.center-block
 
-
-mixin fieldset-singleton(label, controlID, value)
-	fieldset.row.skill
-		.col-xs-3.col-md-3: +input("text", controlID)&attributes(attributes)&attributes(maxlength=3)
-		.col-xs-9.col-md-9: label(for=name)=label
 
 mixin form-text(colspan, label, controlID)
 	label(class=`col-sm-${colspan}`)

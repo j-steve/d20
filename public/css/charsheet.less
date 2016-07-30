@@ -1,14 +1,4 @@
 #charsheet {
-    /* Tab Navigation */
-    [data-page] {
-        display: none;
-        &.active-page {
-            display: initial;
-        }
-    }
-    header {
-        margin-bottom: 20px;
-    }
     .label-below label {
         position: relative;
         margin-bottom: 20px;
@@ -47,20 +37,37 @@
             border-top: 0px none;
         }
     }
+    fieldset {
+        border-radius:5px;
+        padding:5px;
+        border: 1px solid silver;
+        margin-bottom:10px;
+    }
+    legend {
+        margin:0px;
+        font-size:medium;
+        text-align:center;
+        border: 1px solid silver;
+        background: #f7f7f7;
+        width: 75%
+    }
+    .skill-label {display:inline-block;}
+        li.skill {
+            font-size: small;
+            margin-bottom: 1px;
+        }
     .skill {
-        font-size: small;
-        margin-bottom: 2px;
         input[type=text] {
             padding: 2px 4px;
             text-align: center;
             margin-left: 4px;
             margin-right: 4px;
             height: 25px;
+            width:35px;
+            display:inline;
         }
         label {
-            float: left;
-            margin-bottom: -10px;
-            line-height: 12px;
+            line-height: 100%;
             font-weight: normal;
         }
         .skill-ability {
@@ -74,14 +81,18 @@
             }
         }
     }
+    .singleton-skill {
+        label {
+            font-weight: bold;
+        }
+    }
+    ul {
+        margin:0px;
+    }
     /* Always show up and down arrows for number inputs. */
     input[type='number']::-webkit-inner-spin-button,
     input[type='number']::-webkit-outer-spin-button {
         opacity: 1;
-    }
-    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
-        padding-left: 5px;
-        padding-right: 5px;
     }
 }
 
