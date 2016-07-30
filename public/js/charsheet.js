@@ -21,11 +21,31 @@ jQuery((function($) {
          $(`.nav-tabs li a[href="${window.location.hash}"]`).trigger('click');
     }
     
+    
+    
+    /**
+     * Character Sheet Abilities
+     */ 
+    
+    // Proficiency Bonus
+    const $charLevel = $('#charLevel').on('input', () => $profBonus.trigger('levelChange'));
+    const $profBonus = $('#profBonus').on('init levelChange', function(e) {
+        const lvl = +$charLevel.val();
+        const lvlProfBonus = lvl >= 17 ? 6 : lvl >= 13 ? 5 : lvl >= 9 ? 4 : lvl >= 5 ? 3 : 2;
+        if (e.type !== 'init' || !this.value) {
+            const lvlAdj = lvlProfBonus -($(this).data('lvlProfBonus') || 0)
+            this.value = +this.value + lvlAdj;
+        }
+        $(this).data('lvlProfBonus', lvlProfBonus);
+    }).trigger('init');
+    
+    
+    
     /**
      * Saving & Loading
      */
     const $allInputs = $('#charsheet').find('input,textarea,select');
-    $allInputs.on('init change input', function(e) {
+    $allInputs.on('init input', function(e) {
         const val = $(this).is(':checkbox,:radio') ? $(this).prop('checked') : $(this).val();
         if (e.type === 'init') {
              $(this).data('initialValue', val);
@@ -36,6 +56,11 @@ jQuery((function($) {
             $('#save-panel').toggle($changed.length > 0);
         }
     }).trigger('init');
+    
+    
+    $('form#charsheet').on('submit', function() {
+        $allInputs.prop('disabled', false);
+    });
     
     // /**
     //  * Character Sheet Abilities

@@ -127,12 +127,15 @@ block content
 				+form-text(2, "Skin", "charSkin")
 				+form-text(2, "Hair", "charHair")
 		.panel-body(data-page="Spells")
-			header.label-below
+			header.label-below.row
 				.col-sm-3
 				+form-text(2, "Spellcasting Ability", "spellcastAbility").input-lg
 				+form-number(2, "Spell Save DC", "spellSaveDC").input-lg(data-ability=true, data-profbonus="true", data-baseval="8")
 				+form-text(2, "Spell Attack Bonus", "spellAttackBonus").input-lg(data-ability=true, data-profbonus="true")
 				.col-sm-3
+			.col-sm-3
+				+form-textarea(12, "Cantrips", "cantrips", 5)
+				+form-textarea(12, "Level 1 Spells", "level-one spells", 5)
 
 
 mixin fieldset-singleton(label, controlID, value)
