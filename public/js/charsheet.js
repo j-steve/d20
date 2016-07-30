@@ -37,7 +37,9 @@ jQuery((function($) {
             this.value = +this.value + lvlAdj;
         }
         $(this).data('lvlProfBonus', lvlProfBonus);
-    }).trigger('init');
+    }).trigger('init').on('change', function() {
+        if (this.value === '') {this.value = $(this).data('lvlProfBonus');}
+    });
     
     
     
