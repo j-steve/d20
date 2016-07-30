@@ -133,9 +133,18 @@ block content
 				+form-number(2, "Spell Save DC", "spellSaveDC").input-lg(data-ability=true, data-profbonus="true", data-baseval="8")
 				+form-text(2, "Spell Attack Bonus", "spellAttackBonus").input-lg(data-ability=true, data-profbonus="true")
 				.col-sm-3
-			.col-sm-3
-				+form-textarea(12, "Cantrips", "cantrips", 5)
-				+form-textarea(12, "Level 1 Spells", "level-one spells", 5)
+			.row
+				.col-sm-3
+					h4.col-sm-12="Cantrips"
+					ul.col-sm-12
+						each cantrip, i in charData.cantrips || []
+							input(name=`cantrips[${i}]` value=cantrip).form-control
+				for spellLevel in [1, 2, 3, 4, 5]
+					.col-sm-3
+						h4.col-sm-12=`Level ${spellLevel} Spells`
+						ul.col-sm-12
+							each spell, i in charData['spells' + spellLevel] || []
+								input(name=`spells${spellLevel}[${i}]` value=spell).form-control
 
 
 mixin fieldset-singleton(label, controlID, value)
