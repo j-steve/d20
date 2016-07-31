@@ -1,111 +1,124 @@
 #charsheet {
-    .label-below label {
-        position: relative;
-        margin-bottom: 20px;
-        &> span {
-            position: absolute;
-            color: #4e4e4e;
-            font-size: 10px;
+    /* Label Below */
+        .label-below label {
+            position: relative;
+            margin-bottom: 20px;
+            &> span {
+                position: absolute;
+                color: #4e4e4e;
+                font-size: 10px;
+            }
         }
-    }
-    .ability {
-        text-align: center;
-        margin-bottom: 15px;
-        .form-label {
-            display: block;
-        }
-        input {
-            width: 50px;
-            padding: 3px 6px;
+    
+    /* Abilities */
+        .ability {
             text-align: center;
-            border-bottom-left-radius: 0%;
-            border-bottom-right-radius: 0%;
+            margin-bottom: 15px;
+            .form-label {
+                display: block;
+            }
+            input {
+                width: 50px;
+                padding: 3px 6px;
+                text-align: center;
+                border-bottom-left-radius: 0%;
+                border-bottom-right-radius: 0%;
+            }
+            label {
+                margin-bottom: 0px;
+            }
+            output {
+                padding-top: 0px;
+                width: 50px;
+                height: 22px;
+                background: #eaeaea;
+                color: black;
+                margin-top: 0px;
+                border-bottom-left-radius: 50%;
+                border-bottom-right-radius: 50%;
+                border: 1px solid silver;
+                border-top: 0px none;
+            }
         }
-        label {
-            margin-bottom: 0px;
-        }
-        output {
-            padding-top: 0px;
-            width: 50px;
-            height: 22px;
-            background: #eaeaea;
-            color: black;
-            margin-top: 0px;
-            border-bottom-left-radius: 50%;
-            border-bottom-right-radius: 50%;
+    
+    /* Skills */
+        fieldset {
+            border-radius:5px;
+            padding:5px;
             border: 1px solid silver;
-            border-top: 0px none;
+            margin-bottom:10px;
         }
-    }
-    fieldset {
-        border-radius:5px;
-        padding:5px;
-        border: 1px solid silver;
-        margin-bottom:10px;
-    }
-    legend {
-        border-radius:5px;
-        margin:0px;
-        font-size:medium;
-        text-align:center;
-        border: 1px solid silver;
-        background: #f7f7f7;
-        width: 75%
-    }
-    .skill-label {display:inline-block;}
-        li.skill {
-            font-size: small;
-            margin-bottom: 1px;
+        legend {
+            border-radius:5px;
+            margin:0px;
+            font-size:medium;
+            text-align:center;
+            border: 1px solid silver;
+            background: #f7f7f7;
+            width: 75%
         }
-    .skill {
-        input[type=text] {
-            padding: 2px 4px;
-            text-align: center;
-            margin-left: 4px;
-            margin-right: 4px;
-            height: 25px;
-            width:35px;
-            display:inline;
-        }
-        label {
-            line-height: 100%;
-            font-weight: normal;
-        }
-        .skill-ability {
-            font-size: x-small;
-            color: gray;
-            &::before {
-                content: " (";
+        .skill-label {display:inline-block;}
+            li.skill {
+                font-size: small;
+                margin-bottom: 1px;
             }
-            &::after {
-                content: ")";
+        .skill {
+            input[type=text] {
+                padding: 2px 4px;
+                text-align: center;
+                margin-left: 4px;
+                margin-right: 4px;
+                height: 25px;
+                width:35px;
+                display:inline;
+            }
+            label {
+                line-height: 100%;
+                font-weight: normal;
+            }
+            .skill-ability {
+                font-size: x-small;
+                color: gray;
+                &::before {
+                    content: " (";
+                }
+                &::after {
+                    content: ")";
+                }
             }
         }
-    }
-    .singleton-skill {
-        label {
-            font-weight: bold;
+        .singleton-skill {
+            label {
+                font-weight: bold;
+            }
         }
-    }
-    ul {
-        margin:0px;
-    }
-    /* Always show up and down arrows for number inputs. */
-    input[type='number']::-webkit-inner-spin-button,
-    input[type='number']::-webkit-outer-spin-button {
-        opacity: 1;
-    }
-}
+        ul {
+            margin:0px;
+        }
 
-#save-panel {
-    display: none;
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
-    width: 100%;
-    z-index: 99;
-    background: yellow;
-    background: #373737;
-    border-top: 1px solid black;
-    padding: 5px;
+    /* Always show up and down arrows for number inputs. */
+        input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+            opacity: 1;
+        }
+
+    /* Save Button */
+        &.show-save-button {
+            padding-bottom:25px;
+            #save-panel {
+                display:block;
+            }
+        }
+        #save-panel {
+            display: none;
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+            width: 100%;
+            z-index: 99;
+            background: yellow;
+            background: #373737;
+            border-top: 1px solid black;
+            padding: 5px;
+        }
 }

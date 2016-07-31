@@ -15,11 +15,11 @@ jQuery((function($) {
         const lvlProfBonus = lvl >= 17 ? 6 : lvl >= 13 ? 5 : lvl >= 9 ? 4 : lvl >= 5 ? 3 : 2;
         if (e.type !== 'init' || !this.value) {
             const lvlAdj = lvlProfBonus -($(this).data('lvlProfBonus') || 0)
-            this.value = +this.value + lvlAdj;
+            this.value = '+' + (+this.value + lvlAdj);
         }
         $(this).data('lvlProfBonus', lvlProfBonus);
     }).trigger('init').on('change', function() {
-        if (this.value === '') {this.value = $(this).data('lvlProfBonus');}
+        if (this.value === '') {this.value = '+' + $(this).data('lvlProfBonus');}
     });
     
 
@@ -36,7 +36,7 @@ jQuery((function($) {
             const isChanged = val !== $(this).data('initialValue');
              $(this).data('isChanged', isChanged);
             const $changed = $allInputs.filter(function() {return $(this).data('isChanged');});
-            $('#save-panel').toggle($changed.length > 0);
+            $('#charsheet').toggleClass('show-save-button', $changed.length > 0);
         }
     }).trigger('init');
     
