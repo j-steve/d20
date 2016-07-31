@@ -52,7 +52,6 @@ jQuery((function($) {
         value += +$(this).data('baseval') || 0;
         if ($(this).data('prof-bonus')) {
             value += +$profBonus.val();
-            console.log('adding prof bonus');
         }
         if ($(this).is('[data-hp]')) {value *= $charLevel.val();}
         if (value >= 0 && !$(this).is('[type=number]')) {value = '+'  + value;}
@@ -65,29 +64,51 @@ jQuery((function($) {
        $(this).toggleClass('mod-zero', val === 0);
        $(this).toggleClass('mod-neg', val < 0);
     });
+
+    // ----------------------------------------------------------------------    
+    // Addable Controls
+    // ----------------------------------------------------------------------
     
+    $('.addable-list').each(function() {
+        const $list = $(this).find('ul');
+        const $template = $list.find('li').eq(0);
+        $list.find('li').each(function() {
+            const $item = $(this);
+           $('<button>').addClass('close').append('<span>&times</span>').appendTo($item).on('click', function(e) {
+               if (confirm(`Are you sure you want to remove "${$item.find('input').val()}"?`)) {
+                   $item.remove();
+                   $list.data('isChanged', true).trigger('change');
+               }
+               e.preventDefault();
+           });
+        });
+       $('<button>').addClass('btn btn-default btn-sm center-block').text('+ Add').on('click', function(e) {
+           $template.clone().appendTo($list).find('input,select,textarea').eq(0).focus();
+           e.preventDefault();
+       }).insertAfter($list);
+    });
     
 
     // ----------------------------------------------------------------------    
     // Saving & Loading
     // ----------------------------------------------------------------------
      
-    const $allInputs = $('#charsheet').find('input,textarea,select');
-    $allInputs.on('init input change', function(e) {
+    $('#charsheet').on('init input change', 'input,textarea,select,.addable-list', function(e) {
         const val = $(this).is(':checkbox,:radio') ? $(this).prop('checked') : $(this).val();
         if (e.type === 'init') {
              $(this).data('initialValue', val);
         } else {
             const isChanged = val !== $(this).data('initialValue');
              $(this).data('isChanged', isChanged);
-            const $changed = $allInputs.filter(function() {return $(this).data('isChanged');});
+            const $changed =  $('#charsheet').find('input,textarea,select,.addable-list').filter(function() {return $(this).data('isChanged');});
             $('#charsheet').toggleClass('show-save-button', $changed.length > 0);
         }
     }).trigger('init');
     
     
     $('form#charsheet').on('submit', function() {
-        $allInputs.prop('disabled', false);
+        $('#charsheet').find('input,textarea,select').prop('disabled', false);
+        $('.addable-list li:first-child').find('input,textarea,select').prop('disabled', true);
     });
     
     
