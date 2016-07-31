@@ -47,7 +47,7 @@ jQuery((function($) {
     }).trigger('init');
     
     // Data Ability
-    $('[data-ability]').on('recalc', function() {
+    $('[data-ability]').on('init recalc', function() {
         let value = +$('#' + $(this).data('ability')).data('modifier');
         value += +$(this).data('baseval') || 0;
         if ($(this).data('prof-bonus')) {
@@ -56,7 +56,7 @@ jQuery((function($) {
         if ($(this).is('[data-hp]')) {value *= $charLevel.val();}
         if (value >= 0 && !$(this).is('[type=number]')) {value = '+'  + value;}
         this.value = value;
-    });
+    }).trigger('init');
     
     $('#profBonus,[data-ability]').filter('output, input[type=text]').on('init change recalc', function() {
        const val = +$(this).val();
