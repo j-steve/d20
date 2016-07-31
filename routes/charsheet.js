@@ -29,6 +29,9 @@ router.post('/:charID?', function(req, res, next) {
 			playerChar.attr(key, req.body[key]);
 		}
 		charData = playerChar.attrs;
+		for (let singletonProp of ['abilities', 'spellcastAbility', 'baseHP']) {
+			charData[singletonProp] = (charData[singletonProp] || [])[0];	
+		}
 	}
 	const charDataJson = JSON.stringify(charData, null, '\t');
 	charFile(charID).write(charDataJson).then(function() {

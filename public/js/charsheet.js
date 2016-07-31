@@ -8,19 +8,64 @@ jQuery((function($) {
     // Character Sheet Abilities
     // ----------------------------------------------------------------------
      
+    $('[data-default-value]').on('init change', function() {
+        if (!this.value) {
+            this.value = $(this).data('default-value');
+        }
+    }).trigger('init');
+     
     // Proficiency Bonus
-    const $charLevel = $('#charLevel').on('input', () => $profBonus.trigger('levelChange'));
-    const $profBonus = $('#profBonus').on('init levelChange', function(e) {
+    const $charLevel = $('#charLevel').on('input', () => $('#profBonus,[data-hp]').trigger('recalc'));
+    const $profBonus = $('#profBonus').on('init recalc', function(e) {
         const lvl = +$charLevel.val();
         const lvlProfBonus = lvl >= 17 ? 6 : lvl >= 13 ? 5 : lvl >= 9 ? 4 : lvl >= 5 ? 3 : 2;
         if (e.type !== 'init' || !this.value) {
-            const lvlAdj = lvlProfBonus -($(this).data('lvlProfBonus') || 0)
+            const lvlAdj = lvlProfBonus -($(this).data('lvlProfBonus') || 0);
             this.value = '+' + (+this.value + lvlAdj);
+            $(this).trigger('change');
         }
         $(this).data('lvlProfBonus', lvlProfBonus);
+        $('[data-ability]').filter(function() {return $(this).data('prof-bonus');}).trigger('recalc');
     }).trigger('init').on('change', function() {
-        if (this.value === '') {this.value = '+' + $(this).data('lvlProfBonus');}
+        if (this.value === '' || isNaN(this.value)) {this.value = '+' + $(this).data('lvlProfBonus');}
+        else if (+this.value > 0) {this.value = '+' + +this.value.slice(1);}
     });
+   
+   // Abilities 
+    $('.ability input').on('init input', function() {
+        var modifier = +$(this).val() - 10;
+        modifier = Math.floor(modifier / 2);
+        if (modifier >= 0) {modifier = '+' + modifier;}
+        $(this).data('modifier', modifier);
+        $(`[data-ability=${this.id}]`).trigger('recalc');
+    }).trigger('init');
+    
+    // Skill Proficiency Bonus
+    $('.skill :checkbox').on('init change', function() {
+        const isChecked = $(this).is(':checked');
+        $(this).parents('.skill').find('[data-ability]').data('prof-bonus', isChecked).trigger('recalc');
+    }).trigger('init');
+    
+    // Data Ability
+    $('[data-ability]').on('recalc', function() {
+        let value = +$('#' + $(this).data('ability')).data('modifier');
+        value += +$(this).data('baseval') || 0;
+        if ($(this).data('prof-bonus')) {
+            value += +$profBonus.val();
+            console.log('adding prof bonus');
+        }
+        if ($(this).is('[data-hp]')) {value *= $charLevel.val();}
+        if (value >= 0 && !$(this).is('[type=number]')) {value = '+'  + value;}
+        this.value = value;
+    });
+    
+    $('#profBonus,[data-ability]').filter('output, input[type=text]').on('init change recalc', function() {
+       const val = +$(this).val();
+       $(this).toggleClass('mod-pos', val > 0);
+       $(this).toggleClass('mod-zero', val === 0);
+       $(this).toggleClass('mod-neg', val < 0);
+    });
+    
     
 
     // ----------------------------------------------------------------------    
@@ -28,7 +73,7 @@ jQuery((function($) {
     // ----------------------------------------------------------------------
      
     const $allInputs = $('#charsheet').find('input,textarea,select');
-    $allInputs.on('init input', function(e) {
+    $allInputs.on('init input change', function(e) {
         const val = $(this).is(':checkbox,:radio') ? $(this).prop('checked') : $(this).val();
         if (e.type === 'init') {
              $(this).data('initialValue', val);
@@ -117,12 +162,6 @@ jQuery((function($) {
     //     var modifier = +$(this).val() - 10;
     //     modifier = Math.floor(modifier / 2)
     //     $(`[data-ability=${this.id}]`).data('abilitymdifier', modifier).trigger('abilityUpdate');
-    // }).trigger('init');
-
-    // // Skill Proficiencies
-    // $('.skill :checkbox').on('change init', function() {
-    //     const isChecked = $(this).is(':checked')
-    //     $(this).parents('.skill').find('[data-ability]').data('profbonus', isChecked).trigger('abilityUpdate');
     // }).trigger('init');
     
     // /**
