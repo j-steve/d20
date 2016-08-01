@@ -91,7 +91,12 @@ jQuery((function($) {
         const $template = $list.find('li').last().detach();
         $list.find('li').each(addListRemoveBtn);
         $newButton().addClass('btn btn-default btn-sm center-block').text('+ Add').on('click', function(e) {
-            $template.clone().each(addListRemoveBtn).appendTo($list).find('input,select,textarea').eq(0).focus();
+            const $newItem = $template.clone().each(addListRemoveBtn).appendTo($list);
+            $newItem.find('input,textarea,select').each(function() {
+                const liItems = $list.find('li').length;
+                this.name = this.name.replace(/\[[\d]+\]/, '[' + liItems + ']');
+            });
+            $newItem.find('input,select,textarea').eq(0).focus();
                 $('#charsheet').data('perma-show-save', true);
                 $('#charsheet').toggleClass('show-save-button', true);
         }).insertAfter($list);
