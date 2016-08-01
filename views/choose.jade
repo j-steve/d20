@@ -4,6 +4,7 @@ block styles
 	link(rel='stylesheet', href='/css/choose.css')
 
 append scripts
+	script(src="/lib/matchHeight/jquery.matchHeight-min.js")
 	script(src="/js/choose.js")
 
 block content
@@ -22,12 +23,10 @@ block content
 						div.caption
 						h3=ddclass.name
 						.description: p=ddclass.description
-						p
-							button(type="button", tabindex="-1", onclick="return false;").btn.btn-primary.choose-class="Choose " + ddclass.name
-							div(style="clear:both;")
+						p.clearfix: button(type="button", tabindex="-1", onclick="return false;").btn.btn-primary.choose-class="Choose " + ddclass.name
 						.decision-dialogs
 							each decision in ddclass.decisions
-								.modal.fade(data-count=decision.count, role="dialog"): .modal-dialog(role="document"): .modal-content
+								.modal.out(data-count=decision.count, role="dialog"): .modal-dialog(role="document"): .modal-content
 									.modal-header
 										button.close(type="button", data-dismiss="modal", aria-label="Close"): span(aria-hidden="true") &times;
 										h3.modal-title Select #{decision.count} #{decision.name}

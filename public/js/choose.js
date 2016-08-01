@@ -3,6 +3,9 @@
 jQuery((function($) {
     "use strict";
 
+
+    $('.thumbnail').matchHeight();
+
     $('.choose-class').on('mousedown click', function() {
         var $dialogs = $(this).parents('.thumbnail').find('.decision-dialogs').children();
         if ($dialogs.length) {
@@ -25,7 +28,8 @@ jQuery((function($) {
                 $items.trigger('setActive', false);
                 $self.trigger('setActive', true);
                 $modal.find('.modal-footer').toggleClass('show-button', true);
-            } else { 
+            }
+            else {
                 $self.trigger('setActive', !$self.hasClass('active'));
                 const deficitCount = reqdCount - $items.filter('.active').length;
                 $items.not('.active').toggleClass('disabled', deficitCount <= 0);
@@ -43,8 +47,9 @@ jQuery((function($) {
             if ($modal.next().length) {
                 $modal.removeClass('fade').modal('hide');
                 $modal.next().modal('show');
-            } else {
-                nextPage($modal);    
+            }
+            else {
+                nextPage($modal);
             }
         }
     });

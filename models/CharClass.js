@@ -3,7 +3,7 @@ const DDClass = require('./DDClass');
 const ddData = require('./ddData');
 
 module.exports.ALL = [
-	new DDClass('Barbarian', 'Barbarians come alive in the chaos of combat. They can enter a berserk state where rage takes over, giving them superhuman strength and resilience. A barbarian can draw on this reservoir of fury only a few times without resting, but those few rages are usually sufficient to defeat whatever threats arise.', 'http://static.fjcdn.com/pictures/How_bddcce_5492235.jpg')
+	new DDClass('Barbarian', 'Barbarians come alive in the chaos of combat. They can enter a berserk state where rage takes over, giving them superhuman strength and resilience. A barbarian can draw on this reservoir of fury only a few times without resting, but those few rages are usually sufficient to defeat whatever threats arise.', '/img/classes/barbarian.jpg')
 		.attr('baseHP', 12).attr('savingThrows', ['STR', 'CON'])
 		.attr('armor', ['light armor', 'medium armor', 'shields'])
 		.attr('weapons', ['all simple weapons', 'martial weapons'])
@@ -72,7 +72,7 @@ module.exports.ALL = [
 			.parent
 		.decide('Skills', 2, ['History', 'Insight', 'Medicine', 'Persuasion', 'Religion'])
 			.parent,
-	new DDClass('Druid', 'Druids revere nature above all, gaining their spells and other magical powers either from the force of nature itself or from a nature deity. Many druids pursue a mystic spirituality of transcendent union with nature rather than devotion to a divine entity, while others serve gods of wild nature, animals, or elemental forces.', 'http://api.ning.com/files/sOStUTCPGwuVCiYZOM1nPnqrQXAS7cj6IFcagCRfCnQqYGrFWvisxt3EThFXhp3IoAA0bNn0gf7qVcl4dLEEfR71ObSfFooS/DruidPaintedWeb.png')
+	new DDClass('Druid', 'Druids revere nature above all, gaining their spells and other magical powers either from the force of nature itself or from a nature deity. Many druids pursue a mystic spirituality of transcendent union with nature rather than devotion to a divine entity, while others serve gods of wild nature, animals, or elemental forces.', '/img/classes/druid.png')
 		.attr('baseHP', 8).attr('savingThrows', ['INT', 'WIS']).attr('spellcastAbility', 'WIS')
 		.attr('armor', ['light armor', 'medium armor', 'shields'])
 		.attr('weapons', ['clubs', 'daggers', 'darts', 'javelins', 'maces', 'quarterstaffs', 'scimitars', 'sickles', 'slings', 'spears'])
@@ -115,7 +115,7 @@ module.exports.ALL = [
 			.parent
 		.decide('Tool Skills', 1, ["Artisan's tools"].concat(ddData.instruments)).alias('tools')
 			.parent,
-	new DDClass('Paladin', 'A paladin swears to uphold justice and righteousness, to stand with the good things of the world against the encroaching darkness, and to hunt the forces of evil wherever they lurk. Different paladins focus on various aspects of the cause of righteousness, but all are bound by the oaths that grant them power to do their sacred work.', 'http://i10.photobucket.com/albums/a117/elbriga/5f7e782a85cb177b874613c504699887.jpg')
+	new DDClass('Paladin', 'A paladin swears to uphold justice and righteousness, to stand with the good things of the world against the encroaching darkness, and to hunt the forces of evil wherever they lurk. Different paladins focus on various aspects of the cause of righteousness, but all are bound by the oaths that grant them power to do their sacred work.', '/img/classes/paladin.jpg')
 		.attr('baseHP', 10).attr('savingThrows', ['WIS', 'CHA']).attr('spellcastAbility', 'CHA')
 		.attr('armor', ['light armor', 'medium armor', 'heavy armor', 'shields'])
 		.attr('weapons', 'all simple weapons', 'all martial weapons')
@@ -124,7 +124,7 @@ module.exports.ALL = [
 		.attr('features', 'Lay On Hands', 'Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your paladin level x 5. As an action, you can touch a creature and draw power from the pool to restore a number of hit points to that creature, up to the maximum amount remaining in your pool. Alternatively, you can expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it. You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one. This feature has no effect on undead and constructs.')
 		.decide('Skills', 2, ['Athletics', 'Insight', 'Intimidation', 'Medicine', 'Persuasion', 'Religion'])
 			.parent,
-	new DDClass('Ranger', 'Warriors of the wilderness, rangers specialize in hunting the monsters that threaten the edges of civilization. They learn to track their quarry as a predator does, moving stealthily through the wilds and hiding themselves in brush and rubble. Their spells, like their combat abilities, emphasize speed, stealth, and the hunt.', 'http://api.ning.com/files/wr*6D7ZUFRoLMgYi7-ucpxW86tpWjvMohI-ryYoH6GZhcAGhOl2XSSAPpVxhBjlOcpgqVba891kwQuOF5VJytbgjAAvzLBL1/092311_RangerArt.jpg')
+	new DDClass('Ranger', 'Warriors of the wilderness, rangers specialize in hunting the monsters that threaten the edges of civilization. They learn to track their quarry as a predator does, moving stealthily through the wilds and hiding themselves in brush and rubble. Their spells, like their combat abilities, emphasize speed, stealth, and the hunt.', '/img/classes/ranger.jpg')
 		.attr('baseHP', 10).attr('savingThrows', ['STR', 'DEX']).attr('spellcastAbility', 'WIS')
 		.attr('armor', ['light armor', 'medium armor', 'shields'])
 		.attr('weapons', ['all simple weapons', 'all martial weapons'])
@@ -146,7 +146,7 @@ module.exports.ALL = [
 		.attr('features', "Thieves' Cant", "During your rogue training you learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly. In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.")
 		.decide('Skills', 4, ['Acrobatics', 'Athletics', 'Deception', 'Insight', 'Intimidation', 'Investigation', 'Perception', 'Performance', 'Persuasion', 'Sleight of Hand', 'Stealth'])
 			.parent,
-	new DDClass('Sorcerer', 'No one chooses sorcery; the power chooses the sorcerer. Sorcerers have no use for the spellbooks and ancient tomes of magic lore that wizards rely on, nor do they rely on a patron to grant their spells. By learning to harness and channel their own inborn magic, they can discover new and staggering ways to unleash that power.', 'http://whfrp.weebly.com/uploads/1/2/4/0/12408478/689515733_orig.jpg?176')
+	new DDClass('Sorcerer', 'No one chooses sorcery; the power chooses the sorcerer. Sorcerers have no use for the spellbooks and ancient tomes of magic lore that wizards rely on, nor do they rely on a patron to grant their spells. By learning to harness and channel their own inborn magic, they can discover new and staggering ways to unleash that power.', '/img/classes/sorcerer.jpg')
 		.attr('baseHP', 6).attr('savingThrows', ['CON', 'CHA']).attr('spellcastAbility', 'CHA')
 		.attr('armor', [])
 		.attr('weapons', ['daggers', 'darts', 'slings', 'quarterstaffs', 'light crossbows'])
