@@ -28,7 +28,7 @@ module.exports.ALL = [
 			.parent
 		.decide('Musical Instrument Skills', 3, ddData.instruments).alias('tools')
 			.parent,
-	new DDClass('Cleric', 'Clerics are conduits for divine power, manifesting a god\'s power as miraculous effects. A cleric might learn formulaic prayers and ancient rites, but the ability to cast cleric spells relies on devotion and an intuitive sense of thier deity’s wishes.', 'https://cdnb3.artstation.com/p/assets/images/images/001/103/579/large/magnus-noren-dwarf-cleric1.jpg?1440110780')
+	new DDClass('Cleric', 'Clerics are conduits for divine power, manifesting a god\'s power as miraculous effects. A cleric might learn formulaic prayers and ancient rites, but the ability to cast cleric spells relies on devotion and an intuitive sense of thier deity’s wishes.', '/img/classes/cleric.jpg')
 		.attr('baseHP', 8).attr('savingThrows', ['WIS', 'CHA']).attr('spellcastAbility', 'WIS')
 		.attr('armor', ['light armor', 'medium armor', 'shields'])
 		.attr('weapons', ['all simple weapons'])
