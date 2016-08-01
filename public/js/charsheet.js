@@ -7,7 +7,16 @@ jQuery((function($) {
     // ----------------------------------------------------------------------    
     // Character Sheet Abilities
     // ----------------------------------------------------------------------
+    
+    // Colorize positive or negative modifiers.
+    $('#profBonus,[data-ability]').filter('output, input[type=text]').on('colorize', function() {
+       const val = +$(this).val();
+       $(this).toggleClass('mod-pos', val > 0);
+       $(this).toggleClass('mod-zero', val === 0);
+       $(this).toggleClass('mod-neg', val < 0);
+    });
      
+    // Reset to default for applicable values.
     $('[data-default-value]').on('init change', function() {
         if (!this.value) {
             this.value = $(this).data('default-value');
@@ -15,7 +24,7 @@ jQuery((function($) {
     }).trigger('init');
      
     // Proficiency Bonus
-    const $charLevel = $('#charLevel').on('input', () => $('#profBonus,[data-hp]').trigger('recalc'));
+    const $charLevel = $('#charLevel').on('input', (e) => $('#profBonus,[data-hp]').trigger('recalc', e.type));
     const $profBonus = $('#profBonus').on('init recalc', function(e) {
         const lvl = +$charLevel.val();
         const lvlProfBonus = lvl >= 17 ? 6 : lvl >= 13 ? 5 : lvl >= 9 ? 4 : lvl >= 5 ? 3 : 2;
@@ -25,29 +34,30 @@ jQuery((function($) {
             $(this).trigger('change');
         }
         $(this).data('lvlProfBonus', lvlProfBonus);
-        $('[data-ability]').filter(function() {return $(this).data('prof-bonus');}).trigger('recalc');
+        $('[data-ability]').filter(function() {return $(this).data('prof-bonus');}).trigger('recalc', e.type);
+        $(this).trigger('colorize');
     }).trigger('init').on('change', function() {
         if (this.value === '' || isNaN(this.value)) {this.value = '+' + $(this).data('lvlProfBonus');}
         else if (+this.value > 0) {this.value = '+' + +this.value.slice(1);}
     });
    
    // Abilities 
-    $('.ability input').on('init input', function() {
+    $('.ability input').on('init input', function(e) {
         var modifier = +$(this).val() - 10;
         modifier = Math.floor(modifier / 2);
         if (modifier >= 0) {modifier = '+' + modifier;}
         $(this).data('modifier', modifier);
-        $(`[data-ability=${this.id}]`).trigger('recalc');
+        $(`[data-ability=${this.id}]`).trigger('recalc', e.type);
     }).trigger('init');
     
     // Skill Proficiency Bonus
-    $('.skill :checkbox').on('init change', function() {
+    $('.skill :checkbox').on('init change', function(e) {
         const isChecked = $(this).is(':checked');
-        $(this).parents('.skill').find('[data-ability]').data('prof-bonus', isChecked).trigger('recalc');
+        $(this).parents('.skill').find('[data-ability]').data('prof-bonus', isChecked).trigger('recalc', e.type);
     }).trigger('init');
     
     // Data Ability
-    $('[data-ability]').on('init recalc', function() {
+    $('[data-ability]').on('init recalc', function(e, type) {
         let value = +$('#' + $(this).data('ability')).data('modifier');
         value += +$(this).data('baseval') || 0;
         if ($(this).data('prof-bonus')) {
@@ -56,14 +66,8 @@ jQuery((function($) {
         if ($(this).is('[data-hp]')) {value *= $charLevel.val();}
         if (value >= 0 && !$(this).is('[type=number]')) {value = '+'  + value;}
         this.value = value;
+        $(this).trigger('colorize');
     }).trigger('init');
-    
-    $('#profBonus,[data-ability]').filter('output, input[type=text]').on('init change recalc', function() {
-       const val = +$(this).val();
-       $(this).toggleClass('mod-pos', val > 0);
-       $(this).toggleClass('mod-zero', val === 0);
-       $(this).toggleClass('mod-neg', val < 0);
-    });
 
     // ----------------------------------------------------------------------    
     // Addable Controls
@@ -77,7 +81,7 @@ jQuery((function($) {
            $('<button>').addClass('close').append('<span>&times</span>').appendTo($item).on('click', function(e) {
                if (confirm(`Are you sure you want to remove "${$item.find('input').val()}"?`)) {
                    $item.remove();
-                   $list.data('isChanged', true).trigger('change');
+                   $('form').data('isChanged', true).trigger('change');
                }
                e.preventDefault();
            });
@@ -93,17 +97,17 @@ jQuery((function($) {
     // Saving & Loading
     // ----------------------------------------------------------------------
      
-    $('#charsheet').on('init input change', 'input,textarea,select,.addable-list', function(e) {
+    $('input,textarea,select,form').on('setInitVal input change', function(e) {
         const val = $(this).is(':checkbox,:radio') ? $(this).prop('checked') : $(this).val();
-        if (e.type === 'init') {
+        if (e.type === 'setInitVal') {
              $(this).data('initialValue', val);
         } else {
             const isChanged = val !== $(this).data('initialValue');
              $(this).data('isChanged', isChanged);
-            const $changed =  $('#charsheet').find('input,textarea,select,.addable-list').filter(function() {return $(this).data('isChanged');});
+            const $changed =  $('#charsheet').find('input,textarea,select,form').filter(function() {return $(this).data('isChanged');});
             $('#charsheet').toggleClass('show-save-button', $changed.length > 0);
         }
-    }).trigger('init');
+    }).trigger('setInitVal');
     
     
     $('form#charsheet').on('submit', function() {
