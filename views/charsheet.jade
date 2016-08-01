@@ -137,15 +137,15 @@ block content
 				.row
 					.col-xs-3
 						h4.col-xs-12="Cantrips"
-						ul.col-xs-12
-							each cantrip, i in charData.cantrips || []
-								input(name=`cantrips[${i}]` value=cantrip).form-control
+						.col-xs-12.addable-list: ul.list-unstyled
+							each cantrip, i in (charData.cantrips || []).concat('')
+								li: input(name=`cantrips[${i}]` value=cantrip).form-control
 					for spellLevel in [1, 2, 3, 4, 5]
 						.col-xs-3
 							h4.col-xs-12=`Level ${spellLevel} Spells`
-							ul.col-xs-12
-								each spell, i in charData['spells' + spellLevel] || []
-									input(name=`spells${spellLevel}[${i}]` value=spell).form-control
+							.col-xs-12.addable-list: ul.list-unstyled
+								each spell, i in (charData['spells' + spellLevel] || []).concat('')
+									li: input(name=`spells${spellLevel}[${i}]` value=spell).form-control
 			#save-panel
 				input(type="submit", value="Save Changes").btn.btn-success.btn-lg.center-block
 
