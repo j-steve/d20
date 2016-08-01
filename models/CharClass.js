@@ -3,7 +3,8 @@ const DDClass = require('./DDClass');
 const ddData = require('./ddData');
 
 module.exports.ALL = [
-	new DDClass('Barbarian', 'Barbarians come alive in the chaos of combat. They can enter a berserk state where rage takes over, giving them superhuman strength and resilience. A barbarian can draw on this reservoir of fury only a few times without resting, but those few rages are usually sufficient to defeat whatever threats arise.', '/img/classes/barbarian.jpg')
+	new DDClass('Barbarian',
+			'Barbarians come alive in the chaos of combat. They can enter a berserk state where rage takes over, giving them superhuman strength and resilience. A barbarian can draw on this reservoir of fury only a few times per day, but that is usually sufficient to defeat whatever threats arise.', '/img/classes/barbarian.jpg')
 		.attr('baseHP', 12).attr('savingThrows', ['STR', 'CON'])
 		.attr('armor', ['light armor', 'medium armor', 'shields'])
 		.attr('weapons', ['all simple weapons', 'martial weapons'])
@@ -12,7 +13,8 @@ module.exports.ALL = [
 		.attr('features', 'Unarmored Defense', "While you are not wearing any armor, your Armor Class equals 10 + your Dexterity m odifier + your Constitution modifier. You can use a shield and still gain this benefit.")
 		.decide('Skills', 2, ['Animal Handling', 'Athletics', 'Intimidation', 'Nature', 'Perception', 'Survival'])
 			.parent,
-	new DDClass('Bard', 'The bard is a master of song, speech, and the magic they contain. The greatest strength of bards is their sheer versatility. Many bards prefer to stick to the sidelines in combat, using their magic to inspire their allies and hinder their foes from a distance. But bards are capable of defending themselves in melee if necessary, using their magic to bolster their swords and armor.', '/img/classes/bard.png')
+	new DDClass('Bard', 
+			'The bard is a master of song and speech, and the magic they contain. Their greatest strength is their versatility. Bards use magical songs or chants to inspire their allies and hinder their foes, or magically bolstering their own swords and armor.', '/img/classes/bard.png')
 		.attr('baseHP', 8).attr('savingThrows', ['DEX', 'CHA']).attr('spellcastAbility', 'CHA')
 		.attr('armor', ['light armor'])
 		.attr('weapons', ['all simple weapons', 'hand crossbows', 'longswords', 'rapiers', 'shortswords'])
@@ -28,7 +30,8 @@ module.exports.ALL = [
 			.parent
 		.decide('Musical Instrument Skills', 3, ddData.instruments).alias('tools')
 			.parent,
-	new DDClass('Cleric', 'Clerics are conduits for divine power, manifesting a god\'s power as miraculous effects. A cleric might learn formulaic prayers and ancient rites, but the ability to cast cleric spells relies on devotion and an intuitive sense of thier deity’s wishes.', '/img/classes/cleric.jpg')
+	new DDClass('Cleric',
+			"Clerics are conduits for divine power, manifesting a god's power as miraculous effects. A cleric might learn formulaic prayers and ancient rites, but the ability to cast cleric spells relies on devotion and an intuitive sense of thier deity’s wishes.", '/img/classes/cleric.jpg')
 		.attr('baseHP', 8).attr('savingThrows', ['WIS', 'CHA']).attr('spellcastAbility', 'WIS')
 		.attr('armor', ['light armor', 'medium armor', 'shields'])
 		.attr('weapons', ['all simple weapons'])
@@ -72,7 +75,8 @@ module.exports.ALL = [
 			.parent
 		.decide('Skills', 2, ['History', 'Insight', 'Medicine', 'Persuasion', 'Religion'])
 			.parent,
-	new DDClass('Druid', 'Druids revere nature above all, gaining their spells and other magical powers either from the force of nature itself or from a nature deity. Many druids pursue a mystic spirituality of transcendent union with nature rather than devotion to a divine entity, while others serve gods of wild nature, animals, or elemental forces.', '/img/classes/druid.png')
+	new DDClass('Druid',
+			'Druids revere nature above all, gaining their spells and other magical powers from a natural diety or nature itself. Many druids pursue a mystic spirituality of transcendent union with nature, while others serve gods of wild nature, animals, or elemental forces.', '/img/classes/druid.png')
 		.attr('baseHP', 8).attr('savingThrows', ['INT', 'WIS']).attr('spellcastAbility', 'WIS')
 		.attr('armor', ['light armor', 'medium armor', 'shields'])
 		.attr('weapons', ['clubs', 'daggers', 'darts', 'javelins', 'maces', 'quarterstaffs', 'scimitars', 'sickles', 'slings', 'spears'])
@@ -88,7 +92,8 @@ module.exports.ALL = [
 			.parent
 		.decide('Skills', 2, ['Arcana', 'Animal Handling', 'Insight', 'Medicine', 'Nature', 'Perception', 'Religion', 'Survival'])
 			.parent,
-	new DDClass('Fighter', 'Fighters are veteran soldiers, military officers, trained bodyguards, or dedicated knights. Some concentrate on archery, some on fighting with two weapons at once, and some on augmenting their martial skills with magic.', '/img/classes/fighter.png')
+	new DDClass('Fighter',
+			'Fighters are veteran soldiers, military officers, trained bodyguards, or dedicated knights. Some concentrate on archery, some on fighting with two weapons at once, and some on augmenting their martial skills with magic.', '/img/classes/fighter.png')
 		.attr('baseHP', 10).attr('savingThrows', ['STR', 'CON']).attr('spellcastAbility', 'INT')
 		.attr('armor', ['light armor', 'medium armor', 'heavy armor', 'shields'])
 		.attr('weapons', ['all simple weapons', 'all martial weapons'])
@@ -104,7 +109,8 @@ module.exports.ALL = [
 			.parent
 		.decide('Skills', 2, ['Acrobatics', 'Animal Handling', 'Athletics', 'History', 'Insight', 'Intimidation', 'Perception', 'Survival'])
 			.parent,
-	new DDClass('Monk', 'Monks make careful study of a magical energy that most monastic traditions call ki. Using this energy, monks channel uncanny speed and strength into their unarmed strikes. As they gain experience, their martial training and their mastery of ki gives them more power over their bodies and the bodies of their foes.', '/img/classes/monk.png')
+	new DDClass('Monk',
+			'Monks make careful study of a magical energy that most monastic traditions call ki. Using this energy, monks channel uncanny speed and strength into their unarmed strikes. Their martial training and mastery of ki gives them power over their bodies and the bodies of their foes.', '/img/classes/monk.png')
 		.attr('baseHP', 8).attr('savingThrows', ['STR', 'DEX']).attr('spellcastAbility', 'WIS')
 		.attr('armor', [])
 		.attr('weapons', ['all simple weapons', 'shortswords'])
@@ -115,7 +121,8 @@ module.exports.ALL = [
 			.parent
 		.decide('Tool Skills', 1, ["Artisan's tools"].concat(ddData.instruments)).alias('tools')
 			.parent,
-	new DDClass('Paladin', 'A paladin swears to uphold justice and righteousness, to stand with the good things of the world against the encroaching darkness, and to hunt the forces of evil wherever they lurk. Different paladins focus on various aspects of the cause of righteousness, but all are bound by the oaths that grant them power to do their sacred work.', '/img/classes/paladin.jpg')
+	new DDClass('Paladin',
+			'A paladin swears to uphold justice and righteousness, to stand with the good things of the world against the encroaching darkness, and to hunt the forces of evil wherever they lurk. Different paladins focus on various aspects, but all are bound by their sacrad oaths that grant them their power.', '/img/classes/paladin.jpg')
 		.attr('baseHP', 10).attr('savingThrows', ['WIS', 'CHA']).attr('spellcastAbility', 'CHA')
 		.attr('armor', ['light armor', 'medium armor', 'heavy armor', 'shields'])
 		.attr('weapons', 'all simple weapons', 'all martial weapons')
@@ -124,7 +131,8 @@ module.exports.ALL = [
 		.attr('features', 'Lay On Hands', 'Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your paladin level x 5. As an action, you can touch a creature and draw power from the pool to restore a number of hit points to that creature, up to the maximum amount remaining in your pool. Alternatively, you can expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it. You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one. This feature has no effect on undead and constructs.')
 		.decide('Skills', 2, ['Athletics', 'Insight', 'Intimidation', 'Medicine', 'Persuasion', 'Religion'])
 			.parent,
-	new DDClass('Ranger', 'Warriors of the wilderness, rangers specialize in hunting the monsters that threaten the edges of civilization. They learn to track their quarry as a predator does, moving stealthily through the wilds and hiding themselves in brush and rubble. Their spells, like their combat abilities, emphasize speed, stealth, and the hunt.', '/img/classes/ranger.jpg')
+	new DDClass('Ranger',
+			'Warriors of the wilderness, rangers specialize in hunting the monsters that threaten the edges of civilization. They learn to track their quarry as a predator does, moving stealthily through the wilds and hiding themselves in brush and rubble. Their spells, like their combat abilities, emphasize speed, stealth, and the hunt.', '/img/classes/ranger.jpg')
 		.attr('baseHP', 10).attr('savingThrows', ['STR', 'DEX']).attr('spellcastAbility', 'WIS')
 		.attr('armor', ['light armor', 'medium armor', 'shields'])
 		.attr('weapons', ['all simple weapons', 'all martial weapons'])
@@ -135,7 +143,9 @@ module.exports.ALL = [
 			.parent
 		.decide('Skills', 3, ['Animal Handling', 'Athletics', 'Insight', 'Investigation', 'Nature', 'Perception', 'Stealth', 'Survival'])
 			.parent,
-	new DDClass('Rogue', 'Rogues rely on skill, stealth, and their foes’ vulnerabilities to get the upper hand in any situation. Most of them make a living as burglars, assassins, cutpurses, and con artists. When it comes to combat, rogues prioritize cunning over brute strength. A rogue would rather make one precise strike, placing it exactly where the attack will hurt the target most.', 'https://alzrius.files.wordpress.com/2014/07/rogue.jpg')
+	new DDClass('Rogue',
+			"Rogues rely on stealth and cunning to exploit their and their foes' weaknesses. Most of them make a living as burglars, assassins, cutpurses, and con-artists. In combat, a rogue would rather make one precise strike, placed exactly where it will hurt the target most, over sheer brute force.",
+			'https://alzrius.files.wordpress.com/2014/07/rogue.jpg')
 		.attr('baseHP', 8).attr('savingThrows', ['DEX', 'INT']).attr('spellcastAbility', 'INT')
 		.attr('armor', ['light armor'])
 		.attr('weapons', ['all simple weapons', 'hand crossbows', 'longswords', 'rapiers', 'shortswords'])
@@ -146,7 +156,8 @@ module.exports.ALL = [
 		.attr('features', "Thieves' Cant", "During your rogue training you learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly. In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.")
 		.decide('Skills', 4, ['Acrobatics', 'Athletics', 'Deception', 'Insight', 'Intimidation', 'Investigation', 'Perception', 'Performance', 'Persuasion', 'Sleight of Hand', 'Stealth'])
 			.parent,
-	new DDClass('Sorcerer', 'No one chooses sorcery; the power chooses the sorcerer. Sorcerers have no use for the spellbooks and ancient tomes of magic lore that wizards rely on, nor do they rely on a patron to grant their spells. By learning to harness and channel their own inborn magic, they can discover new and staggering ways to unleash that power.', '/img/classes/sorcerer.jpg')
+	new DDClass('Sorcerer',
+			'No one chooses sorcery; the power chooses the sorcerer. Sorcerers have no use for the spellbooks and ancient tomes of magic lore that wizards rely on, nor do they rely on a patron to grant their spells. By learning to harness and channel their own inborn magic, they can discover new and staggering ways to unleash that power.', '/img/classes/sorcerer.jpg')
 		.attr('baseHP', 6).attr('savingThrows', ['CON', 'CHA']).attr('spellcastAbility', 'CHA')
 		.attr('armor', [])
 		.attr('weapons', ['daggers', 'darts', 'slings', 'quarterstaffs', 'light crossbows'])
@@ -166,7 +177,9 @@ module.exports.ALL = [
 				.attr('features', "Wild Magic Surge", "Starting when you choose this origin at 1st level, your spellcasting can unleash surges of untamed magic. Immediately after you cast a sorcerer spell of 1st level or higher, the DM can have you roll a d20. If you roll a 1, roll on the Wild Magic Surge table to create a random magical effect.")
 			)
 			.parent,
-	new DDClass('Warlock', 'A warlock is defined by a pact with an otherworldly being, though the beings are not gods. A warlock might lead a cult dedicated to a demon prince, an archdevil, or an utterly alien entity. More often though the arrangement is similar to that between a master and an apprentice: the warlock learns and grows in power, at the cost of occasional services performed on the patron\'s behalf.', '/img/classes/warlock.png')
+	new DDClass('Warlock',
+			"A warlock is defined by a pact with an otherworldly being, be it a demon prince, an archdevil, or an utterly alien entity. They might lead a secret cult dedicated the worship of their deity, or might serve in private as an apprentice serves a master. In exhange the patron grants the warlock some portion of their power.",
+			'/img/classes/warlock.png')
 		.attr('baseHP', 8).attr('savingThrows', ['WIS', 'CHA']).attr('spellcastAbility', 'CHA')
 		.attr('armor', ['light armor'])
 		.attr('armor', ['all simple weapons'])
@@ -178,7 +191,9 @@ module.exports.ALL = [
 			.parent
 		.decide('Skills', 2, ['Arcana', 'Deception', 'History', 'Intimidation', 'Investigation', 'Nature', 'Religion'])
 			.parent,
-	new DDClass('Wizard', 'Wizards live and die by their spells. Everything else is secondary. They learn new spells as they experiment and grow in experience. They can also learn them from other wizards, from ancient tomes or inscriptions, and from ancient creatures (such as the fey) that are steeped in magic.', 'https://s-media-cache-ak0.pinimg.com/564x/4a/dd/bc/4addbc856f6df5d9cddc182665692804.jpg')
+	new DDClass('Wizard',
+			'Wizards live and die by their spells. Everything else is secondary. They learn new spells as they experiment and grow in experience. They can also learn them from other wizards, from ancient tomes or inscriptions, and from ancient creatures (such as the fey) that are steeped in magic.',
+			'https://s-media-cache-ak0.pinimg.com/564x/4a/dd/bc/4addbc856f6df5d9cddc182665692804.jpg')
 		.attr('baseHP', 6).attr('savingThrows', ['INT', 'WIS']).attr('spellcastAbility', 'INT')
 		.attr('armor', [])
 		.attr('armor', ['daggers', 'darts', 'slings', 'quarterstaffs', 'light crossbows'])
