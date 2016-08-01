@@ -17,18 +17,18 @@ jQuery((function($) {
     });
      
     // Reset to default for applicable values.
-    $('[data-default-value]').on('init change', function() {
+    $('[data-default-value]').on('initDefault change', function() {
         if (!this.value) {
             this.value = $(this).data('default-value');
         }
-    }).trigger('init');
+    }).trigger('initDefault');
      
     // Proficiency Bonus
     const $charLevel = $('#charLevel').on('input', (e) => $('#profBonus,[data-hp]').trigger('recalc', e.type));
-    const $profBonus = $('#profBonus').on('init recalc', function(e) {
+    const $profBonus = $('#profBonus').on('initProf recalc', function(e) {
         const lvl = +$charLevel.val();
         const lvlProfBonus = lvl >= 17 ? 6 : lvl >= 13 ? 5 : lvl >= 9 ? 4 : lvl >= 5 ? 3 : 2;
-        if (e.type !== 'init' || !this.value) {
+        if (e.type !== 'initProf' || !this.value) {
             const lvlAdj = lvlProfBonus -($(this).data('lvlProfBonus') || 0);
             this.value = '+' + (+this.value + lvlAdj);
             $(this).trigger('change');
@@ -36,28 +36,28 @@ jQuery((function($) {
         $(this).data('lvlProfBonus', lvlProfBonus);
         $('[data-ability]').filter(function() {return $(this).data('prof-bonus');}).trigger('recalc', e.type);
         $(this).trigger('colorize');
-    }).trigger('init').on('change', function() {
+    }).trigger('initProf').on('change', function() {
         if (this.value === '' || isNaN(this.value)) {this.value = '+' + $(this).data('lvlProfBonus');}
         else if (+this.value > 0) {this.value = '+' + +this.value.slice(1);}
     });
    
    // Abilities 
-    $('.ability input').on('init input', function(e) {
+    $('.ability input').on('initAbility input', function(e) {
         var modifier = +$(this).val() - 10;
         modifier = Math.floor(modifier / 2);
         if (modifier >= 0) {modifier = '+' + modifier;}
         $(this).data('modifier', modifier);
         $(`[data-ability=${this.id}]`).trigger('recalc', e.type);
-    }).trigger('init');
+    }).trigger('initAbility');
     
     // Skill Proficiency Bonus
-    $('.skill :checkbox').on('init change', function(e) {
+    $('.skill :checkbox').on('initSkillProf change', function(e) {
         const isChecked = $(this).is(':checked');
         $(this).parents('.skill').find('[data-ability]').data('prof-bonus', isChecked).trigger('recalc', e.type);
-    }).trigger('init');
+    }).trigger('initSkillProf');
     
     // Data Ability
-    $('[data-ability]').on('init recalc', function(e, type) {
+    $('[data-ability]').on('initDataAbility recalc', function(e, type) {
         let value = +$('#' + $(this).data('ability')).data('modifier');
         value += +$(this).data('baseval') || 0;
         if ($(this).data('prof-bonus')) {
@@ -67,7 +67,7 @@ jQuery((function($) {
         if (value >= 0 && !$(this).is('[type=number]')) {value = '+'  + value;}
         this.value = value;
         $(this).trigger('colorize');
-    }).trigger('init');
+    }).trigger('initDataAbility');
 
     // ----------------------------------------------------------------------    
     // Addable Controls
