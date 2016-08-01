@@ -93,8 +93,8 @@ block content
 							+form-number(4, "Temp HP", "tempHP", 0)
 							+form-textarea(12, "Attacks", "attacks", 15)
 							h5.col-xs-12="Equipment"
-							col-xs-12.addable-list: ul.list-unstyled
-								each equipmentItem in [""].concat(charData.equipment || [])
+							.col-xs-12.addable-list: ul.list-unstyled
+								each equipmentItem in (charData.equipment || []).concat([''])
 									li: input(name=`equipment[]` value=equipmentItem).form-control
 						.col-xs-7
 							+form-textarea(12, "Personality Traits", "personalityTraits", 5)
@@ -102,8 +102,8 @@ block content
 							+form-textarea(12, "Bonds", "bonds", 5)
 							+form-textarea(12, "Flaws", "flaws", 5)
 							h5.col-xs-12="Features"
-							ul.col-xs-12
-								each feature, i in charData.features || []
+							.col-xs-12.addable-list: ul.list-unstyled
+								each feature, i in (charData.features || []).concat({})
 									li
 										dt: input(name=`features[${i}][name]`, value=feature.name).form-control
 										dd: textarea(name=`features[${i}][description]`).form-control=feature.description
