@@ -22,9 +22,9 @@ module.exports.ALL = [
 		.attr('features', 'Bardic Inspiration', "You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6. Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the DM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.")
 		.attr('features', 'Ritual Casting', "You can cast any bard spell you know as a ritual if that spell has the ritual tag.")
 		.attr('features', 'Spellcasting Focus', "You can use a musical instrument as a spellcasting focus for your bard spells.")
-		.decide('Cantrips', 2, ['Blade Ward', 'Dancing Lights', 'Friends', 'Light', 'Mage Hand', 'Mending', 'Message', 'Minor Illusion', 'Prestidigitation', 'True Strike', 'Vicious Mockery'])
+		.decide('Cantrips', 2, ddData.spells.bard.lvl0)
 			.parent
-		.decide('Level-1 Spells', 4, ['Animal Friendship', 'Bane', 'Charm Person', 'Comprehend Languages', 'Cure Wounds', 'Detect Magic', 'Disguise Self', 'Dissonant Whispers', 'Faerie Fire', 'Feather Fall', 'Healing Word', 'Heroism', 'Identify', 'Illusory Script', 'Longstrider', 'Silent Image', 'Sleep', 'Speak with Animals', "Tasha's Hideous Laughter", 'Thunderwave', 'Unseen Servant']).alias('spells1')
+		.decide('Level-1 Spells', 4, ddData.spells.bard.lvl1).alias('spells1')
 			.parent
 		.decide('Skills', 3, ddData.skills)
 			.parent
@@ -69,9 +69,9 @@ module.exports.ALL = [
 				.attr('features', "War Priest", "From 1st level, your god delivers bolts of inspiration to you while you are engaged in battle. When you use the Attack action, you can make one weapon attack as a bonus action. You can use this feature a number of times equal to your Wisdom modifier (a minimum of once). You regain all expended uses when you finish a long rest.")
 			)
 			.parent
-		.decide('Cantrips', 3, ['Guidance', 'Light', 'Mending', 'Resistance', 'Sacred Flame', 'Spare the Dying', 'Thaumaturgy'])
+		.decide('Cantrips', 3, ddData.spells.cleric.lvl0)
 			.parent
-		.decide('Level-1 Spells', 2, ['Bane', 'Bless', 'Command', 'Create or Destroy Water', 'Cure Wounds', 'Detect Evil and Good', 'Detect Magic', 'Detect Poison and Disease', 'Guiding Bolt', 'Healing Word', 'Inflict Wounds', 'Protection from Evil and Good', 'Purify Food and Drink', 'Sanctuary', 'Shield of Faith']).alias('spells1')
+		.decide('Level-1 Spells', 2, ddData.spells.cleric.lvl1).alias('spells1')
 			.parent
 		.decide('Skills', 2, ['History', 'Insight', 'Medicine', 'Persuasion', 'Religion'])
 			.parent,
@@ -86,9 +86,9 @@ module.exports.ALL = [
 		.attr('features', 'Ritual Casting', "You can cast any druid spell you know as a ritual if that spell has the ritual tag.")
 		.attr('features', 'Spellcasting Focus', "You can use a druidic focus as a spellcasting focus for your druid spells.")
 		.attr('equipment', ['wooden shield OR any simple weapon', 'scimitar OR any simple melee weapon', 'leather armor', 'explorer\'s pack', 'druidic focus'])
-		.decide('Cantrips', 2, ['Create Bonfire', 'Control Flames', 'Druidcraft', 'Frostbite', 'Guidance', 'Gust', 'Magic Stone', 'Mending', 'Mold Earth', 'Poison Spray', 'Produce Flame', 'Resistance', 'Shape Water', 'Shillelagh', 'Thorn Whip', 'Thunderclap'])
+		.decide('Cantrips', 2, ddData.spells.druid.lvl0)
 			.parent
-		.decide('Level-1 Spells', 2, ['Absorb Elements', 'Animal Friendship', 'Beast Bond', 'Charm Person', 'Create or Destroy Water', 'Cure Wounds', 'Detect Magic', 'Detect Poison and Disease', 'Earth Tremor', 'Entangle', 'Faerie Fire', 'Fog Cloud', 'Goodberry', 'Healing Word', 'Ice Knife', 'Jump', 'Longstrider', 'Purify Food and Drink', 'Speak with Animals', 'Thunderwave']).alias('spells1')
+		.decide('Level-1 Spells', 2, ddData.spells.druid.lvl1).alias('spells1')
 			.parent
 		.decide('Skills', 2, ['Arcana', 'Animal Handling', 'Insight', 'Medicine', 'Nature', 'Perception', 'Religion', 'Survival'])
 			.parent,
@@ -163,9 +163,9 @@ module.exports.ALL = [
 		.attr('weapons', ['daggers', 'darts', 'slings', 'quarterstaffs', 'light crossbows'])
 		.attr('equipment', ['light crossbow and 20x bolts OR any simple weapon', 'component pouch OR arcane focus', "dungeoneer's pack OR explorer's pack", "2x daggers"])
 		.attr('features', 'Spellcasting Focus', "You can use a arcane focus as a spellcasting focus for your sorceror spells.")
-		.decide('Cantrips', 4, ["Acid Splash", "Blade Ward", "Booming Blade", "Control Flames", "Chill Touch", "Create Bonfire", "Dancing Lights", "Fire Bolt", "Friends", "Frostbite", "Greenflame Blade", "Gust", "Light", "Lightning Lure", "Mage Hand", "Mending", "Message", "Minor Illusion", "Mold Earth", "Poison Spray", "Prestidigitation", "Ray of Frost", "Shape Water", "Shocking Grasp", "Sword Burst", "Thunderclap", "True Strike"])
+		.decide('Cantrips', 4, ddData.spells.sorcerer.lvl0)
 			.parent
-		.decide('Level-1 Spells', 2, ["Burning Hands", "Catapult", "Charm Person", "Chromatic Orb", "Color Spray", "Comprehend Languages", "Detect Magic", "Disguise Self", "Earth Tremor", "Expeditious Retreat", "False Life", "Feather Fall", "Fog Cloud", "Ice Knife", "Jump", "Mage Armor", "Magic Missile", "Ray of Sickness", "Shield", "Silent Image", "Sleep", "Thunderwave", "Witch Bolt"]).alias('spells1')
+		.decide('Level-1 Spells', 2, ddData.spells.sorcerer.lvl1).alias('spells1')
 			.parent
 		.decide('Skills', 2, ['Arcana', 'Deception', 'Insight', 'Intimidation', 'Persuasion', 'Religion'])
 			.parent
@@ -185,9 +185,9 @@ module.exports.ALL = [
 		.attr('armor', ['all simple weapons'])
 		.attr('equipment', ['light crossbow and 20x bolts OR any simple weapon', 'component pouch OR arcane focus', "scholar's pack OR dungeoneer's pack", 'leather armor', 'any simple weapon', '2x daggers'])
 		.attr('features', 'Spellcasting Focus', "You can use a arcane focus as a spellcasting focus for your warlock spells.")
-		.decide('Cantrips', 2, ["Blade Ward", "Chill Touch", "Create Bonfire", "Eldritch Blast", "Friends", "Frostbite", "Mage Hand", "Magic Stone", "Minor Illusion", "Poison Spray", "Prestidigitation", "Thunderclap", "True Strike"])
+		.decide('Cantrips', 2, ddData.spells.warlock.lvl0)
 			.parent
-		.decide('Level-1 Spells', 2, ["Armor of Agathys", "Arms of Hadar", "Charm Person", "Comprehend Languages", "Expeditious Retreat", "Hellish Rebuke", "Hex", "Illusory Script", "Protection from Evil and Good", "Unseen Servant", "Witch Bolt"]).alias('spells1')
+		.decide('Level-1 Spells', 2, ddData.spells.warlock.lvl1).alias('spells1')
 			.parent
 		.decide('Skills', 2, ['Arcana', 'Deception', 'History', 'Intimidation', 'Investigation', 'Nature', 'Religion'])
 			.parent,
@@ -201,9 +201,9 @@ module.exports.ALL = [
 		.attr('features', 'Ritual Casting', "You can cast any wizard spell you know as a ritual if that spell has the ritual tag.")
 		.attr('features', 'Spellcasting Focus', "You can use a arcane focus as a spellcasting focus for your wizard spells.")
 		.attr('features', 'Arcane Recovery', "You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher. For example, if you're a 4th-level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.")
-		.decide('Cantrips', 3, ["Acid Splash", "Blade Ward", "Dancing Lights", "Fire Bolt", "Friends", "Light", "Mage Hand", "Mending", "Message", "Minor Illusion", "Poison Spray", "Prestidigitation", "Ray of Frost", "Shocking Grasp", "True Strike"])
+		.decide('Cantrips', 3, ddData.spells.wizard.lvl0)
 			.parent
-		.decide('Level-1 Spells', 6, ["Alarm", "Burning Hands", "Charm Person", "Chromatic Orb", "Color Spray", "Comprehend Languages", "Detect Magic", "Disguise Self", "Expeditious Retreat", "False Life", "Feather Fall", "Find Familiar", "Fog Cloud", "Grease", "Identify", "Illusory Script", "Jump", "Longstrider", "Mage Armor", "Magic Missile", "Protection from Evil and Good", "Ray of Sickness", "Shield", "Silent Image", "Sleep", "Tasha's Hideous Laughter", "Tenser's Floating Disk", "Thunderwave", "Unseen Servant", "Witch Bolt"]).alias('spells1')
+		.decide('Level-1 Spells', 6, ddData.spells.wizard.lvl1).alias('spells1')
 			.parent
 		.decide('Skills', 2, ['Arcana', 'History', 'Insight', 'Investigation', 'Medicine', 'Religion'])
 			.parent

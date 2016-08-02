@@ -1,0 +1,4525 @@
+{
+    "getdataurl": "http://engl393-dnd5th.wikia.com/api.php?action=parse&page=bane&format=json",
+    "spells": [
+	{
+		"name": "Acid Splash",
+		"level": 0,
+		"source": "PHB",
+		"classes": ["Sorcerer", "Wizard"],
+		"page": "211",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Acid_Splash"
+	},
+	{
+		"name": "Alarm",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "211",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Alarm"
+	},
+	{
+		"name": "Animal Friendship",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "212",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Animal_Friendship"
+	},
+	{
+		"name": "Blade Ward",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "218",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Blade_Ward"
+	},
+	{
+		"name": "Chill Touch",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Warlock"
+		],
+		"page": "221",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Chill_Touch"
+	},
+	{
+		"name": "Control Flames",
+		"level": 0,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "16",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Control_Flames"
+	},
+	{
+		"name": "Create Bonfire",
+		"level": 0,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "16",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Create_Bonfire"
+	},
+	{
+		"name": "Create Bonfire",
+		"level": 0,
+		"source": "EE",
+		"classes": [
+			"Warlock"
+		],
+		"page": "237",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Create_Bonfire"
+	},
+	{
+		"name": "Cure Wounds",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "230",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Cure_Wounds"
+	},
+	{
+		"name": "Dancing Lights",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "230",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Dancing_Lights"
+	},
+	{
+		"name": "Detect Magic",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "231",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Detect_Magic"
+	},
+	{
+		"name": "Detect Poison and Disease",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "231",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Detect_Poison_and_Disease"
+	},
+	{
+		"name": "Druidcraft",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "236",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Druidcraft"
+	},
+	{
+		"name": "Ensnaring Strike",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "237",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Ensnaring_Strike"
+	},
+	{
+		"name": "Fire Bolt",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "242",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Fire_Bolt"
+	},
+	{
+		"name": "Fog Cloud",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "243",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Fog_Cloud"
+	},
+	{
+		"name": "Friends",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "244",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Friends"
+	},
+	{
+		"name": "Frostbite",
+		"level": 0,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "18",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Frostbite"
+	},
+	{
+		"name": "Frostbite",
+		"level": 0,
+		"source": "EE",
+		"classes": [
+			"Warlock"
+		],
+		"page": "256",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Frostbite"
+	},
+	{
+		"name": "Goodberry",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "246",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Goodberry"
+	},
+	{
+		"name": "Guidance",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid"
+		],
+		"page": "248",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Guidance"
+	},
+	{
+		"name": "Gust",
+		"level": 0,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "19",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Gust"
+	},
+	{
+		"name": "Hail of Thorns",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "249",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Hail_of_Thorns"
+	},
+	{
+		"name": "Hunter's Mark",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "251",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Hunter%27s_Mark"
+	},
+	{
+		"name": "Jump",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "254",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Jump"
+	},
+	{
+		"name": "Light",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "255",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Light"
+	},
+	{
+		"name": "Longstrider",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "256",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Longstrider"
+	},
+	{
+		"name": "Mage Hand",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "256",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mage_Hand"
+	},
+	{
+		"name": "Magic Stone",
+		"level": 0,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "20",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Magic_Stone"
+	},
+	{
+		"name": "Magic Stone",
+		"level": 0,
+		"source": "EE",
+		"classes": [
+			"Warlock"
+		],
+		"page": "260",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Magic_Stone"
+	},
+	{
+		"name": "Mending",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "259",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mending"
+	},
+	{
+		"name": "Message",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "259",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Message"
+	},
+	{
+		"name": "Minor Illusion",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "260",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Minor_Illusion"
+	},
+	{
+		"name": "Mold Earth",
+		"level": 0,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "21",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mold_Earth"
+	},
+	{
+		"name": "Poison Spray",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "266",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Poison_Spray"
+	},
+	{
+		"name": "Prestidigitation",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "267",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Prestidigitation"
+	},
+	{
+		"name": "Produce Flame",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "269",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Produce_Flame"
+	},
+	{
+		"name": "Ray of Frost",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "271",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Ray_of_Frost"
+	},
+	{
+		"name": "Resistance",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid"
+		],
+		"page": "272",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Resistance"
+	},
+	{
+		"name": "Sacred Flame",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "272",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Sacred_Flame"
+	},
+	{
+		"name": "Shape Water",
+		"level": 0,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "21",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Shape_Water"
+	},
+	{
+		"name": "Shillelagh",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "275",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Shillelagh"
+	},
+	{
+		"name": "Shocking Grasp",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "275",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Shocking_Grasp"
+	},
+	{
+		"name": "Spare the Dying",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "277",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Spare_the_Dying"
+	},
+	{
+		"name": "Speak with Animals",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "277",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Speak_with_Animals"
+	},
+	{
+		"name": "Thaumaturgy",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "282",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Thaumaturgy"
+	},
+	{
+		"name": "Thorn Whip",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "282",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Thorn_Whip"
+	},
+	{
+		"name": "Thunderclap",
+		"level": 0,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "22",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Thunderclap"
+	},
+	{
+		"name": "Thunderclap",
+		"level": 0,
+		"source": "EE",
+		"classes": [
+			"Warlock"
+		],
+		"page": "284",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Thunderclap"
+	},
+	{
+		"name": "True Strike",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "284",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/True_Strike"
+	},
+	{
+		"name": "Vicious Mockery",
+		"level": 0,
+		"source": "PHB",
+		"classes": [
+			"Bard"
+		],
+		"page": "285",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Vicious_Mockery"
+	},
+	{
+		"name": "Absorb Elements",
+		"level": 1,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "15",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Absorb_Elements"
+	},
+	{
+		"name": "Alarm",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "211",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Alarm"
+	},
+	{
+		"name": "Animal Friendship",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard"
+		],
+		"page": "212",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Animal_Friendship"
+	},
+	{
+		"name": "Animal Messenger",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "212",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Animal_Messenger"
+	},
+	{
+		"name": "Armor of Agathys",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Warlock"
+		],
+		"page": "215",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Armor_of_Agathys"
+	},
+	{
+		"name": "Arms of Hadar",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Warlock"
+		],
+		"page": "215",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Arms_of_Hadar"
+	},
+	{
+		"name": "Bane",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard"
+		],
+		"page": "216",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Bane"
+	},
+	{
+		"name": "Barkskin",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "217",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Barkskin"
+	},
+	{
+		"name": "Beast Bond",
+		"level": 1,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "15",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Beast_Bond"
+	},
+	{
+		"name": "Beast Sense",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "217",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Beast_Sense"
+	},
+	{
+		"name": "Bless",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "219",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Bless"
+	},
+	{
+		"name": "Burning Hands",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "220",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Burning_Hands"
+	},
+	{
+		"name": "Charm Person",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "221",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Charm_Person"
+	},
+	{
+		"name": "Chromatic Orb",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "221",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Chromatic_Orb"
+	},
+	{
+		"name": "Color Spray",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "222",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Color_Spray"
+	},
+	{
+		"name": "Command",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "223",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Command"
+	},
+	{
+		"name": "Comprehend Languages",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "224",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Comprehend_Languages"
+	},
+	{
+		"name": "Cordon of Arrows",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "228",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Cordon_of_Arrows"
+	},
+	{
+		"name": "Create or Destroy Water",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid"
+		],
+		"page": "229",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Create_or_Destroy_Water"
+	},
+	{
+		"name": "Cure Wounds",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard"
+		],
+		"page": "230",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Cure_Wounds"
+	},
+	{
+		"name": "Darkvision",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "230",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Darkvision"
+	},
+	{
+		"name": "Detect Evil and Good",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "231",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Detect_Evil_and_Good"
+	},
+	{
+		"name": "Detect Magic",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "231",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Detect_Magic"
+	},
+	{
+		"name": "Detect Poison and Disease",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid"
+		],
+		"page": "231",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Detect_Poison_and_Disease"
+	},
+	{
+		"name": "Disguise Self",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "233",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Disguise_Self"
+	},
+	{
+		"name": "Dissonant Whispers",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Bard"
+		],
+		"page": "234",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Dissonant_Whispers"
+	},
+	{
+		"name": "Earth Tremor",
+		"level": 1,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "17",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Earth_Tremor"
+	},
+	{
+		"name": "Entangle",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "238",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Entangle"
+	},
+	{
+		"name": "Expeditious Retreat",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "238",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Expeditious_Retreat"
+	},
+	{
+		"name": "Faerie Fire",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard"
+		],
+		"page": "239",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Faerie_Fire"
+	},
+	{
+		"name": "False Life",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "239",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/False_Life"
+	},
+	{
+		"name": "Feather Fall",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "239",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Feather_Fall"
+	},
+	{
+		"name": "Find Familiar",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "240",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Find_Familiar"
+	},
+	{
+		"name": "Find Traps",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "241",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Find_Traps"
+	},
+	{
+		"name": "Fog Cloud",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "243",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Fog_Cloud"
+	},
+	{
+		"name": "Goodberry",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "246",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Goodberry"
+	},
+	{
+		"name": "Grease",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "246",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Grease"
+	},
+	{
+		"name": "Guiding Bolt",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "248",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Guiding_Bolt"
+	},
+	{
+		"name": "Healing Word",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard"
+		],
+		"page": "250",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Healing_Word"
+	},
+	{
+		"name": "Hellish Rebuke",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Warlock"
+		],
+		"page": "250",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Hellish_Rebuke"
+	},
+	{
+		"name": "Heroism",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Bard"
+		],
+		"page": "250",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Heroism"
+	},
+	{
+		"name": "Hex",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Warlock"
+		],
+		"page": "251",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Hex"
+	},
+	{
+		"name": "Ice Knife",
+		"level": 1,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "19",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Ice_Knife"
+	},
+	{
+		"name": "Identify",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Wizard"
+		],
+		"page": "252",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Identify"
+	},
+	{
+		"name": "Illusory Script",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "252",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Illusory_Script"
+	},
+	{
+		"name": "Inflict Wounds",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "253",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Inflict_Wounds"
+	},
+	{
+		"name": "Jump",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "254",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Jump"
+	},
+	{
+		"name": "Lesser Restoration",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "255",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Lesser_Restoration"
+	},
+	{
+		"name": "Locate Animals or Plants",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "256",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Locate_Animals_or_Plants"
+	},
+	{
+		"name": "Locate Object",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "256",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Locate_Object"
+	},
+	{
+		"name": "Longstrider",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard",
+			"Wizard"
+		],
+		"page": "256",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Longstrider"
+	},
+	{
+		"name": "Mage Armor",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "256",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mage_Armor"
+	},
+	{
+		"name": "Magic Missile",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "257",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Magic_Missile"
+	},
+	{
+		"name": "Pass without Trace",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "264",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Pass_without_Trace"
+	},
+	{
+		"name": "Protection from Evil and Good",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "270",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Protection_from_Evil_and_Good"
+	},
+	{
+		"name": "Protection from Poison",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "270",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Protection_from_Poison"
+	},
+	{
+		"name": "Purify Food and Drink",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid"
+		],
+		"page": "270",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Purify_Food_and_Drink"
+	},
+	{
+		"name": "Ray of Sickness",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "271",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Ray_of_Sickness"
+	},
+	{
+		"name": "Sanctuary",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "272",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Sanctuary"
+	},
+	{
+		"name": "Shield",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "275",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Shield"
+	},
+	{
+		"name": "Shield of Faith",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "275",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Shield_of_Faith"
+	},
+	{
+		"name": "Silence",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "275",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Silence"
+	},
+	{
+		"name": "Silent Image",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "276",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Silent_Image"
+	},
+	{
+		"name": "Sleep",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "276",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Sleep"
+	},
+	{
+		"name": "Speak with Animals",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard"
+		],
+		"page": "277",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Speak_with_Animals"
+	},
+	{
+		"name": "Spike Growth",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "277",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Spike_Growth"
+	},
+	{
+		"name": "Tasha's Hideous Laughter",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Wizard"
+		],
+		"page": "280",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Tasha%27s_Hideous_Laughter"
+	},
+	{
+		"name": "Tenser's Floating Disk",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "282",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Tenser%27s_Floating_Disk"
+	},
+	{
+		"name": "Thunderwave",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "282",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Thunderwave"
+	},
+	{
+		"name": "Unseen Servant",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "284",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Unseen_Servant"
+	},
+	{
+		"name": "Witch Bolt",
+		"level": 1,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "289",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Witch_Bolt"
+	},
+	{
+		"name": "Aid",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "211",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Aid"
+	},
+	{
+		"name": "Alter Self",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "211",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Alter_Self"
+	},
+	{
+		"name": "Animal Messenger",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard"
+		],
+		"page": "212",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Animal_Messenger"
+	},
+	{
+		"name": "Arcane Lock",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "215",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Arcane_Lock"
+	},
+	{
+		"name": "Augury",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "215",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Augury"
+	},
+	{
+		"name": "Barkskin",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "217",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Barkskin"
+	},
+	{
+		"name": "Beast Sense",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "217",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Beast_Sense"
+	},
+	{
+		"name": "Blindness/Deafness",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "219",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Blindness/Deafness"
+	},
+	{
+		"name": "Blur",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "219",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Blur"
+	},
+	{
+		"name": "Calm Emotions",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard"
+		],
+		"page": "221",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Calm_Emotions"
+	},
+	{
+		"name": "Cloud of Daggers",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "222",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Cloud_of_Daggers"
+	},
+	{
+		"name": "Conjure Animals",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "225",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Conjure_Animals"
+	},
+	{
+		"name": "Conjure Barrage",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "225",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Conjure_Barrage"
+	},
+	{
+		"name": "Continual Flame",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Wizard"
+		],
+		"page": "227",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Continual_Flame"
+	},
+	{
+		"name": "Crown of Madness",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "229",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Crown_of_Madness"
+	},
+	{
+		"name": "Darkness",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "230",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Darkness"
+	},
+	{
+		"name": "Darkvision",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "230",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Darkvision"
+	},
+	{
+		"name": "Daylight",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "230",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Daylight"
+	},
+	{
+		"name": "Detect Thoughts",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "231",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Detect_Thoughts"
+	},
+	{
+		"name": "Dust Devil",
+		"level": 2,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "17",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Dust_Devil"
+	},
+	{
+		"name": "Earthbind",
+		"level": 2,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "17",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Earthbind"
+	},
+	{
+		"name": "Earthbind",
+		"level": 2,
+		"source": "EE",
+		"classes": [
+			"Warlock"
+		],
+		"page": "238",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Earthbind"
+	},
+	{
+		"name": "Enhance Ability",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard",
+			"Sorcerer"
+		],
+		"page": "237",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Enhance_Ability"
+	},
+	{
+		"name": "Enlarge/Reduce",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "237",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Enlarge/Reduce"
+	},
+	{
+		"name": "Enthrall",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Bard"
+		],
+		"page": "238",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Enthrall"
+	},
+	{
+		"name": "Find Traps",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid"
+		],
+		"page": "241",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Find_Traps"
+	},
+	{
+		"name": "Flame Blade",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "242",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Flame_Blade"
+	},
+	{
+		"name": "Flaming Sphere",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Wizard"
+		],
+		"page": "242",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Flaming_Sphere"
+	},
+	{
+		"name": "Gentle Repose",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Wizard"
+		],
+		"page": "245",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Gentle_Repose"
+	},
+	{
+		"name": "Gust of Wind",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "248",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Gust_of_Wind"
+	},
+	{
+		"name": "Heat Metal",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard"
+		],
+		"page": "250",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Heat_Metal"
+	},
+	{
+		"name": "Hold Person",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "251",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Hold_Person"
+	},
+	{
+		"name": "Invisibility",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "254",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Invisibility"
+	},
+	{
+		"name": "Knock",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "254",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Knock"
+	},
+	{
+		"name": "Lesser Restoration",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard"
+		],
+		"page": "255",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Lesser_Restoration"
+	},
+	{
+		"name": "Levitate",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "255",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Levitate"
+	},
+	{
+		"name": "Lightning Arrow",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "255",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Lightning_Arrow"
+	},
+	{
+		"name": "Locate Animals or Plants",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard"
+		],
+		"page": "256",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Locate_Animals_or_Plants"
+	},
+	{
+		"name": "Locate Object",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard",
+			"Wizard"
+		],
+		"page": "256",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Locate_Object"
+	},
+	{
+		"name": "Magic Mouth",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Wizard"
+		],
+		"page": "257",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Magic_Mouth"
+	},
+	{
+		"name": "Magic Weapon",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "257",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Magic_Weapon"
+	},
+	{
+		"name": "Melf's Acid Arrow",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "259",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Melf%27s_Acid_Arrow"
+	},
+	{
+		"name": "Mirror Image",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "260",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mirror_Image"
+	},
+	{
+		"name": "Misty Step",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "260",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Misty_Step"
+	},
+	{
+		"name": "Moonbeam",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "261",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Moonbeam"
+	},
+	{
+		"name": "Nondetection",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "263",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Nondetection"
+	},
+	{
+		"name": "Nystul's Magic Aura",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "263",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Nystul%27s_Magic_Aura"
+	},
+	{
+		"name": "Pass without Trace",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "264",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Pass_without_Trace"
+	},
+	{
+		"name": "Phantasmal Force",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "264",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Phantasmal_Force"
+	},
+	{
+		"name": "Plant Growth",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "266",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Plant_Growth"
+	},
+	{
+		"name": "Prayer of Healing",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "267",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Prayer_of_Healing"
+	},
+	{
+		"name": "Protection from Energy",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "270",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Protection_from_Energy"
+	},
+	{
+		"name": "Protection from Poison",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid"
+		],
+		"page": "270",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Protection_from_Poison"
+	},
+	{
+		"name": "Ray of Enfeeblement",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Warlock",
+			"Wizard"
+		],
+		"page": "271",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Ray_of_Enfeeblement"
+	},
+	{
+		"name": "Rope Trick",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "272",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Rope_Trick"
+	},
+	{
+		"name": "Scorching Ray",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "273",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Scorching_Ray"
+	},
+	{
+		"name": "See Invisibility",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "274",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/See_Invisibility"
+	},
+	{
+		"name": "Shatter",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "275",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Shatter"
+	},
+	{
+		"name": "Silence",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard"
+		],
+		"page": "275",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Silence"
+	},
+	{
+		"name": "Skywrite",
+		"level": 2,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "22",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Skywrite"
+	},
+	{
+		"name": "Speak with Plants",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "277",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Speak_with_Plants"
+	},
+	{
+		"name": "Spider Climb",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "277",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Spider_Climb"
+	},
+	{
+		"name": "Spike Growth",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "277",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Spike_Growth"
+	},
+	{
+		"name": "Spiritual Weapon",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "278",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Spiritual_Weapon"
+	},
+	{
+		"name": "Suggestion",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "279",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Suggestion"
+	},
+	{
+		"name": "Warding Bond",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "287",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Warding_Bond"
+	},
+	{
+		"name": "Warding Wind",
+		"level": 2,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "23",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Warding_Wind"
+	},
+	{
+		"name": "Water Breathing",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "287",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Water_Breathing"
+	},
+	{
+		"name": "Water Walk",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "287",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Water_Walk"
+	},
+	{
+		"name": "Web",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "287",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Web"
+	},
+	{
+		"name": "Wind Wall",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "288",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Wind_Wall"
+	},
+	{
+		"name": "Zone of Truth",
+		"level": 2,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard"
+		],
+		"page": "289",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Zone_of_Truth"
+	},
+	{
+		"name": "Animate Dead",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Wizard"
+		],
+		"page": "212",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Animate_Dead"
+	},
+	{
+		"name": "Beacon of Hope",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "217",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Beacon_of_Hope"
+	},
+	{
+		"name": "Bestow Curse",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard",
+			"Wizard"
+		],
+		"page": "218",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Bestow_Curse"
+	},
+	{
+		"name": "Blink",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "219",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Blink"
+	},
+	{
+		"name": "Call Lightning",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "220",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Call_Lightning"
+	},
+	{
+		"name": "Clairvoyance",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "222",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Clairvoyance"
+	},
+	{
+		"name": "Conjure Animals",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "225",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Conjure_Animals"
+	},
+	{
+		"name": "Conjure Woodland Beings",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "226",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Conjure_Woodland_Beings"
+	},
+	{
+		"name": "Counterspell",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "228",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Counterspell"
+	},
+	{
+		"name": "Create Food and Water",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "229",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Create_Food_and_Water"
+	},
+	{
+		"name": "Daylight",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Sorcerer"
+		],
+		"page": "230",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Daylight"
+	},
+	{
+		"name": "Dispel Magic",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "234",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Dispel_Magic"
+	},
+	{
+		"name": "Erupting Earth",
+		"level": 3,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "17",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Erupting_Earth"
+	},
+	{
+		"name": "Fear",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "239",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Fear"
+	},
+	{
+		"name": "Feign Death",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard",
+			"Wizard"
+		],
+		"page": "240",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Feign_Death"
+	},
+	{
+		"name": "Fireball",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "241",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Fireball"
+	},
+	{
+		"name": "Flame Arrows",
+		"level": 3,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "18",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Flame_Arrows"
+	},
+	{
+		"name": "Fly",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "243",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Fly"
+	},
+	{
+		"name": "Freedom of Movement",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "244",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Freedom_of_Movement"
+	},
+	{
+		"name": "Gaseous Form",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "244",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Gaseous_Form"
+	},
+	{
+		"name": "Glyph of Warding",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard",
+			"Wizard"
+		],
+		"page": "245",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Glyph_of_Warding"
+	},
+	{
+		"name": "Grasping Vine",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "246",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Grasping_Vine"
+	},
+	{
+		"name": "Haste",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "250",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Haste"
+	},
+	{
+		"name": "Hunger of Hadar",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Warlock"
+		],
+		"page": "251",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Hunger_of_Hadar"
+	},
+	{
+		"name": "Hypnotic Pattern",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "252",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Hypnotic_Pattern"
+	},
+	{
+		"name": "Leomund's Tiny Hut",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Wizard"
+		],
+		"page": "255",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Leomund%27s_Tiny_Hut"
+	},
+	{
+		"name": "Lightning Bolt",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "255",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Lightning_Bolt"
+	},
+	{
+		"name": "Locate Creature",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "256",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Locate_Creature"
+	},
+	{
+		"name": "Magic Circle",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "256",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Magic_Circle"
+	},
+	{
+		"name": "Major Image",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "258",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Major_Image"
+	},
+	{
+		"name": "Mass Healing Word",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "258",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mass_Healing_Word"
+	},
+	{
+		"name": "Meld into Stone",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid"
+		],
+		"page": "259",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Meld_into_Stone"
+	},
+	{
+		"name": "Nondetection",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Wizard"
+		],
+		"page": "263",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Nondetection"
+	},
+	{
+		"name": "Phantom Steed",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "265",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Phantom_Steed"
+	},
+	{
+		"name": "Plant Growth",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard"
+		],
+		"page": "266",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Plant_Growth"
+	},
+	{
+		"name": "Protection from Energy",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "270",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Protection_from_Energy"
+	},
+	{
+		"name": "Remove Curse",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "271",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Remove_Curse"
+	},
+	{
+		"name": "Revivify",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "272",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Revivify"
+	},
+	{
+		"name": "Sending",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard",
+			"Wizard"
+		],
+		"page": "274",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Sending"
+	},
+	{
+		"name": "Sleet Storm",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "276",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Sleet_Storm"
+	},
+	{
+		"name": "Slow",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "277",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Slow"
+	},
+	{
+		"name": "Speak with Dead",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard"
+		],
+		"page": "277",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Speak_with_Dead"
+	},
+	{
+		"name": "Speak with Plants",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard"
+		],
+		"page": "277",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Speak_with_Plants"
+	},
+	{
+		"name": "Spirit Guardians",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "278",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Spirit_Guardians"
+	},
+	{
+		"name": "Stinking Cloud",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "278",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Stinking_Cloud"
+	},
+	{
+		"name": "Stoneskin",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "278",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Stoneskin"
+	},
+	{
+		"name": "Tidal Wave",
+		"level": 3,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "22",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Tidal_Wave"
+	},
+	{
+		"name": "Tongues",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "283",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Tongues"
+	},
+	{
+		"name": "Vampiric Touch",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Warlock",
+			"Wizard"
+		],
+		"page": "285",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Vampiric_Touch"
+	},
+	{
+		"name": "Wall of Water",
+		"level": 3,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "23",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Wall_of_Water"
+	},
+	{
+		"name": "Water Breathing",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "287",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Water_Breathing"
+	},
+	{
+		"name": "Water Walk",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Sorcerer"
+		],
+		"page": "287",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Water_Walk"
+	},
+	{
+		"name": "Wind Wall",
+		"level": 3,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "288",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Wind_Wall"
+	},
+	{
+		"name": "Arcane Eye",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "214",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Arcane_Eye"
+	},
+	{
+		"name": "Banishment",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "217",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Banishment"
+	},
+	{
+		"name": "Blight",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "219",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Blight"
+	},
+	{
+		"name": "Commune with Nature",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "224",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Commune_with_Nature"
+	},
+	{
+		"name": "Compulsion",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Bard"
+		],
+		"page": "224",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Compulsion"
+	},
+	{
+		"name": "Confusion",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "224",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Confusion"
+	},
+	{
+		"name": "Conjure Minor Elementals",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Wizard"
+		],
+		"page": "226",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Conjure_Minor_Elementals"
+	},
+	{
+		"name": "Conjure Volley",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "226",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Conjure_Volley"
+	},
+	{
+		"name": "Conjure Woodland Beings",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "226",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Conjure_Woodland_Beings"
+	},
+	{
+		"name": "Control Water",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Wizard"
+		],
+		"page": "227",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Control_Water"
+	},
+	{
+		"name": "Death Ward",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "230",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Death_Ward"
+	},
+	{
+		"name": "Dimension Door",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "233",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Dimension_Door"
+	},
+	{
+		"name": "Divination",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "234",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Divination"
+	},
+	{
+		"name": "Dominate Beast",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer"
+		],
+		"page": "234",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Dominate_Beast"
+	},
+	{
+		"name": "Elemental Bane",
+		"level": 4,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "244",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Elemental_Bane"
+	},
+	{
+		"name": "Elemental Bane",
+		"level": 4,
+		"source": "EE",
+		"classes": [
+			"Warlock"
+		],
+		"page": "249",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Elemental_Bane"
+	},
+	{
+		"name": "Evard's Black Tentacles",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "238",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Evard%27s_Black_Tentacles"
+	},
+	{
+		"name": "Fabricate",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "239",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Fabricate"
+	},
+	{
+		"name": "Fire Shield",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "242",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Fire_Shield"
+	},
+	{
+		"name": "Freedom of Movement",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard"
+		],
+		"page": "244",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Freedom_of_Movement"
+	},
+	{
+		"name": "Grasping Vine",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "246",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Grasping_Vine"
+	},
+	{
+		"name": "Greater Invisibility",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "246",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Greater_Invisibility"
+	},
+	{
+		"name": "Guardian of Faith",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "246",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Guardian_of_Faith"
+	},
+	{
+		"name": "Hallucinatory Terrain",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard",
+			"Wizard"
+		],
+		"page": "249",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Hallucinatory_Terrain"
+	},
+	{
+		"name": "Ice Storm",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "252",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Ice_Storm"
+	},
+	{
+		"name": "Leomund's Secret Chest",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "254",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Leomund%27s_Secret_Chest"
+	},
+	{
+		"name": "Locate Creature",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard",
+			"Wizard"
+		],
+		"page": "256",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Locate_Creature"
+	},
+	{
+		"name": "Mordenkainen's Faithful Hound",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "261",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mordenkainen%27s_Faithful_Hound"
+	},
+	{
+		"name": "Mordenkainen's Private Sanctum",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "262",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mordenkainen%27s_Private_Sanctum"
+	},
+	{
+		"name": "Otiluke's Resilient Sphere",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "264",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Otiluke%27s_Resilient_Sphere"
+	},
+	{
+		"name": "Phantasmal Killer",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "265",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Phantasmal_Killer"
+	},
+	{
+		"name": "Polymorph",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "266",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Polymorph"
+	},
+	{
+		"name": "Stone Shape",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Wizard"
+		],
+		"page": "278",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Stone_Shape"
+	},
+	{
+		"name": "Stoneskin",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "278",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Stoneskin"
+	},
+	{
+		"name": "Swift Quiver",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "279",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Swift_Quiver"
+	},
+	{
+		"name": "Tree Stride",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Ranger"
+		],
+		"page": "283",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Tree_Stride"
+	},
+	{
+		"name": "Wall of Fire",
+		"level": 4,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "285",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Wall_of_Fire"
+	},
+	{
+		"name": "Animate Objects",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "213",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Animate_Objects"
+	},
+	{
+		"name": "Antilife Shell",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "213",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Antilife_Shell"
+	},
+	{
+		"name": "Awaken",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard"
+		],
+		"page": "216",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Awaken"
+	},
+	{
+		"name": "Bigby's Hand",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "218",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Bigby%27s_Hand"
+	},
+	{
+		"name": "Cloudkill",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "222",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Cloudkill"
+	},
+	{
+		"name": "Commune",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "223",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Commune"
+	},
+	{
+		"name": "Commune with Nature",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "224",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Commune_with_Nature"
+	},
+	{
+		"name": "Cone of Cold",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "224",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Cone_of_Cold"
+	},
+	{
+		"name": "Conjure Elemental",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Wizard"
+		],
+		"page": "225",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Conjure_Elemental"
+	},
+	{
+		"name": "Contact Other Plane",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Warlock",
+			"Wizard"
+		],
+		"page": "226",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Contact_Other_Plane"
+	},
+	{
+		"name": "Contagion",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid"
+		],
+		"page": "227",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Contagion"
+	},
+	{
+		"name": "Creation",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "229",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Creation"
+	},
+	{
+		"name": "Dispel Evil and Good",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "233",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Dispel_Evil_and_Good"
+	},
+	{
+		"name": "Dominate Person",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "235",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Dominate_Person"
+	},
+	{
+		"name": "Dream",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "236",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Dream"
+	},
+	{
+		"name": "Flame Strike",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "242",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Flame_Strike"
+	},
+	{
+		"name": "Greater Restoration",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard"
+		],
+		"page": "246",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Greater_Restoration"
+	},
+	{
+		"name": "Hallow",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "249",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Hallow"
+	},
+	{
+		"name": "Hold Monster",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "251",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Hold_Monster"
+	},
+	{
+		"name": "Insect Plague",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Sorcerer"
+		],
+		"page": "254",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Insect_Plague"
+	},
+	{
+		"name": "Legend Lore",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard",
+			"Wizard"
+		],
+		"page": "254",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Legend_Lore"
+	},
+	{
+		"name": "Maelstrom",
+		"level": 5,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "258",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Maelstrom"
+	},
+	{
+		"name": "Mass Cure Wounds",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard"
+		],
+		"page": "258",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mass_Cure_Wounds"
+	},
+	{
+		"name": "Mislead",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Wizard"
+		],
+		"page": "260",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mislead"
+	},
+	{
+		"name": "Modify Memory",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Wizard"
+		],
+		"page": "261",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Modify_Memory"
+	},
+	{
+		"name": "Passwall",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "264",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Passwall"
+	},
+	{
+		"name": "Planar Binding",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard",
+			"Wizard"
+		],
+		"page": "265",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Planar_Binding"
+	},
+	{
+		"name": "Raise Dead",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard"
+		],
+		"page": "270",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Raise_Dead"
+	},
+	{
+		"name": "Rary's Telepathic Bond",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "270",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Rary%27s_Telepathic_Bond"
+	},
+	{
+		"name": "Reincarnate",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "271",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Reincarnate"
+	},
+	{
+		"name": "Scrying",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "273",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Scrying"
+	},
+	{
+		"name": "Seeming",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "274",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Seeming"
+	},
+	{
+		"name": "Telekinesis",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "280",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Telekinesis"
+	},
+	{
+		"name": "Teleportation Circle",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "282",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Teleportation_Circle"
+	},
+	{
+		"name": "Transmute Rock",
+		"level": 5,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "283",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Transmute_Rock"
+	},
+	{
+		"name": "Wall of Force",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "285",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Wall_of_Force"
+	},
+	{
+		"name": "Wall of Stone",
+		"level": 5,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "287",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Wall_of_Stone"
+	},
+	{
+		"name": "Arcane Gate",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "214",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Arcane_Gate"
+	},
+	{
+		"name": "Blade Barrier",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "218",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Blade_Barrier"
+	},
+	{
+		"name": "Bones of the Earth",
+		"level": 6,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "226",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Bones_of_the_Earth?action=edit&amp;redlink=1"
+	},
+	{
+		"name": "Chain Lightning",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "221",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Chain_Lightning"
+	},
+	{
+		"name": "Circle of Death",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "221",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Circle_of_Death"
+	},
+	{
+		"name": "Conjure Fey",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Warlock"
+		],
+		"page": "226",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Conjure_Fey"
+	},
+	{
+		"name": "Contingency",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "227",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Contingency"
+	},
+	{
+		"name": "Create Undead",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "229",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Create_Undead"
+	},
+	{
+		"name": "Disintegrate",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "233",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Disintegrate"
+	},
+	{
+		"name": "Drawmij's Instant Summons",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "235",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Drawmij%27s_Instant_Summons"
+	},
+	{
+		"name": "Eyebite",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "238",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Eyebite"
+	},
+	{
+		"name": "Find the Path",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard"
+		],
+		"page": "240",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Find_the_Path"
+	},
+	{
+		"name": "Flesh to Stone",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Warlock",
+			"Wizard"
+		],
+		"page": "243",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Flesh_to_Stone"
+	},
+	{
+		"name": "Forbiddance",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "243",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Forbiddance"
+	},
+	{
+		"name": "Globe of Invulnerability",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "245",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Globe_of_Invulnerability"
+	},
+	{
+		"name": "Guards and Wards",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Wizard"
+		],
+		"page": "248",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Guards_and_Wards"
+	},
+	{
+		"name": "Harm",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "249",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Harm"
+	},
+	{
+		"name": "Heal",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid"
+		],
+		"page": "250",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Heal"
+	},
+	{
+		"name": "Heroes' Feast",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid"
+		],
+		"page": "250",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Heroes%27_Feast"
+	},
+	{
+		"name": "Investiture of Flame",
+		"level": 6,
+		"source": "EE",
+		"classes": [
+			"Druid"
+		],
+		"page": "263",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Investiture_of_Flame"
+	},
+	{
+		"name": "Investiture of Flame",
+		"level": 6,
+		"source": "EE",
+		"classes": [
+			"Warlock"
+		],
+		"page": "258",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Investiture_of_Flame"
+	},
+	{
+		"name": "Magic Jar",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "257",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Magic_Jar"
+	},
+	{
+		"name": "Mass Suggestion",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "258",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mass_Suggestion"
+	},
+	{
+		"name": "Move Earth",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "263",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Move_Earth"
+	},
+	{
+		"name": "Otiluke's Freezing Sphere",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "263",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Otiluke%27s_Freezing_Sphere"
+	},
+	{
+		"name": "Otto's Irresistible Dance",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Wizard"
+		],
+		"page": "264",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Otto%27s_Irresistible_Dance"
+	},
+	{
+		"name": "Planar Ally",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "265",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Planar_Ally"
+	},
+	{
+		"name": "Primordial Ward",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "250",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Primordial_Ward"
+	},
+	{
+		"name": "Programmed Illusion",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Wizard"
+		],
+		"page": "269",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Programmed_Illusion"
+	},
+	{
+		"name": "Sunbeam",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "279",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Sunbeam"
+	},
+	{
+		"name": "Transport via Plants",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "283",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Transport_via_Plants"
+	},
+	{
+		"name": "True Seeing",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "284",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/True_Seeing"
+	},
+	{
+		"name": "Wall of Ice",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "285",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Wall_of_Ice"
+	},
+	{
+		"name": "Wall of Thorns",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "287",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Wall_of_Thorns"
+	},
+	{
+		"name": "Wind Walk",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "288",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Wind_Walk"
+	},
+	{
+		"name": "Word of Recall",
+		"level": 6,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "289",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Word_of_Recall"
+	},
+	{
+		"name": "Conjure Celestial",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "225",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Conjure_Celestial"
+	},
+	{
+		"name": "Delayed Blast Fireball",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "230",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Delayed_Blast_Fireball"
+	},
+	{
+		"name": "Divine Word",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "234",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Divine_Word"
+	},
+	{
+		"name": "Etherealness",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "238",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Etherealness"
+	},
+	{
+		"name": "Finger of Death",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "241",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Finger_of_Death"
+	},
+	{
+		"name": "Fire Storm",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Sorcerer"
+		],
+		"page": "242",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Fire_Storm"
+	},
+	{
+		"name": "Forcecage",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "243",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Forcecage"
+	},
+	{
+		"name": "Mirage Arcane",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard",
+			"Wizard"
+		],
+		"page": "260",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mirage_Arcane"
+	},
+	{
+		"name": "Mordenkainen's Magnificent Mansion",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Wizard"
+		],
+		"page": "261",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mordenkainen%27s_Magnificent_Mansion"
+	},
+	{
+		"name": "Mordenkainen's Sword",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Wizard"
+		],
+		"page": "262",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mordenkainen%27s_Sword"
+	},
+	{
+		"name": "Plane Shift",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "266",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Plane_Shift"
+	},
+	{
+		"name": "Prismatic Spray",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "267",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Prismatic_Spray"
+	},
+	{
+		"name": "Project Image",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Wizard"
+		],
+		"page": "270",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Project_Image"
+	},
+	{
+		"name": "Regenerate",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Bard"
+		],
+		"page": "271",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Regenerate"
+	},
+	{
+		"name": "Resurrection",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard"
+		],
+		"page": "272",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Resurrection"
+	},
+	{
+		"name": "Reverse Gravity",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "272",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Reverse_Gravity"
+	},
+	{
+		"name": "Sequester",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "274",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Sequester"
+	},
+	{
+		"name": "Simulacrum",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "276",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Simulacrum"
+	},
+	{
+		"name": "Symbol",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Bard",
+			"Wizard"
+		],
+		"page": "280",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Symbol"
+	},
+	{
+		"name": "Teleport",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "281",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Teleport"
+	},
+	{
+		"name": "Whirlwind",
+		"level": 7,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "250",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Whirlwind"
+	},
+	{
+		"name": "Animal Shapes",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "212",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Animal_Shapes"
+	},
+	{
+		"name": "Antimagic Field",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Wizard"
+		],
+		"page": "213",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Antimagic_Field"
+	},
+	{
+		"name": "Antipathy/Sympathy",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Wizard"
+		],
+		"page": "214",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Antipathy/Sympathy"
+	},
+	{
+		"name": "Clone",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "222",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Clone"
+	},
+	{
+		"name": "Control Weather",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Wizard"
+		],
+		"page": "228",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Control_Weather"
+	},
+	{
+		"name": "Demiplane",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Warlock",
+			"Wizard"
+		],
+		"page": "231",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Demiplane"
+	},
+	{
+		"name": "Dominate Monster",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "235",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Dominate_Monster"
+	},
+	{
+		"name": "Earthquake",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid",
+			"Sorcerer"
+		],
+		"page": "236",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Earthquake"
+	},
+	{
+		"name": "Feeblemind",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "239",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Feeblemind"
+	},
+	{
+		"name": "Glibness",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Warlock"
+		],
+		"page": "245",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Glibness"
+	},
+	{
+		"name": "Holy Aura",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "251",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Holy_Aura"
+	},
+	{
+		"name": "Incendiary Cloud",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "253",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Incendiary_Cloud"
+	},
+	{
+		"name": "Maze",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "258",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Maze"
+	},
+	{
+		"name": "Mind Blank",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Wizard"
+		],
+		"page": "259",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mind_Blank"
+	},
+	{
+		"name": "Power Word Stun",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "267",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Power_Word_Stun"
+	},
+	{
+		"name": "Sunburst",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "279",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Sunburst"
+	},
+	{
+		"name": "Telepathy",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "281",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Telepathy"
+	},
+	{
+		"name": "Tsunami",
+		"level": 8,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "284",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Tsunami"
+	},
+	{
+		"name": "Astral Projection",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "215",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Astral_Projection"
+	},
+	{
+		"name": "Foresight",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Bard",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "244",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Foresight"
+	},
+	{
+		"name": "Gate",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "244",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Gate"
+	},
+	{
+		"name": "Imprisonment",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Warlock",
+			"Wizard"
+		],
+		"page": "252",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Imprisonment"
+	},
+	{
+		"name": "Mass Heal",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Cleric"
+		],
+		"page": "258",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Mass_Heal"
+	},
+	{
+		"name": "Meteor Swarm",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "259",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Meteor_Swarm"
+	},
+	{
+		"name": "Power Word Heal",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Bard"
+		],
+		"page": "266",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Power_Word_Heal"
+	},
+	{
+		"name": "Power Word Kill",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Sorcerer",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "266",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Power_Word_Kill"
+	},
+	{
+		"name": "Prismatic Wall",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "267",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Prismatic_Wall"
+	},
+	{
+		"name": "Shapechange",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Druid",
+			"Wizard"
+		],
+		"page": "274",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Shapechange"
+	},
+	{
+		"name": "Storm of Vengeance",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Druid"
+		],
+		"page": "279",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Storm_of_Vengeance"
+	},
+	{
+		"name": "Time Stop",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "283",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Time_Stop"
+	},
+	{
+		"name": "True Polymorph",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Bard",
+			"Warlock",
+			"Wizard"
+		],
+		"page": "283",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/True_Polymorph"
+	},
+	{
+		"name": "True Resurrection",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Cleric",
+			"Druid"
+		],
+		"page": "284",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/True_Resurrection"
+	},
+	{
+		"name": "Weird",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Wizard"
+		],
+		"page": "288",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Weird"
+	},
+	{
+		"name": "Wish",
+		"level": 9,
+		"source": "PHB",
+		"classes": [
+			"Sorcerer",
+			"Wizard"
+		],
+		"page": "288",
+		"url": "http://engl393-dnd5th.wikia.com/wiki/Wish"
+	}
+]
+}
