@@ -31,7 +31,7 @@ CharRace.ALL = [
 		.attr('features', "Dwarven Resilience", "You have advantage on saving throws against poison, and you have resistance against poison damage.")
 		.attr('features', "Dwarven Combat Training", "You have proficiency with the battleaxe, handaxe, throwing hammer, and warhammer.")
 		.attr('features', "Stonecunning", "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.")
-		.decide('Tool Proficiency', 1, ["Smith's tools", "Brewer's supplies", "Mason's tools"]).alias('tools')
+		.decide('Tool Proficiency', ["Smith's tools", "Brewer's supplies", "Mason's tools"]).alias('tools')
 			.parent
 		.addSubrace('Hill Dwarf', {WIS:1}, "As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.")
 			.attr('baseHP', 1)

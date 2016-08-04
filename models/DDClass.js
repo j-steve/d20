@@ -6,7 +6,11 @@ class Decision {
 	constructor(parent, name, count, options) {
 		this.name = name;
 		this.paramName = name.toLowerCase();
-		this.count = (count == null) ? 1 : count;
+		if (typeof count !== 'number') {
+			options = count;
+			count = 1;
+		}
+		this.count = count;
 	    if (options == null) {
 	    	options = [];
 	    } else if (options.length && typeof options[1] === 'string') {
