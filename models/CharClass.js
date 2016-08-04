@@ -137,9 +137,9 @@ module.exports.ALL = [
 		.attr('armor', ['light armor', 'medium armor', 'shields'])
 		.attr('weapons', ['all simple weapons', 'all martial weapons'])
 		.attr('equipment', ['scale mail armor OR leather armor', '2x shortsords OR two simple melee weapons', "dungeoneer's pack OR explorer's pack", 'longbow', 'quiver', '20x arrows'])
-		.decide('Favored Enemy', ['aberrations', 'beasts', 'celestials', 'constructs', 'dragons', 'elementals', 'fey', 'fiends', 'giants', 'monstosities', 'oozes', 'plants', 'undead', 'any two humanoid races'])
+		.decide('Favored Enemy', 1, ['aberrations', 'beasts', 'celestials', 'constructs', 'dragons', 'elementals', 'fey', 'fiends', 'giants', 'monstosities', 'oozes', 'plants', 'undead', 'any two humanoid races'])
 			.parent
-		.decide('Favored Terrain', ['arctic', 'coast', 'desert', 'forest', 'grassland', 'mountain', 'swamp', 'the Underdark'])
+		.decide('Favored Terrain', 1, ['arctic', 'coast', 'desert', 'forest', 'grassland', 'mountain', 'swamp', 'the Underdark'])
 			.parent
 		.decide('Skills', 3, ['Animal Handling', 'Athletics', 'Insight', 'Investigation', 'Nature', 'Perception', 'Stealth', 'Survival'])
 			.parent,
