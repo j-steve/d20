@@ -71,5 +71,6 @@ module.exports.ALL = [
             'If none of the background archetypes are appropriate you may create a custom background with its own set of skills.',
             'https://upload.wikimedia.org/wikipedia/commons/3/37/No_person.jpg')
         .attr('skills', [])
+        .attr('equipment', [])
         .decide('Skills', 2, ddData.skills).parent
 ];

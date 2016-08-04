@@ -16,11 +16,13 @@ block content
 		div.panel
 			.panel-body
 				ul.list-unstyled
-					each ability in abilities
+					each abilityName, abilityID in abilities
+						-var bonus = (charDataAbilities[abilityID] || 0);
 						li.ability.col-sm-2
 							label.center-block
-								span=ability.name
-								input(type="number", name=`abilities[${ability.id}]`, value=8+ability.bonus, min=8+ability.bonus, max=20).form-control.center-block.input-lg
+								span=abilityName
+								input(type="number", name="", value=8+bonus, min=8+bonus, max=20, data-bonus=bonus).form-control.center-block.input-lg
+								input(type="hidden", name=`abilities[${abilityID}]`, value=0)
 							output.center-block.ability-modifier
 			.panel-footer.clearfix
 				input(type="submit", value="Finish >").btn.btn-primary.pull-right

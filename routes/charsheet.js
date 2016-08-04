@@ -21,17 +21,10 @@ router.post('/:charID?', function(req, res, next) {
 		
 		for (let key of Object.keys(req.body)) {
 			let ddClass = DDClass.ALL[req.body[key]];
-			if (ddClass) {
-				ddClass.forEachAttr(function(values, attrName) {
-					playerChar.attr(attrName, values);
-				});
-			}
+			if (ddClass) {playerChar.mergeFrom(ddClass, true);}
 			playerChar.attr(key, req.body[key]);
 		}
 		charData = playerChar.attrs;
-		for (let singletonProp of ['abilities', 'spellcastAbility', 'baseHP']) {
-			charData[singletonProp] = (charData[singletonProp] || [])[0];	
-		}
 	}
 	const charDataJson = JSON.stringify(charData, null, '\t');
 	charFile(charID).write(charDataJson).then(function() {

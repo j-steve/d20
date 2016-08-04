@@ -8,7 +8,7 @@ class CharRace extends DDClass {
 		super(name, description, image);
 		this.subraces = [];
 		this.decideSubrace = null;
-		this.abilities = abilities;
+		this.attr('abilities', abilities);
 		this.parent = parent;
 	}
 	
@@ -34,6 +34,7 @@ CharRace.ALL = [
 		.decide('Tool Proficiency', 1, ["Smith's tools", "Brewer's supplies", "Mason's tools"]).alias('tools')
 			.parent
 		.addSubrace('Hill Dwarf', {WIS:1}, "As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.")
+			.attr('baseHP', 1)
 			.attr('features', 'Dwarven Toughness', "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.") // TODO
 			.parent
 		.addSubrace('Mountain Dwarf', {STR:2}, "As a mountain dwarf, you're strong and hardy, accustomed to a difficult life in rugged terrain. You're probably on the tall side (for a dwarf), and tend toward lighter coloration.")
@@ -66,7 +67,7 @@ CharRace.ALL = [
 			.attr('features', "Superior Darkvision", "Your darkvision has a radius of 120 feet.")
 			.attr('features', "Sunlight Sensitivity", "You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight.")
 			.attr('features', "Drow Magic", "You know the dancing lights cantrip. When you reach 3rd level, you can cast the faerie fire spell once per day. When you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells.")
-			.attr('cantrips', "Dancing Lights")
+			.attr('cantrips', ["Dancing Lights"])
 			.parent,
 	new CharRace('Halfling', {DEX:2}, "The comforts of home are the goals of most halflings' lives: a place to settle in peace and quiet, far from marauding monsters and clashing armies; a blazing fire and a generous meal, fine drink and fine conversation. The diminutive halflings survive in a world full of larger creatures by avoiding notice or, barring that, avoiding offense.", '/img/races/halfling.png')
 		.attr('speed', 25)

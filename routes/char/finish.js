@@ -5,15 +5,15 @@ const ddData = require('../../models/ddData');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    const abilities = Object.map(ddData.abilities, (name, id) => ({id, name, bonus: 0}));
-	for (let ddclassType of ['charRace', 'subrace']) {
-		let ddclass = DDClass.ALL[req.query[ddclassType]];
-		if (ddclass) {
-	        abilities.forEach(a => a.bonus += ddclass.abilities[a.id] || 0);
-		}
+    const charData = new DDClass();
+	for (let key of Object.keys(req.query)) {
+		let archtype = req.query[key];
+		let ddclass = DDClass.ALL[archtype];
+		if (ddclass) {charData.mergeFrom(ddclass);}
 	}
 	res.render('char-finish', {
-	    abilities,
+	    abilities: ddData.abilities,
+	    charDataAbilities: charData.attrs.abilities || {},
 	    query: req.query
 	});
 });

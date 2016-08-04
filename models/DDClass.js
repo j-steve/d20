@@ -49,20 +49,43 @@ class DDClass {
 	}
 	
 	attr(attrName, values, description) {
-		if (description != null) {values = {name:values, description}};
-		const existingVals = this.attrs[attrName] || [];
-		this.attrs[attrName] = existingVals.concat(values || []);
+		if (description != null) {values = [{name:values, description}];}
+		setAttr(this.attrs, attrName, values);
 		return this;
 	}
 	
-	forEachAttr(callback) {
-		Object.keys(this.attrs).forEach(key => callback.call(null, this.attrs[key], key));	
+	mergeFrom(otherDDClass) {
+		for (let key of Object.keys(otherDDClass.attrs)) {
+			this.attr(key, otherDDClass.attrs[key]);
+		}
+		return this;
 	}
 	
 	decide(name, count, options) {
 		const decision = new Decision(this, name, count, options);
 		this.decisions.push(decision);
 		return decision;
+	}
+}
+
+/**
+ * @param {Object} t	the target to change
+ * @param {String} a	the attribute name to set
+ * @param {*} newVal	the new value for the target attribute
+ */
+function setAttr(t, a, newVal) {
+	if (Array.isArray(newVal)) {
+		t[a] = (t[a] || []).concat(newVal);
+	} else if (!isNaN(newVal)) {
+		t[a] = (t[a] || 0) + +newVal;
+	} else if (newVal && typeof newVal === 'object') {
+		if (!t[a]) {t[a] = {};}
+		for (let valKey of Object.keys(newVal)) {
+			setAttr(t[a], valKey, newVal[valKey]);
+		}
+	} else {
+		if (t[a]) {throw new Error(`Can't replace "${t[a]}"" with "${newVal}"`);}
+		t[a] = newVal;
 	}
 }
 
