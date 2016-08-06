@@ -3,8 +3,10 @@
 const File = require("si-file");
  
 const ddData = parseFile('ddData');
-ddData.spells = parseFile('spells').spells;
+ddData.weapons.simple = ddData.filter(x => x.weaponClass === "simple");
+ddData.weapons.martial = ddData.filter(x => x.weaponClass === "martial");
 
+ddData.spells = parseFile('spells').spells;
 for (let spell of ddData.spells) {
     for (let charClass of spell.classes) {
         charClass = charClass.toLowerCase();
