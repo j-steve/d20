@@ -28,7 +28,7 @@ module.exports.ALL = [
 			.parent
 		.decide('Skills', 3, ddData.skills)
 			.parent
-		.decide('Musical Instrument Skills', 3, ddData.instruments).alias('tools')
+		.decide('Musical Instrument Proficiencies', 3, ddData.instruments).alias('tools')
 			.parent,
 	new DDClass('Cleric',
 			"Clerics are conduits for divine power, manifesting a god's power as miraculous effects. A cleric might learn formulaic prayers and ancient rites, but the ability to cast cleric spells relies on devotion and an intuitive sense of thier deity’s wishes.", '/img/classes/cleric.jpg')
@@ -119,7 +119,7 @@ module.exports.ALL = [
 		.attr('features', 'Martial Arts', 'At 1st level, your practice of martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons, which are shortswords and any simple melee weapons that don’t have the two-handed or heavy property. See Player\'s Handbook pp72 for details.')
 		.decide('Skills', 2, ['Acrobatics', 'Athletics', 'History', 'Insight', 'Religion', 'Stealth'])
 			.parent
-		.decide('Tool Skills', 1, ["Artisan's tools"].concat(ddData.instruments)).alias('tools')
+		.decide('Tool Proficiency', 1, ddData.artisanTools.concat(ddData.instruments)).alias('tools')
 			.parent,
 	new DDClass('Paladin',
 			'A paladin swears to uphold justice and righteousness, to stand with the good things of the world against the encroaching darkness, and to hunt the forces of evil wherever they lurk. Different paladins focus on various aspects, but all are bound by their sacrad oaths that grant them their power.', '/img/classes/paladin.jpg')

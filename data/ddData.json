@@ -69,6 +69,25 @@
     {"name": "Longbow", "weaponClass": "martial", "price": "50 gp", "weight": "2 lb.", "damage": "1d8","damageType": "piercing", "ability": ["DEX"], "range": 150, "maxRange": 600, "properties": "Heavy, two-handed"},
     {"name": "Net", "weaponClass": "martial", "price": "1 gp", "weight": "3 lb.", "damage": "0", "damageType": null, "ability": ["DEX"], "range": 5, "maxRange": 15, "properties": "Special, thrown"}
   ],
+  "artisanTools": [
+   {"name": "Alchemist's supplies", "price": "50 gp", "weight": "8 lb."},
+   {"name": "Brewer's supplies", "price": "20 gp", "weight": "9 lb."},
+   {"name": "Calligrapher's supplies", "price": "10 gp", "weight": "5 lb."},
+   {"name": "Carpenter's tools", "price": "8 gp", "weight": "6 lb."},
+   {"name": "Cartographer's tools", "price": "15 gp", "weight": "6 lb."},
+   {"name": "Cobbler's tools", "price": "5 gp", "weight": "5 lb."},
+   {"name": "Cook's utensils", "price": "1 gp", "weight": "8 lb."},
+   {"name": "Glassblower's tools", "price": "30 gp", "weight": "5 lb."},
+   {"name": "Jeweler's tools", "price": "25 gp", "weight": "2 lb."},
+   {"name": "Leatherworker's tools", "price": "5 gp", "weight": "5 lb."},
+   {"name": "Mason's tools", "price": "10 gp", "weight": "8 lb."},
+   {"name": "Painter's supplies", "price": "10 gp", "weight": "5 lb."},
+   {"name": "Potter's tools", "price": "10 gp", "weight": "3 lb."},
+   {"name": "Smith's tools", "price": "20 gp", "weight": "8 lb."},
+   {"name": "Tinker's tools", "price": "50 gp", "weight": "10 lb."},
+   {"name": "Weaver's tools", "price": "1 gp", "weight": "5 lb."},
+   {"name": "Woodcarver's tools", "price": "1 gp", "weight": "5 lb."}
+  ],
   "tools": [
    {"name": "Artisan's Tools", "description": "These special tools include the items needed to pursue a craft or trade. The table shows examples of the most common types of tools, each providing items related to a single craft. Proficiency with a set of artisan's tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan's tools requires a separate proficiency."},
    {"name": "Disguise Kit", "description": "This pouch of cosmetics, hair dye, and small props lets you create disguises that change your physical appearance. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a visual disguise."},

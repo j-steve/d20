@@ -78,7 +78,7 @@ class DDClass {
  * @param {*} newVal	the new value for the target attribute
  */
 function setAttr(t, a, newVal) {
-	if (Array.isArray(newVal)) {
+	if (Array.isArray(t[a]) || Array.isArray(newVal)) {
 		t[a] = (t[a] || []).concat(newVal);
 	} else if (!isNaN(newVal)) {
 		t[a] = (t[a] || 0) + +newVal;
