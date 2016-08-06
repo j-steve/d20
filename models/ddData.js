@@ -3,8 +3,6 @@
 const File = require("si-file");
  
 const ddData = parseFile('ddData');
-ddData.weapons.simple = ddData.weapons.filter(x => x.weaponClass === "simple");
-ddData.weapons.martial = ddData.weapons.filter(x => x.weaponClass === "martial");
 
 ddData.spells = parseFile('spells').spells;
 for (let spell of ddData.spells) {
@@ -14,6 +12,11 @@ for (let spell of ddData.spells) {
         classSpells['lvl' + spell.level] = (classSpells['lvl' + spell.level] || []).concat(spell);
     }
 }
+
+
+ddData.weapons = parseFile('weapons').weapons;
+ddData.weapons.simple = ddData.weapons.filter(x => x.weaponClass === "simple");
+ddData.weapons.martial = ddData.weapons.filter(x => x.weaponClass === "martial");
 
 function parseFile(fileName) {
     const filePath = ROOT_PATH + '/data/' + fileName + '.json';

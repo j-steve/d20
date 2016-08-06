@@ -1,0 +1,862 @@
+{"weapons": [
+	{
+		"name": "club",
+		"weaponClass": "simple",
+		"price": "1 sp",
+		"weight": "2 lb.",
+		"properties": "light",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d4",
+				"damageType": "bludgeoning",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "bludgeoning",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "dagger",
+		"weaponClass": "simple",
+		"price": "2 gp",
+		"weight": "1 lb.",
+		"properties": "light",
+		"type": "melee/thrown",
+		"attack": {
+			"melee": {
+				"damage": "1d4",
+				"damageType": "piercing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR", "DEX"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "piercing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["STR", "DEX"]
+			}
+		}
+	},
+	{
+		"name": "greatclub",
+		"weaponClass": "simple",
+		"price": "2 sp",
+		"weight": "10 lb.",
+		"properties": "two-handed",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d8",
+				"damageType": "bludgeoning",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "bludgeoning",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "handaxe",
+		"weaponClass": "simple",
+		"price": "5 gp",
+		"weight": "2 lb.",
+		"properties": "light",
+		"type": "melee/thrown",
+		"attack": {
+			"melee": {
+				"damage": "1d6",
+				"damageType": "slashing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d6",
+				"damageType": "slashing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["STR", "DEX"]
+			}
+		}
+	},
+	{
+		"name": "javelin",
+		"weaponClass": "simple",
+		"price": "5 sp",
+		"weight": "2 lb.",
+		"type": "melee/thrown",
+		"attack": {
+			"melee": {
+				"damage": "1d6",
+				"damageType": "piercing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d6",
+				"damageType": "piercing",
+				"range": 30,
+				"maxRange": 120,
+				"ability": ["STR", "DEX"]
+			}
+		}
+	},
+	{
+		"name": "light hammer",
+		"weaponClass": "simple",
+		"price": "2 gp",
+		"weight": "2 lb.",
+		"properties": "light",
+		"type": "melee/thrown",
+		"attack": {
+			"melee": {
+				"damage": "1d4",
+				"damageType": "bludgeoning",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "bludgeoning",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["STR", "DEX"]
+			}
+		}
+	},
+	{
+		"name": "mace",
+		"weaponClass": "simple",
+		"price": "5 gp",
+		"weight": "4 lb.",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d6",
+				"damageType": "bludgeoning",
+				"range": 5,
+				"maxRange": 5,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "bludgeoning",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "quarterstaff",
+		"weaponClass": "simple",
+		"price": "2 sp",
+		"weight": "4 lb.",
+		"versatile": "1d8",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d6",
+				"damageType": "bludgeoning",
+				"range": 5,
+				"maxRange": 5,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "bludgeoning",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "sickle",
+		"weaponClass": "simple",
+		"price": "1 gp",
+		"weight": "2 lb.",
+		"properties": "light",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d4",
+				"damageType": "slashing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "slashing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "spear",
+		"weaponClass": "simple",
+		"price": "1 gp",
+		"weight": "3 lb.",
+		"versatile": "1d8",
+		"type": "melee/thrown",
+		"attack": {
+			"melee": {
+				"damage": "1d6",
+				"damageType": "piercing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d6",
+				"damageType": "piercing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["STR", "DEX"]
+			}
+		}
+	},
+	{
+		"name": "unarmed strike",
+		"weaponClass": "simple",
+		"price": "",
+		"weight": "",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1",
+				"damageType": "bludgeoning",
+				"range": 5,
+				"maxRange": 5,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "bludgeoning",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "light crossbow",
+		"weaponClass": "simple",
+		"price": "25 gp",
+		"weight": "5 lb.",
+		"properties": "ammunition loading two-handed",
+		"type": "missile",
+		"attack": {
+			"melee": null,
+			"ranged": {
+				"damage": "1d8",
+				"damageType": "piercing",
+				"range": 80,
+				"maxRange": 320,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "dart",
+		"weaponClass": "simple",
+		"price": "5 cp",
+		"weight": "0.25 lb.",
+		"type": "melee/thrown",
+		"attack": {
+			"melee": {
+				"damage": "1d4",
+				"damageType": "piercing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR", "DEX"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "piercing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["STR", "DEX"]
+			}
+		}
+	},
+	{
+		"name": "shortbow",
+		"weaponClass": "simple",
+		"price": "25 gp",
+		"weight": "2 lb.",
+		"properties": "ammunition two-handed",
+		"type": "missile",
+		"attack": {
+			"melee": null,
+			"ranged": {
+				"damage": "1d6",
+				"damageType": "piercing",
+				"range": 80,
+				"maxRange": 320,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "sling",
+		"weaponClass": "simple",
+		"price": "1 sp",
+		"weight": "",
+		"properties": "ammunition",
+		"type": "missile",
+		"attack": {
+			"melee": null,
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "bludgeoning",
+				"range": 30,
+				"maxRange": 120,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "battleaxe",
+		"weaponClass": "martial",
+		"price": "10 gp",
+		"weight": "4 lb.",
+		"versatile": "1d10",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d8",
+				"damageType": "slashing",
+				"range": 5,
+				"maxRange": 5,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "slashing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "flail",
+		"weaponClass": "martial",
+		"price": "10 gp",
+		"weight": "2 lb.",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d8",
+				"damageType": "bludgeoning",
+				"range": 5,
+				"maxRange": 5,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "bludgeoning",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "glaive",
+		"weaponClass": "martial",
+		"price": "20 gp",
+		"weight": "6 lb.",
+		"properties": "heavy two-handed",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d10",
+				"damageType": "slashing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "slashing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "greataxe",
+		"weaponClass": "martial",
+		"price": "30 gp",
+		"weight": "7 lb.",
+		"properties": "heavy two-handed",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d12",
+				"damageType": "slashing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "slashing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "greatsword",
+		"weaponClass": "martial",
+		"price": "50 gp",
+		"weight": "6 lb.",
+		"properties": "heavy two-handed",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "2d6",
+				"damageType": "slashing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "slashing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "halberd",
+		"weaponClass": "martial",
+		"price": "20 gp",
+		"weight": "6 lb.",
+		"properties": "heavy two-handed",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d10",
+				"damageType": "slashing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "slashing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "lance",
+		"weaponClass": "martial",
+		"price": "10 gp",
+		"weight": "6 lb.",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d12",
+				"damageType": "piercing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "piercing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "longsword",
+		"weaponClass": "martial",
+		"price": "15 gp",
+		"weight": "3 lb.",
+		"versatile": "1d10",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d8",
+				"damageType": "slashing",
+				"range": 5,
+				"maxRange": 5,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "slashing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "maul",
+		"weaponClass": "martial",
+		"price": "10 gp",
+		"weight": "10 lb.",
+		"properties": "heavy two-handed",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "2d6",
+				"damageType": "bludgeoning",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "bludgeoning",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "morningstar",
+		"weaponClass": "martial",
+		"price": "15 gp",
+		"weight": "4 lb.",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d8",
+				"damageType": "piercing",
+				"range": 5,
+				"maxRange": 5,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "piercing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "pike",
+		"weaponClass": "martial",
+		"price": "5 gp",
+		"weight": "18 lb.",
+		"properties": "heavy two-handed",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d10",
+				"damageType": "piercing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "piercing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "rapier",
+		"weaponClass": "martial",
+		"price": "25 gp",
+		"weight": "2 lb.",
+		"finesse": true,
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d8",
+				"damageType": "piercing",
+				"range": 5,
+				"maxRange": 5,
+				"ability": ["STR", "DEX"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "piercing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "scimitar",
+		"weaponClass": "martial",
+		"price": "25 gp",
+		"weight": "3 lb.",
+		"properties": "light",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d6",
+				"damageType": "slashing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR", "DEX"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "slashing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "shortsword",
+		"weaponClass": "martial",
+		"price": "10 gp",
+		"weight": "2 lb.",
+		"properties": "light",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d6",
+				"damageType": "piercing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR", "DEX"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "piercing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "trident",
+		"weaponClass": "martial",
+		"price": "5 gp",
+		"weight": "4 lb.",
+		"versatile": "1d8",
+		"type": "melee/thrown",
+		"attack": {
+			"melee": {
+				"damage": "1d6",
+				"damageType": "piercing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d6",
+				"damageType": "piercing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["STR", "DEX"]
+			}
+		}
+	},
+	{
+		"name": "war pick",
+		"weaponClass": "martial",
+		"price": "5 gp",
+		"weight": "2 lb.",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d8",
+				"damageType": "piercing",
+				"range": 5,
+				"maxRange": 5,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "piercing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "warhammer",
+		"weaponClass": "martial",
+		"price": "15 gp",
+		"weight": "2 lb.",
+		"versatile": "1d10",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d8",
+				"damageType": "bludgeoning",
+				"range": 5,
+				"maxRange": 5,
+				"ability": ["STR"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "bludgeoning",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "whip",
+		"weaponClass": "martial",
+		"price": "2 gp",
+		"weight": "3 lb.",
+		"type": "melee",
+		"attack": {
+			"melee": {
+				"damage": "1d4",
+				"damageType": "slashing",
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["STR", "DEX"]
+			},
+			"ranged": {
+				"damage": "1d4",
+				"damageType": "slashing",
+				"range": 20,
+				"maxRange": 60,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "blowgun",
+		"weaponClass": "martial",
+		"price": "10 gp",
+		"weight": "1 lb.",
+		"properties": "ammunition loading",
+		"type": "missile",
+		"attack": {
+			"melee": null,
+			"ranged": {
+				"damage": "1",
+				"damageType": "piercing",
+				"range": 25,
+				"maxRange": 100,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "hand crossbow",
+		"weaponClass": "martial",
+		"price": "75 gp",
+		"weight": "3 lb.",
+		"properties": "ammunition light loading",
+		"type": "missile",
+		"attack": {
+			"melee": null,
+			"ranged": {
+				"damage": "1d6",
+				"damageType": "piercing",
+				"range": 30,
+				"maxRange": 120,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "heavy crossbow",
+		"weaponClass": "martial",
+		"price": "50 gp",
+		"weight": "18 lb.",
+		"properties": "ammunition heavy loading two-handed",
+		"type": "missile",
+		"attack": {
+			"melee": null,
+			"ranged": {
+				"damage": "1d10",
+				"damageType": "piercing",
+				"range": 100,
+				"maxRange": 400,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "longbow",
+		"weaponClass": "martial",
+		"price": "50 gp",
+		"weight": "2 lb.",
+		"properties": "heavy two-handed",
+		"type": "missile",
+		"attack": {
+			"melee": null,
+			"ranged": {
+				"damage": "1d8",
+				"damageType": "piercing",
+				"range": 150,
+				"maxRange": 600,
+				"ability": ["DEX"]
+			}
+		}
+	},
+	{
+		"name": "net",
+		"weaponClass": "martial",
+		"price": "1 gp",
+		"weight": "3 lb.",
+		"type": "special",
+		"attack": {
+			"melee": {
+				"damage": "0",
+				"damageType": null,
+				"range": 10,
+				"maxRange": 10,
+				"ability": ["DEX"]
+			},
+			"ranged": {
+				"damage": "0",
+				"damageType": null,
+				"range": 5,
+				"maxRange": 15,
+				"ability": ["STR", "DEX"]
+			}
+		}
+	}
+]}
