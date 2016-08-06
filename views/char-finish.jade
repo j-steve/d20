@@ -21,8 +21,13 @@ block content
 						li.ability.col-sm-2
 							label.center-block
 								span=abilityName
-								input(type="number", name="", value=8+bonus, min=8+bonus, max=20, data-bonus=bonus).form-control.center-block.input-lg
+								input(type="number", name="", value=8+bonus, min=8+bonus, max=15+bonus, data-bonus=bonus).form-control.center-block.input-lg
 								input(type="hidden", name=`abilities[${abilityID}]`, value=0)
 							output.center-block.ability-modifier
 			.panel-footer.clearfix
-				input(type="submit", value="Finish >").btn.btn-primary.pull-right
+				.pull-right.footer
+					span#pointsLeft
+						span="points remaining:"
+						output=27
+					input#reset(type="button", value="Reset").btn.btn-secondary
+					input#submit(type="submit", value="Finish >").btn.btn-primary

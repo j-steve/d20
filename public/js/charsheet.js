@@ -8,14 +8,6 @@ jQuery((function($) {
     // Character Sheet Abilities
     // ----------------------------------------------------------------------
 
-    // Colorize positive or negative modifiers.
-    $('#profBonus,[data-ability]').filter('output, input[type=text]').on('colorize', function() {
-        const val = +$(this).val();
-        $(this).toggleClass('mod-pos', val > 0);
-        $(this).toggleClass('mod-zero', val === 0);
-        $(this).toggleClass('mod-neg', val < 0);
-    });
-
     // Reset to default for applicable values.
     $('[data-default-value]').on('initDefault change', function() {
         if (!this.value) {
@@ -37,7 +29,7 @@ jQuery((function($) {
         $('[data-ability]').filter(function() {
             return $(this).data('prof-bonus');
         }).trigger('recalc', e.type);
-        $(this).trigger('colorize');
+        $(this).colorize();
     }).trigger('initProf').on('change', function() {
         if (this.value === '' || isNaN(this.value)) {
             this.value = '+' + $(this).data('lvlProfBonus');
@@ -77,7 +69,7 @@ jQuery((function($) {
         if (value >= 0 && !$(this).is('[type=number]')) {
             value = '+' + value;
         }
-        $(this).val(value).trigger('colorize');
+        $(this).val(value).colorize();
     }).trigger('initDataAbility');
 
     // ----------------------------------------------------------------------    
