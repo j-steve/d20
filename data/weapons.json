@@ -250,13 +250,6 @@
 				"range": 5,
 				"maxRange": 5,
 				"ability": ["STR"]
-			},
-			"ranged": {
-				"damage": "1d4",
-				"damageType": "bludgeoning",
-				"range": 20,
-				"maxRange": 60,
-				"ability": ["DEX"]
 			}
 		}
 	},
@@ -268,7 +261,6 @@
 		"properties": "ammunition loading two-handed",
 		"type": "missile",
 		"attack": {
-			"melee": null,
 			"ranged": {
 				"damage": "1d8",
 				"damageType": "piercing",
@@ -309,7 +301,6 @@
 		"properties": "ammunition two-handed",
 		"type": "missile",
 		"attack": {
-			"melee": null,
 			"ranged": {
 				"damage": "1d6",
 				"damageType": "piercing",
@@ -327,7 +318,6 @@
 		"properties": "ammunition",
 		"type": "missile",
 		"attack": {
-			"melee": null,
 			"ranged": {
 				"damage": "1d4",
 				"damageType": "bludgeoning",
@@ -772,7 +762,6 @@
 		"properties": "ammunition loading",
 		"type": "missile",
 		"attack": {
-			"melee": null,
 			"ranged": {
 				"damage": "1",
 				"damageType": "piercing",
@@ -790,7 +779,6 @@
 		"properties": "ammunition light loading",
 		"type": "missile",
 		"attack": {
-			"melee": null,
 			"ranged": {
 				"damage": "1d6",
 				"damageType": "piercing",
@@ -808,7 +796,6 @@
 		"properties": "ammunition heavy loading two-handed",
 		"type": "missile",
 		"attack": {
-			"melee": null,
 			"ranged": {
 				"damage": "1d10",
 				"damageType": "piercing",
@@ -826,7 +813,6 @@
 		"properties": "heavy two-handed",
 		"type": "missile",
 		"attack": {
-			"melee": null,
 			"ranged": {
 				"damage": "1d8",
 				"damageType": "piercing",
@@ -843,7 +829,6 @@
 		"weight": "3 lb.",
 		"type": "special",
 		"attack": {
-			"melee": null,
 			"ranged": {
 				"damage": "0",
 				"damageType": null,

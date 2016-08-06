@@ -25,6 +25,7 @@ router.post('/:charID?', function(req, res, next) {
 			playerChar.attr(key, req.body[key]);
 		}
 		charData = playerChar.attrs;
+		assignAttacks(charData);
 	}
 	const charDataJson = JSON.stringify(charData, null, '\t');
 	charFile(charID).write(charDataJson).then(function() {
@@ -32,6 +33,29 @@ router.post('/:charID?', function(req, res, next) {
 		else next();
 	}).catch(next);
 });
+
+function assignAttacks(charData) {
+	charData.attacks = [];
+	const equipment = (charData.equipment || []).map(x => x.toLowerCase()).concat('unarmed strike');
+	const ownedWeapons = ddData.weapons.filter(w => equipment.some(e => e.includes(w.name)));
+	for (let weapon of ownedWeapons) {
+		for (let attackType of Object.keys(weapon.attack)) {
+			let weaponAttack = weapon.attack[attackType];
+			let abilityMod = weaponAttack.ability.map(a => charData.abilities[a]);
+			abilityMod = Math.max.apply(null, abilityMod);
+			abilityMod = Math.floor((abilityMod - 10) / 2);
+			let attack = {
+				name: `${weapon.name} (${attackType})`,
+				toHitMod: abilityMod,
+				damage: weaponAttack.damage,
+				range: weaponAttack.range,
+				maxRange: weaponAttack.maxRange
+			};
+			
+			charData.attacks.push(attack);
+		}
+	}
+}
 
 router.all('/:charID?', function(req, res, next) {
 	const charDataStr = req.params.charID ? charFile(req.params.charID).readSync() : "{}";

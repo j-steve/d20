@@ -91,7 +91,14 @@ block content
 							+form-number(4, "Current HP", "currentHP", 0)(data-ability='CON', data-baseval=charData.baseHP, data-hp=true)
 							+form-number(4, "Max HP", "maxHP", 0)(data-ability='CON', data-baseval=charData.baseHP, data-hp=true)
 							+form-number(4, "Temp HP", "tempHP", 0)
-							+form-textarea(12, "Attacks", "attacks", 15)
+							h5.col-xs-12="Attacks"
+							.col-xs-12.addable-list: ul.list-unstyled
+								each attack in (charData.attacks || []).concat([''])
+									li: input(name=`attacks[]` value=attack.name).form-control
+									span
+										.attackToHit=attack.toHitMod
+										.attackDamage=attack.damage
+										.attackRange=attack.range + "/" + attack.maxRange
 							h5.col-xs-12="Equipment"
 							.col-xs-12.addable-list: ul.list-unstyled
 								each equipmentItem in (charData.equipment || []).concat([''])
