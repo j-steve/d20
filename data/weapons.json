@@ -843,13 +843,7 @@
 		"weight": "3 lb.",
 		"type": "special",
 		"attack": {
-			"melee": {
-				"damage": "0",
-				"damageType": null,
-				"range": 10,
-				"maxRange": 10,
-				"ability": ["DEX"]
-			},
+			"melee": null,
 			"ranged": {
 				"damage": "0",
 				"damageType": null,
